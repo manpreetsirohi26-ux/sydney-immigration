@@ -1,0 +1,18 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Client Appreciation Day">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#122740"/>
+      <stop offset="1" stop-color="#08131f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7dd83"/>
+      <stop offset="1" stop-color="#d4a843"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="690" cy="90" r="190" fill="#d4a843" opacity="0.06"/>
+  <circle cx="110" cy="530" r="160" fill="#d4a843" opacity="0.05"/>
+  <rect x="316" y="196" width="168" height="150" rx="14" fill="none" stroke="url(#gold)" stroke-width="8"/><path d="M316 244h168" stroke="url(#gold)" stroke-width="8"/><path d="M356 176v34M444 176v34" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/><circle cx="366" cy="290" r="9" fill="url(#gold)"/><circle cx="402" cy="290" r="9" fill="url(#gold)"/><circle cx="438" cy="290" r="9" fill="#d4a843" opacity="0.5"/>
+  <text x="400" y="468" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">Client Appreciation Day</text>
+  <text x="400" y="516" font-family="Arial, sans-serif" font-size="15" letter-spacing="3" fill="#d4a843" text-anchor="middle">SYDNEY IMMIGRATION INDIA</text>
+</svg>
