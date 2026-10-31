@@ -105,15 +105,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-padding {
-  @apply py-16 sm:py-20 lg:py-24;
+  @apply py-14 sm:py-18 lg:py-20;
 }
 
 .section-heading {
-  @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-navy mb-4;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-navy mb-4 leading-tight;
 }
 
 .section-subheading {
-  @apply text-lg sm:text-xl text-secondary-gray max-w-3xl mx-auto mb-12;
+  @apply text-base sm:text-lg text-secondary-gray max-w-3xl mx-auto mb-10;
+}
+
+.soft-card {
+  @apply bg-white border border-slate-200/80 shadow-[0_10px_30px_rgba(15,23,42,0.04)];
+}
+
+.soft-card:hover {
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
 }
 
 .btn-primary {

@@ -19,7 +19,7 @@ export default function SectionTitle({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`${isCenter ? 'text-center' : ''} mb-14 ${className}`}
+      className={`${isCenter ? 'text-center' : ''} mb-10 ${className}`}
     >
       {eyebrow && (
         <span className="inline-block text-primary-gold text-xs font-bold tracking-widest uppercase mb-3">

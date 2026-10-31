@@ -46,6 +46,7 @@ const cta = siteContent.cta ?? {};
 const contact = siteContent.contact ?? {};
 const credentials = siteContent.credentials ?? [];
 const goals = siteContent.goals ?? [];
+const featuredServices = visaServices.slice(0, 4);
 const successStories = siteContent.successStories ?? [];
 const insights = siteContent.insights ?? [];
 const team = siteContent.about?.team ?? [];
@@ -186,17 +187,17 @@ export default function Home() {
             title="Comprehensive Immigration Solutions"
             subtitle="Expert guidance for every visa category. Choose your pathway to global opportunities."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {visaServices.map((service, index) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
+          {featuredServices.map((service, index) => {
               const Icon = getVisaIcon(service.icon);
               return (
-                <ScrollReveal key={service.id} y={30} delay={(index % 4) * 0.1} className="h-full">
-                  <div className="h-full bg-white rounded-2xl p-6 border border-gray-100 shadow-soft hover:shadow-elevated hover:border-primary-gold/40 transition-all duration-300 group">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-gold/20 to-primary-gold/5 flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                      <Icon className="w-7 h-7 text-primary-gold" />
+              <ScrollReveal key={service.id} y={30} delay={(index % 4) * 0.08} className="h-full">
+                <div className="h-full bg-white rounded-2xl p-5 border border-gray-100 shadow-soft hover:shadow-elevated hover:border-primary-gold/40 transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-gold/20 to-primary-gold/5 flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
+                    <Icon className="w-6 h-6 text-primary-gold" />
                     </div>
-                    <h3 className="font-heading font-bold text-primary-navy text-lg mb-2">{service.title}</h3>
-                    <p className="text-secondary-gray text-sm leading-relaxed mb-4">{service.description}</p>
+                  <h3 className="font-heading font-bold text-primary-navy text-lg mb-2 leading-tight">{service.title}</h3>
+                  <p className="text-secondary-gray text-sm leading-relaxed mb-4 line-clamp-3">{service.description}</p>
                     <Link
                       to="/services"
                       className="inline-flex items-center gap-1 text-primary-gold font-semibold text-sm group-hover:gap-2 transition-all"
