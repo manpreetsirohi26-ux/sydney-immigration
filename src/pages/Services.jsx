@@ -1,15 +1,12 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, Phone, MessageCircle } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
-import SectionTitle from '../components/SectionTitle';
 import ScrollReveal from '../components/ScrollReveal';
 import Button from '../components/Button';
 import { siteContent } from '../data/content';
 import { getVisaIcon } from '../components/VisaIcons';
 
 const visaServices = siteContent.visaServices ?? [];
-const destinations = siteContent.destinations ?? [];
-const whyChooseUs = siteContent.whyChooseUs ?? [];
 const contact = siteContent.contact ?? {};
 
 const visaImages = [
@@ -94,60 +91,6 @@ export default function Services() {
               </ScrollReveal>
             );
           })}
-        </div>
-      </section>
-
-      {/* DESTINATIONS */}
-      <section className="py-20 sm:py-24 bg-secondary-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            eyebrow="Destinations"
-            title="Countries We Serve"
-            subtitle="Specialized expertise for the world's top immigration destinations."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {destinations.map((country, index) => (
-              <ScrollReveal key={country.id} y={30} delay={index * 0.08} className="h-full">
-                <div
-                  id={country.slug}
-                  className="h-full scroll-mt-32 bg-white rounded-2xl p-7 shadow-soft border border-gray-100 hover:shadow-elevated transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-4xl">{country.flag}</span>
-                    <h3 className="font-heading font-bold text-xl text-primary-navy">{country.name}</h3>
-                  </div>
-                  <p className="text-secondary-gray text-sm mb-4">{country.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {(country.popularVisas ?? []).map((v, i) => (
-                      <span key={i} className="badge badge-navy text-xs">
-                        {v}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
-      <section className="py-20 sm:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle eyebrow="Why Us" title="The SII Advantage" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseUs.map((item, index) => (
-              <ScrollReveal key={item.id} y={30} delay={index * 0.1} className="h-full">
-                <div className="h-full bg-white rounded-2xl p-7 shadow-soft border border-gray-100 hover:shadow-elevated text-center transition-all">
-                  <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-primary-gold/20 to-primary-gold/5 flex items-center justify-center mb-4">
-                    <CheckCircle className="w-7 h-7 text-primary-gold" />
-                  </div>
-                  <h3 className="font-heading font-bold text-primary-navy text-lg mb-2">{item.title}</h3>
-                  <p className="text-secondary-gray text-sm">{item.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </section>
 
