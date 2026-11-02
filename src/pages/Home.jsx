@@ -178,11 +178,9 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="mt-14 border-t border-primary-navy/10 pt-10">
+          <div className="mt-20 border-t border-primary-navy/10 pt-12">
             <SectionTitle
-              eyebrow="A simple process"
-              title="We guide you at every step"
-              subtitle="A clear plan from your first conversation to application submission."
+              title="Your visa process"
               className="mb-8"
             />
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -202,7 +200,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-padding mt-12 border-t-8 border-secondary-light bg-white sm:mt-16 sm:border-t-[12px]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
             title="Where would you like to go?"
