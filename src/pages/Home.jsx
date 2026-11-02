@@ -150,7 +150,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-padding bg-secondary-light">
+      <section className="section-padding mb-6 bg-secondary-light sm:mb-8">
         <div className="container-custom">
           <SectionTitle
             title="Support for every visa pathway"
@@ -205,9 +205,9 @@ export default function Home() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
-            eyebrow="Choose your direction"
             title="Where would you like to go?"
-            subtitle="Explore popular destinations and find the support that fits your plans."
+            subtitle="Compare destinations and visa options."
+            className="mb-8"
           />
           <div className="mb-8 flex flex-wrap justify-center gap-3 sm:gap-4">
             {goals.map((goal) => {
@@ -238,14 +238,14 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25 }}
-              className="grid gap-8 rounded-3xl bg-secondary-light p-6 sm:p-9 lg:grid-cols-2 lg:gap-12"
+              className="grid gap-6 rounded-3xl bg-secondary-light p-6 sm:p-8 lg:grid-cols-2 lg:gap-10"
             >
               <div>
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-gold/15 text-primary-navy">
                   <ActiveGoalIcon className="h-6 w-6" />
                 </div>
                 <h3 className="font-heading text-2xl font-semibold text-primary-navy">{activeGoalData.heading}</h3>
-                <p className="mt-3 leading-7 text-secondary-gray">{activeGoalData.blurb}</p>
+                <p className="mt-3 leading-6 text-secondary-gray">{activeGoalData.blurb}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {(activeGoalData.countries ?? []).map((country) => (
                     <span key={country} className="rounded-full bg-white px-3 py-1.5 text-sm text-primary-navy">
@@ -255,8 +255,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-col justify-between gap-6">
-                <ul className="space-y-3">
-                  {(activeGoalData.highlights ?? []).map((highlight) => (
+                <ul className="space-y-2">
+                  {(activeGoalData.highlights ?? []).slice(0, 3).map((highlight) => (
                     <li key={highlight} className="flex items-start gap-3 text-sm leading-6 text-primary-navy">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary-gold-dark" />
                       {highlight}
@@ -269,7 +269,7 @@ export default function Home() {
               </div>
             </motion.div>
           </AnimatePresence>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map((destination) => (
               <article
                 key={destination.id}
@@ -278,8 +278,8 @@ export default function Home() {
                 <span className="text-3xl" aria-hidden="true">{destination.flag}</span>
                 <div>
                   <h3 className="font-heading font-semibold text-primary-navy">{destination.name}</h3>
-                  <p className="mt-1 text-sm leading-5 text-secondary-gray">{destination.description}</p>
-                  <p className="mt-2 text-xs leading-5 text-primary-navy/75">
+                  <p className="mt-1 line-clamp-2 text-sm leading-5 text-secondary-gray">{destination.description}</p>
+                  <p className="mt-2 line-clamp-1 text-xs leading-5 text-primary-navy/75">
                     {(destination.popularVisas ?? []).join(' · ')}
                   </p>
                 </div>
