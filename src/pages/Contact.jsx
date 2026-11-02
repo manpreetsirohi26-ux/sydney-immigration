@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import PageBanner from '../components/PageBanner';
 import Button from '../components/Button';
 import { siteContent } from '../data/content';
+import { submitEnquiry } from '../lib/submitEnquiry';
 
 const contact = siteContent.contact ?? {};
 const contactPage = siteContent.contactPage ?? {};
@@ -44,11 +45,17 @@ export default function Contact() {
     if (!validateForm()) return;
     setIsSubmitting(true);
     setSubmitStatus(null);
-    await new Promise((r) => setTimeout(r, 1200));
-    setIsSubmitting(false);
-    setSubmitStatus('success');
-    toast.success(form.successMessage || 'Thank you! Your enquiry has been submitted.');
-    setFormData(EMPTY_FORM);
+    try {
+      await submitEnquiry({ formType: 'contact', ...formData });
+      setSubmitStatus('success');
+      toast.success(form.successMessage || 'Thank you! Your enquiry has been submitted.');
+      setFormData(EMPTY_FORM);
+    } catch (error) {
+      setSubmitStatus('error');
+      toast.error(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -125,6 +132,16 @@ export default function Contact() {
                 Fill out the form and our team will get back to you within 24 hours.
               </p>
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website || ''}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-primary-navy mb-1">
                     {fields.name?.label || 'Full Name'} *
@@ -245,6 +262,11 @@ export default function Contact() {
                       {form.successMessage || 'Thank you! Your enquiry has been submitted successfully.'}
                     </p>
                   </motion.div>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-red-700 text-sm" role="alert">
+                    Your enquiry was not sent. Please try again or contact us by phone/WhatsApp.
+                  </p>
                 )}
               </form>
             </motion.div>

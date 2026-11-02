@@ -16,6 +16,7 @@ import toast from 'react-hot-toast';
 import PageBanner from '../components/PageBanner';
 import Button from '../components/Button';
 import { siteContent } from '../data/content';
+import { submitEnquiry } from '../lib/submitEnquiry';
 
 const contact = siteContent.contact ?? {};
 const applyPage = siteContent.applyPage ?? {};
@@ -30,12 +31,10 @@ const EMPTY_FORM = {
   fullName: '',
   email: '',
   phone: '',
-  dateOfBirth: '',
   gender: '',
   maritalStatus: '',
   nationality: '',
   city: '',
-  passportNumber: '',
   highestQualification: '',
   englishTest: '',
   englishScore: '',
@@ -82,7 +81,6 @@ export default function Apply() {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) next.email = 'Invalid email format';
     if (!formData.phone.trim()) next.phone = 'Phone number is required';
     else if (!/^[\d\s+()-]{10,}$/.test(formData.phone)) next.phone = 'Invalid phone number';
-    if (!formData.dateOfBirth) next.dateOfBirth = 'Date of birth is required';
     if (!formData.city.trim()) next.city = 'Current city / state is required';
     if (!formData.countryOfInterest) next.countryOfInterest = 'Please select a country';
     if (!formData.visaType) next.visaType = 'Please select a visa type';
@@ -99,10 +97,16 @@ export default function Apply() {
     }
     setIsSubmitting(true);
     setSubmitStatus(null);
-    await new Promise((r) => setTimeout(r, 1200));
-    setIsSubmitting(false);
-    setSubmitStatus('success');
-    toast.success(form.successMessage || 'Application submitted successfully!');
+    try {
+      await submitEnquiry({ formType: 'application', ...formData, consent });
+      setSubmitStatus('success');
+      toast.success(form.successMessage || 'Application submitted successfully!');
+    } catch (error) {
+      setSubmitStatus('error');
+      toast.error(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Build a WhatsApp message with the entered details (available any time).
@@ -112,12 +116,10 @@ export default function Apply() {
       formData.fullName && `Name: ${formData.fullName}`,
       formData.email && `Email: ${formData.email}`,
       formData.phone && `Phone: ${formData.phone}`,
-      formData.dateOfBirth && `DOB: ${formData.dateOfBirth}`,
       formData.gender && `Gender: ${formData.gender}`,
       formData.maritalStatus && `Marital Status: ${formData.maritalStatus}`,
       formData.nationality && `Nationality: ${formData.nationality}`,
       formData.city && `City/State: ${formData.city}`,
-      formData.passportNumber && `Passport: ${formData.passportNumber}`,
       formData.highestQualification && `Qualification: ${formData.highestQualification}`,
       formData.englishTest && `English Test: ${formData.englishTest}`,
       formData.englishScore && `English Score: ${formData.englishScore}`,
@@ -228,6 +230,16 @@ export default function Apply() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-8">
+                  <input
+                    type="text"
+                    name="website"
+                    value={formData.website || ''}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="hidden"
+                  />
                   {/* Personal */}
                   <fieldset className="space-y-5">
                     <legend className="font-heading font-bold text-primary-navy text-lg mb-2 border-b border-gray-100 pb-2 w-full">
@@ -242,9 +254,6 @@ export default function Apply() {
                       </Field>
                       <Field id="phone" label={fields.phone?.label || 'Phone Number'} required error={errors.phone}>
                         <input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder={fields.phone?.placeholder || 'Enter your phone number'} className={inputClass(errors.phone)} />
-                      </Field>
-                      <Field id="dateOfBirth" label={fields.dateOfBirth?.label || 'Date of Birth'} required error={errors.dateOfBirth}>
-                        <input id="dateOfBirth" name="dateOfBirth" type="date" value={formData.dateOfBirth} onChange={handleChange} className={inputClass(errors.dateOfBirth)} />
                       </Field>
                       <Field id="gender" label={fields.gender?.label || 'Gender'}>
                         <select {...selectProps('gender')}>
@@ -271,15 +280,12 @@ export default function Apply() {
                     </div>
                   </fieldset>
 
-                  {/* Passport & Education */}
+                  {/* Education */}
                   <fieldset className="space-y-5">
                     <legend className="font-heading font-bold text-primary-navy text-lg mb-2 border-b border-gray-100 pb-2 w-full">
-                      {sections.passport || 'Passport & Education'}
+                      {sections.passport || 'Education'}
                     </legend>
                     <div className="grid sm:grid-cols-2 gap-5">
-                      <Field id="passportNumber" label={fields.passportNumber?.label || 'Passport Number'}>
-                        <input id="passportNumber" name="passportNumber" type="text" value={formData.passportNumber} onChange={handleChange} placeholder={fields.passportNumber?.placeholder || 'Enter passport number (if available)'} className={inputClass(errors.passportNumber)} />
-                      </Field>
                       <Field id="highestQualification" label={fields.highestQualification?.label || 'Highest Qualification'}>
                         <select {...selectProps('highestQualification')}>
                           <option value="">{fields.highestQualification?.placeholder || 'Select qualification'}</option>
@@ -358,6 +364,12 @@ export default function Apply() {
                     </label>
                     {errors.consent && <p className="text-red-500 text-xs mt-1">{errors.consent}</p>}
                   </div>
+
+                  {submitStatus === 'error' && (
+                    <p className="text-red-700 text-sm" role="alert">
+                      Your application enquiry was not sent. Please try again or contact us by phone/WhatsApp.
+                    </p>
+                  )}
 
                   <button
                     type="submit"
