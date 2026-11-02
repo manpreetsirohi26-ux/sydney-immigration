@@ -7,24 +7,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary-navy': '#0B1F3A',
-        'primary-navy-light': '#1A3A5C',
-        'primary-navy-dark': '#061426',
-        'primary-gold': '#D4A537',
-        'primary-gold-light': '#E8C566',
-        'primary-gold-dark': '#B38A23',
-        'secondary-light': '#F5F7FA',
-        'secondary-gray': '#64748B',
-        'secondary-dark': '#1E293B',
+        'primary-navy': '#145A55',
+        'primary-navy-light': '#287B73',
+        'primary-navy-dark': '#0E403C',
+        'primary-gold': '#E17858',
+        'primary-gold-light': '#F5AD91',
+        'primary-gold-dark': '#B95335',
+        'secondary-light': '#FBF7F2',
+        'secondary-gray': '#687A75',
+        'secondary-dark': '#2E403D',
       },
       fontFamily: {
         heading: ['Poppins', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       boxShadow: {
-        'soft': '0 8px 30px rgba(11,31,58,0.08)',
-        'elevated': '0 20px 50px rgba(11,31,58,0.12)',
-        'gold': '0 10px 40px rgba(212,165,55,0.25)',
+        'soft': '0 8px 30px rgba(20,90,85,0.08)',
+        'elevated': '0 20px 50px rgba(20,90,85,0.12)',
+        'gold': '0 10px 40px rgba(225,120,88,0.25)',
       },
       borderRadius: {
         '2xl': '1rem',

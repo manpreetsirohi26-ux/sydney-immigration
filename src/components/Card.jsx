@@ -10,7 +10,7 @@ const variantStyles = {
 const hoverMotion = {
   default: { y: -8, boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.15)' },
   elevated: { y: -8, boxShadow: '0 30px 60px -12px rgba(15, 23, 42, 0.2)' },
-  outlined: { y: -8, borderColor: '#d4a843', boxShadow: '0 20px 40px -12px rgba(212, 168, 67, 0.15)' },
+  outlined: { y: -8, borderColor: '#e17858', boxShadow: '0 20px 40px -12px rgba(225, 120, 88, 0.15)' },
   gradient: { y: -8, boxShadow: '0 25px 50px -12px rgba(212, 168, 67, 0.3)' },
 };
 

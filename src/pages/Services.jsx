@@ -153,7 +153,7 @@ export default function Services() {
 
       {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-primary-navy to-primary-navy-dark relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,165,55,0.2),_transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(225,120,88,0.2),_transparent_70%)]" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-4">Ready to Begin Your Journey?</h2>
           <p className="text-gray-300 text-base sm:text-lg mb-8">Book a free consultation with our expert consultants today.</p>

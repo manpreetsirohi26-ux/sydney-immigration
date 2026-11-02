@@ -119,7 +119,7 @@ export default function About() {
       {/* STATS */}
       {stats.length > 0 && (
         <section className="py-20 sm:py-24 bg-gradient-to-r from-primary-navy to-primary-navy-dark relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,165,55,0.15),_transparent_70%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(225,120,88,0.15),_transparent_70%)]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white">Our Achievements</h2>
@@ -257,7 +257,7 @@ export default function About() {
 function CtaSection({ cta, contact }) {
   return (
     <section className="py-20 bg-gradient-to-r from-primary-navy to-primary-navy-dark relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,165,55,0.2),_transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(225,120,88,0.2),_transparent_70%)]" />
       <div className="relative max-w-4xl mx-auto px-4 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

@@ -6,25 +6,25 @@
 /* Custom Theme Variables - EDIT COLORS HERE */
 @theme {
   /* Primary Brand Colors */
-  --color-primary-navy: #0f172a;
-  --color-primary-navy-light: #1a3a5c;
-  --color-primary-navy-dark: #061426;
-  --color-primary-gold: #d4a843;
-  --color-primary-gold-light: #f5d76e;
-  --color-primary-gold-dark: #b38a23;
+  --color-primary-navy: #145a55;
+  --color-primary-navy-light: #287b73;
+  --color-primary-navy-dark: #0e403c;
+  --color-primary-gold: #e17858;
+  --color-primary-gold-light: #f5ad91;
+  --color-primary-gold-dark: #b95335;
 
   /* Secondary Colors */
-  --color-secondary-light: #f8fafc;
-  --color-secondary-gray: #64748b;
-  --color-secondary-dark: #1e293b;
+  --color-secondary-light: #fbf7f2;
+  --color-secondary-gray: #687a75;
+  --color-secondary-dark: #2e403d;
 
   /* Dark navy for hover states */
-  --color-primary-dark: #0a1120;
+  --color-primary-dark: #0e403c;
 
   /* Custom Shadows */
-  --shadow-soft: 0 8px 30px rgba(11, 31, 58, 0.08);
-  --shadow-elevated: 0 20px 50px rgba(11, 31, 58, 0.12);
-  --shadow-gold: 0 10px 40px rgba(212, 165, 55, 0.25);
+  --shadow-soft: 0 8px 30px rgba(20, 90, 85, 0.08);
+  --shadow-elevated: 0 20px 50px rgba(20, 90, 85, 0.12);
+  --shadow-gold: 0 10px 40px rgba(225, 120, 88, 0.25);
 
   /* Font Families */
   --font-heading: "Poppins", sans-serif;

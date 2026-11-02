@@ -62,7 +62,7 @@ export const siteContent = {
   // ------------------------------------------------------------------------
   hero: {
     heading: "Your Gateway to Global Opportunities",
-    subheading: "Expert immigration guidance for Study, Work, and Permanent Residency visas. Trusted by thousands of successful applicants.",
+    subheading: "Clear guidance for study, work and permanent residency visas, with support at every step.",
     primaryButton: {
       text: "Free Consultation",
       link: "/contact",
