@@ -89,23 +89,23 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-navy/90 via-primary-navy/75 to-primary-navy/35" />
-        <div className="relative mx-auto w-full max-w-7xl px-5 pb-24 pt-36 sm:px-8 sm:pb-28">
+        <div className="relative mx-auto w-full max-w-7xl px-5 py-32 sm:px-8 sm:py-40 lg:py-44">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
-            className="max-w-2xl"
+            className="max-w-2xl space-y-6 sm:space-y-7"
           >
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-primary-gold-light">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary-gold-light">
               Sydney Immigration India · Kaithal Branch
             </p>
             <h1 className="font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
               {hero.heading || 'Your Gateway to Global Opportunities'}
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-white/85 sm:text-lg">
+            <p className="max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
               {hero.subheading}
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4">
               <Button
                 to={hero.primaryButton?.link || '/contact'}
                 variant="gold"
