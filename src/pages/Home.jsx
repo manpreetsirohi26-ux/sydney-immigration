@@ -36,6 +36,17 @@ const goalIcons = {
   family: HeartHandshake,
 };
 
+const serviceSummaries = {
+  study: 'Course selection, admissions and student visa support.',
+  work: 'Work permits, sponsorship and eligibility guidance.',
+  pr: 'Skilled migration, family sponsorship and PR support.',
+  visitor: 'Tourist, family visit and short-stay visa support.',
+  business: 'Business travel and investor visa guidance.',
+  spouse: 'Partner visa applications and relationship evidence.',
+  family: 'Family reunification and dependent visa support.',
+  citizenship: 'Citizenship eligibility, applications and test guidance.',
+};
+
 const content = siteContent;
 const stats = content.about?.stats ?? [];
 const goals = content.goals ?? [];
@@ -142,24 +153,24 @@ export default function Home() {
       <section className="section-padding bg-secondary-light">
         <div className="container-custom">
           <SectionTitle
-            eyebrow="Our services"
             title="Support for every visa pathway"
-            subtitle="From study and work to family, visitor and permanent residency applications."
           />
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {services.map((service) => {
               const Icon = getVisaIcon(service.icon);
               return (
-                <article key={service.id} className="soft-card rounded-2xl p-6">
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary-gold/15 text-primary-navy">
+                <article key={service.id} className="soft-card rounded-2xl p-5">
+                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary-gold/15 text-primary-navy">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="font-heading text-lg font-semibold text-primary-navy">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-secondary-gray">{service.description}</p>
-                  <p className="mt-3 text-xs font-medium text-primary-navy/75">{service.destination}</p>
+                  <p className="mt-2 text-sm leading-6 text-secondary-gray">
+                    {serviceSummaries[service.slug] || service.description}
+                  </p>
+                  <p className="mt-2 text-xs font-medium text-primary-navy/75">{service.destination}</p>
                   <Link
                     to={`/services#${service.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary-gold-dark hover:gap-3"
+                    className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-gold-dark hover:gap-3"
                   >
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
