@@ -3,20 +3,13 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowRight,
-  BookOpen,
   Briefcase,
   Building2,
   CheckCircle2,
-  Clock,
   GraduationCap,
   HeartHandshake,
   Home as HomeIcon,
-  MapPin,
-  MessageCircle,
-  Minus,
-  Phone,
   Plane,
-  Plus,
   Star,
 } from 'lucide-react';
 import Button from '../components/Button';
@@ -49,42 +42,16 @@ const serviceSummaries = {
 const content = siteContent;
 const stats = content.about?.stats ?? [];
 const goals = content.goals ?? [];
-const faqItems = [
-  {
-    question: 'How long does the visa process take?',
-    answer: 'Processing times vary by visa type and country, from a few weeks to several months. We share a realistic timeline during your consultation.',
-  },
-  {
-    question: 'Do you guarantee visa approval?',
-    answer: 'No consultant can guarantee approval—visa decisions rest with immigration authorities. We focus on preparing complete, accurate applications.',
-  },
-  {
-    question: 'Can I apply for multiple countries at once?',
-    answer: 'Yes. We can assess options across destinations, with each application handled independently.',
-  },
-  {
-    question: 'What documents do I need?',
-    answer: 'Requirements depend on your visa. We provide a personalised checklist after understanding your goals and profile.',
-  },
-  {
-    question: 'Are your fees refundable?',
-    answer: 'Fees and refund terms depend on the service stage. We explain them in writing before you proceed.',
-  },
-];
 
 export default function Home() {
   const [activeGoal, setActiveGoal] = useState(goals[0]?.id ?? null);
   const activeGoalData = goals.find((goal) => goal.id === activeGoal) ?? goals[0] ?? {};
   const ActiveGoalIcon = goalIcons[activeGoalData.id] ?? GraduationCap;
   const hero = content.hero ?? {};
-  const contact = content.contact ?? {};
-  const branch = content.about?.branchInfo ?? {};
   const services = content.visaServices ?? [];
   const destinations = content.destinations ?? [];
   const processSteps = content.processSteps ?? [];
   const testimonials = content.testimonials ?? [];
-  const insights = content.insights ?? [];
-  const cta = content.cta ?? {};
 
   return (
     <>
@@ -337,94 +304,8 @@ export default function Home() {
               </div>
             </div>
           )}
-          {insights.length > 0 && (
-            <div className="mt-14 border-t border-primary-navy/10 pt-10">
-              <SectionTitle
-                eyebrow="Helpful insights"
-                title="A little clarity before you begin"
-                className="mb-8"
-              />
-              <div className="grid gap-5 md:grid-cols-3">
-                {insights.map((insight) => (
-                  <article key={insight.id} className="rounded-2xl bg-secondary-light p-6">
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary-gold-dark">
-                      <BookOpen className="h-4 w-4" />
-                      {insight.tag}
-                    </div>
-                    <h3 className="mt-3 font-heading font-semibold text-primary-navy">{insight.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-secondary-gray">{insight.excerpt}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
-          <div className="mt-14 grid gap-10 border-t border-primary-navy/10 pt-10 lg:grid-cols-2">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-primary-gold-dark">Common questions</p>
-              <h3 className="mt-2 font-heading text-2xl font-semibold text-primary-navy">Before you apply</h3>
-              <div className="mt-5 space-y-3">
-                {faqItems.map(({ question, answer }) => (
-                  <FaqItem key={question} question={question} answer={answer} />
-                ))}
-                <Link to="/contact" className="inline-flex items-center gap-2 pt-2 text-sm font-semibold text-primary-navy">
-                  More questions? Contact us <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-            <div className="rounded-2xl bg-secondary-light p-6 sm:p-8">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary-gold-dark">Visit our office</p>
-              <h3 className="mt-2 font-heading text-2xl font-semibold text-primary-navy">
-                {branch.heading || 'Kaithal Branch'}
-              </h3>
-              <div className="mt-5 space-y-4 text-sm text-secondary-gray">
-                <p className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary-gold-dark" />{branch.address || contact.address}</p>
-                <a href={contact.phoneLink} className="flex items-center gap-3 hover:text-primary-navy"><Phone className="h-5 w-5 text-primary-gold-dark" />{branch.phone || contact.phone}</a>
-                <p className="flex items-center gap-3"><Clock className="h-5 w-5 text-primary-gold-dark" />{branch.hours || contact.workingHours}</p>
-              </div>
-              <Button to="/contact" variant="gold" className="mt-6" rightIcon={<ArrowRight className="h-4 w-4" />}>
-                Book a free consultation
-              </Button>
-            </div>
-          </div>
-        </div>
-        <div className="mt-14 bg-primary-navy px-5 py-12 sm:px-8 sm:py-14">
-          <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="font-heading text-2xl font-semibold text-white sm:text-3xl">
-              {cta.heading || 'Ready to Start Your Journey?'}
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-white/75 sm:text-base">
-              {cta.subheading}
-            </p>
-          </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
-            <Button to={cta.buttonLink || '/contact'} variant="gold" leftIcon={<MessageCircle className="h-4 w-4" />}>
-              {cta.buttonText || 'Book Free Consultation'}
-            </Button>
-            <Button href={contact.phoneLink} variant="secondary">
-              {cta.phone || contact.phone}
-            </Button>
-          </div>
-          </div>
         </div>
       </section>
     </>
-  );
-}
-
-function FaqItem({ question, answer }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <details
-      className="group rounded-xl border border-primary-navy/10 bg-white"
-      onToggle={(event) => setOpen(event.currentTarget.open)}
-    >
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium text-primary-navy">
-        {question}
-        {open ? <Minus className="h-4 w-4 shrink-0 text-primary-gold-dark" /> : <Plus className="h-4 w-4 shrink-0 text-primary-gold-dark" />}
-      </summary>
-      <p className="px-5 pb-5 text-sm leading-6 text-secondary-gray">{answer}</p>
-    </details>
   );
 }
