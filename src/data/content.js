@@ -61,8 +61,8 @@ export const siteContent = {
   // HERO SECTION (Home Page)
   // ------------------------------------------------------------------------
   hero: {
-    heading: "Your Gateway to Global Opportunities",
-    subheading: "Clear guidance for study, work and permanent residency visas, with support at every step.",
+    heading: "Study, Work & Settle Abroad",
+    subheading: "Visa guidance for Australia, Canada, the UK, the USA and more.",
     primaryButton: {
       text: "Free Consultation",
       link: "/contact",

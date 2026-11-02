@@ -96,9 +96,6 @@ export default function Home() {
             transition={{ duration: 0.55 }}
             className="max-w-2xl space-y-6 sm:space-y-7"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary-gold-light">
-              Sydney Immigration India · Kaithal Branch
-            </p>
             <h1 className="font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
               {hero.heading || 'Your Gateway to Global Opportunities'}
             </h1>
