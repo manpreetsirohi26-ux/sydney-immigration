@@ -4,6 +4,8 @@ const allowedOrigins = new Set([
   'http://localhost:5173',
   'http://localhost:4173',
 ]);
+const allowedVercelPreviewOrigin =
+  /^https:\/\/sydney-immigration-[a-z0-9-]+-manpreetsirohi26-ux\.vercel\.app$/;
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const contactFields = ['name', 'email', 'phone', 'countryOfInterest', 'visaType', 'message'];
@@ -28,9 +30,13 @@ function getText(value, maxLength = 1000) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 }
 
+function isAllowedOrigin(origin) {
+  return allowedOrigins.has(origin) || allowedVercelPreviewOrigin.test(origin);
+}
+
 export default async function handler(req, res) {
   const origin = req.headers.origin;
-  if (origin && allowedOrigins.has(origin)) {
+  if (origin && isAllowedOrigin(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
   }
@@ -39,7 +45,7 @@ export default async function handler(req, res) {
 
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
-  if (!origin || !allowedOrigins.has(origin)) {
+  if (!origin || !isAllowedOrigin(origin)) {
     return res.status(403).json({ error: 'This website is not allowed to submit enquiries.' });
   }
 
