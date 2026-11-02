@@ -202,7 +202,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
+      <section className="section-padding mt-12 border-t-8 border-secondary-light bg-white sm:mt-16 sm:border-t-[12px]">
         <div className="container-custom">
           <SectionTitle
             title="Where would you like to go?"
