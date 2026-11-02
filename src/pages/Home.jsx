@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowRight,
-  BadgeCheck,
   BookOpen,
   Briefcase,
   Building2,
@@ -122,12 +121,11 @@ export default function Home() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
-            eyebrow="Experience you can trust"
-            title="Guidance built around your future"
-            subtitle="Clear advice, personal support and a team that stays with you through every step."
+            title="Visa guidance, every step of the way"
+            className="mb-8"
           />
           {stats.length > 0 && (
-            <div className="grid grid-cols-2 gap-y-8 border-y border-primary-navy/10 py-8 md:grid-cols-4 md:gap-6">
+            <div className="grid grid-cols-2 gap-y-6 border-y border-primary-navy/10 py-7 md:grid-cols-4 md:gap-6">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
                   <p className="font-heading text-3xl font-bold text-primary-navy">
@@ -138,17 +136,6 @@ export default function Home() {
               ))}
             </div>
           )}
-          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 md:grid-cols-3 lg:grid-cols-6">
-            {(content.credentials ?? []).map((credential) => (
-              <div key={credential.title} className="flex items-start gap-3">
-                <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary-gold-dark" />
-                <div>
-                  <p className="text-sm font-semibold text-primary-navy">{credential.title}</p>
-                  <p className="mt-1 text-xs leading-5 text-secondary-gray">{credential.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
