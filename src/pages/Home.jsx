@@ -18,7 +18,6 @@ import {
   Plane,
   Plus,
   Star,
-  Users,
 } from 'lucide-react';
 import Button from '../components/Button';
 import Counter from '../components/Counter';
@@ -82,11 +81,8 @@ export default function Home() {
   const branch = content.about?.branchInfo ?? {};
   const services = content.visaServices ?? [];
   const destinations = content.destinations ?? [];
-  const whyChooseUs = content.whyChooseUs ?? [];
   const processSteps = content.processSteps ?? [];
-  const successStories = content.successStories ?? [];
   const testimonials = content.testimonials ?? [];
-  const team = content.about?.team ?? [];
   const insights = content.insights ?? [];
   const cta = content.cta ?? {};
 
@@ -284,75 +280,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-secondary-light">
-        <div className="container-custom">
-          <SectionTitle
-            eyebrow="Why Sydney Immigration"
-            title="Personal attention, honest advice"
-            subtitle="Our team combines practical experience with a transparent, client-first process."
-          />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {whyChooseUs.map((item) => (
-              <article key={item.id} className="rounded-2xl bg-white p-6">
-                <CheckCircle2 className="h-6 w-6 text-primary-gold-dark" />
-                <h3 className="mt-4 font-heading text-lg font-semibold text-primary-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-secondary-gray">{item.description}</p>
-              </article>
-            ))}
-          </div>
-          {successStories.length > 0 && (
-            <div className="mt-14 border-t border-primary-navy/10 pt-10">
-              <SectionTitle
-                eyebrow="Success stories"
-                title="Real people, real results"
-                subtitle="A few of the many journeys our team has supported."
-                className="mb-8"
-              />
-              <div className="grid gap-5 lg:grid-cols-3">
-                {successStories.map((story) => (
-                  <article key={story.id} className="rounded-2xl bg-white p-6">
-                    <p className="font-heading font-semibold text-primary-navy">{story.result}</p>
-                    <p className="mt-1 text-xs font-medium uppercase tracking-wide text-primary-gold-dark">
-                      {story.visa} · {story.time}
-                    </p>
-                    <p className="mt-4 text-sm leading-6 text-secondary-gray">“{story.text}”</p>
-                    <p className="mt-4 text-sm font-semibold text-primary-navy">
-                      {story.name} <span className="font-normal text-secondary-gray">· {story.from}</span>
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
-          {team.length > 0 && (
-            <div className="mt-14 border-t border-primary-navy/10 pt-10">
-              <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
-                <div>
-                <Users className="mb-2 h-5 w-5 text-primary-gold-dark" />
-                <p className="text-xs font-bold uppercase tracking-widest text-primary-gold-dark">Meet the team</p>
-                  <h3 className="mt-2 font-heading text-2xl font-semibold text-primary-navy">Experienced people, here to help</h3>
-                </div>
-                <Link to="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-navy">
-                  About us <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {team.map((member) => (
-                  <article key={member.id} className="flex items-center gap-4 rounded-2xl bg-white p-4">
-                    <img src={member.image} alt="" className="h-14 w-14 rounded-full object-cover" loading="lazy" />
-                    <div>
-                      <h4 className="text-sm font-semibold text-primary-navy">{member.name}</h4>
-                      <p className="mt-1 text-xs leading-5 text-secondary-gray">{member.role}</p>
-                      <p className="text-xs text-primary-gold-dark">{member.experience}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </section>
 
