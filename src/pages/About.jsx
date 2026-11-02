@@ -12,7 +12,6 @@ const story = about.story ?? {};
 const paragraphs = story.paragraphs ?? [];
 const values = about.values ?? [];
 const stats = about.stats ?? [];
-const team = about.team ?? [];
 const branchInfo = about.branchInfo ?? {};
 const contact = siteContent.contact ?? {};
 const cta = siteContent.cta ?? {};
@@ -136,60 +135,6 @@ export default function About() {
                       <Counter end={stat.value} suffix={stat.suffix} duration={2.2} />
                     </p>
                     <p className="text-gray-300 text-sm mt-1">{stat.label}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* TEAM */}
-      {team.length > 0 && (
-        <section className="py-20 sm:py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionTitle
-              eyebrow="Our Team"
-              title="Meet Our Experts"
-              subtitle="Licensed consultants and dedicated professionals committed to your success."
-            />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {team.map((m, i) => (
-                <ScrollReveal key={m.id ?? m.name} y={30} delay={i * 0.1}>
-                  <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-soft hover:shadow-elevated transition-all h-full">
-                    <div className="aspect-square relative bg-gradient-to-br from-primary-navy to-primary-navy-dark overflow-hidden">
-                      <img
-                        src={m.image || '/team-placeholder.svg'}
-                        alt={m.name}
-                        className="w-full h-full object-cover opacity-90"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/70 to-transparent" />
-                      {m.linkedin && (
-                        <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-                          <a
-                            href={m.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-10 h-10 rounded-full bg-primary-gold text-primary-navy flex items-center justify-center hover:scale-110 transition-transform"
-                            aria-label={`${m.name} on LinkedIn`}
-                          >
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                              <rect width="4" height="12" x="2" y="9" />
-                              <circle cx="4" cy="4" r="2" />
-                            </svg>
-                          </a>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-5 text-center">
-                      <h3 className="font-heading font-bold text-primary-navy">{m.name}</h3>
-                      <p className="text-primary-gold text-sm font-semibold mt-0.5">{m.role}</p>
-                      <p className="text-secondary-gray text-xs mt-2">
-                        {[m.experience, m.specialization].filter(Boolean).join(' · ')}
-                      </p>
-                    </div>
                   </div>
                 </ScrollReveal>
               ))}
