@@ -13,9 +13,8 @@ export const siteContent = {
   branchName: "Kaithal Branch",
   tagline: "Your Trusted Partner for Study, Work and Permanent Residency Abroad",
   logoText: "SII", // Short text for logo (max 3-4 chars)
-  // Put your own logo file in the /public folder and set its name here.
-  // A ready-made logo ships at /logo.svg — replace that file (or point to e.g. "/logo.png").
-  logoImage: "/logo.svg",
+  // Put your logo in /public and set its path here.
+  logoImage: "/favicon.png",
 
   // ------------------------------------------------------------------------
   // CONTACT INFORMATION
