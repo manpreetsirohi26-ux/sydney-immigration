@@ -11,7 +11,7 @@ export const siteContent = {
   // ------------------------------------------------------------------------
   siteName: "Sydney Immigration India",
   branchName: "Kaithal Branch",
-  tagline: "Your Trusted Partner for Study, Work and Permanent Residency Abroad",
+  tagline: "Trusted Global Visa Guidance, Made Simple",
   logoText: "SII", // Short text for logo (max 3-4 chars)
   // Put your logo in /public and set its path here.
   logoImage: "/favicon.png",
@@ -349,7 +349,7 @@ export const siteContent = {
     {
       id: "work",
       label: "Work Abroad",
-      heading: "Build your career in a global market",
+      heading: "Build Your Global Career",
       blurb: "Explore work permits and employer-sponsored visa pathways for skilled professionals.",
       countries: ["🇦🇺 Australia", "🇨🇦 Canada", "🇬🇧 UK", "🇳🇿 New Zealand", "🇪🇺 Europe"],
       highlights: ["Eligibility guidance", "Skills assessment", "Work permit support"],
@@ -431,19 +431,19 @@ export const siteContent = {
     {
       id: 1,
       tag: "Study Visa",
-      title: "How to choose the right country for your studies",
+      title: "How to Choose Your Study Destination",
       excerpt: "Compare tuition, work rights, PR pathways and living costs before you decide where to study abroad.",
     },
     {
       id: 2,
       tag: "PR & Migration",
-      title: "5 things that boost your PR points instantly",
+      title: "5 Tips to Improve PR Points",
       excerpt: "Language scores, work experience, and skill assessments can make or break your permanent residency application.",
     },
     {
       id: 3,
       tag: "Visitor Visa",
-      title: "Common mistakes that get tourist visas rejected",
+      title: "Avoid These Common Tourist Visa Mistakes",
       excerpt: "Weak financial proof, unclear purpose of visit, and missing documents are the top reasons for refusal.",
     },
   ],
@@ -773,7 +773,7 @@ export const siteContent = {
   // FOOTER CONTENT
   // ------------------------------------------------------------------------
   footer: {
-    tagline: "Your Trusted Partner for Study, Work and Permanent Residency Abroad",
+    tagline: "Trusted Global Visa Guidance, Made Simple",
     disclaimer: "Visa approval is subject to the decision of the respective immigration authorities.",
     copyright: "© 2026 Sydney Immigration India. All rights reserved.",
     quickLinks: [
