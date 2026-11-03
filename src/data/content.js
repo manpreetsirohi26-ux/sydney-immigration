@@ -289,7 +289,7 @@ export const siteContent = {
       location: "Kaithal, Haryana",
       visaType: "Study Visa - Australia",
       rating: 5,
-      text: "Sydney Immigration made my dream of studying in Australia come true. The team was professional, responsive, and guided me through every step. Highly recommended!",
+      text: "Helpful guidance throughout my Australia study visa process.",
       image: "/placeholder-client.svg", // Placeholder - replace with real photos
     },
     {
@@ -298,7 +298,7 @@ export const siteContent = {
       location: "Kaithal, Haryana",
       visaType: "PR Visa - Canada",
       rating: 5,
-      text: "Got my Canada PR through Express Entry with their help. The documentation support was exceptional and they were always available to answer my questions. Thank you team!",
+      text: "Great support with my Canada PR documents.",
       image: "/placeholder-client.jpg",
     },
     {
@@ -307,7 +307,7 @@ export const siteContent = {
       location: "Kaithal, Haryana",
       visaType: "Work Visa - UK",
       rating: 5,
-      text: "Excellent service for my UK Skilled Worker visa. They handled the complex sponsorship process smoothly and kept me updated throughout. Very professional team.",
+      text: "Professional, clear support for my UK work visa.",
       image: "/placeholder-client.jpg",
     },
     {
@@ -316,7 +316,7 @@ export const siteContent = {
       location: "Kaithal, Haryana",
       visaType: "Visitor Visa - USA",
       rating: 5,
-      text: "Quick and hassle-free US tourist visa. The team prepared all documents perfectly and the mock interview session really helped. Got my visa in first attempt!",
+      text: "Helpful preparation for my US visitor visa.",
       image: "/placeholder-client.jpg",
     },
   ],

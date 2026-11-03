@@ -323,7 +323,7 @@ export default function Home() {
               <SectionTitle
                 eyebrow="Client stories"
                 title="What our clients say"
-                subtitle="Thoughtful support can make a complex process feel simpler."
+                subtitle="Hear from our clients."
               />
               <div className="grid gap-5 md:grid-cols-2">
                 {testimonials.map((testimonial, index) => (
