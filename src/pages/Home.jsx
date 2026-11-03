@@ -107,7 +107,7 @@ export default function Home() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
-            title="Visa guidance, every step of the way"
+            title="Guidance at Every Visa Step"
             className="mb-8"
           />
           {stats.length > 0 && (
@@ -129,6 +129,32 @@ export default function Home() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="bg-white pb-12">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45 }}
+            className="flex flex-col items-start justify-between gap-5 rounded-3xl border border-primary-navy/10 bg-gradient-to-r from-secondary-light to-white p-6 shadow-soft sm:flex-row sm:items-center sm:p-8"
+          >
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary-gold-dark">About Us</p>
+              <h2 className="mt-2 font-heading text-2xl font-bold text-primary-navy">Sydney Immigration India</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-secondary-gray sm:text-base">
+                Kaithal-based guidance for study, work, visitor, and PR visa options abroad.
+              </p>
+            </div>
+            <Link
+              to="/about"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-navy-dark"
+            >
+              About our team <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 

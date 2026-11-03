@@ -455,18 +455,16 @@ export const siteContent = {
     story: {
       heading: "Our Story",
       paragraphs: [
-        "Sydney Immigration India was founded with a simple mission: to make international migration accessible, transparent, and successful for every aspiring individual and family.",
-        "Starting from our Kaithal branch, we have grown to become a trusted name in immigration consultancy, helping thousands of clients achieve their dreams of studying, working, and settling abroad.",
-        "Our team comprises licensed immigration consultants, legal experts, and documentation specialists who stay updated with the latest immigration policies across all major destination countries.",
+        "From our Kaithal branch, we guide individuals and families through study, work, visitor, and permanent residency visa options abroad.",
       ],
     },
     mission: {
       heading: "Our Mission",
-      text: "To provide ethical, transparent, and result-oriented immigration services that empower individuals and families to build better futures abroad.",
+      text: "Offer clear, ethical visa guidance for every individual and family.",
     },
     vision: {
       heading: "Our Vision",
-      text: "To be the most trusted and recommended immigration consultancy in India, known for integrity, expertise, and life-changing results.",
+      text: "Be a trusted immigration consultancy known for honest, helpful service.",
     },
     values: [
       { title: "Integrity", description: "Honest advice, transparent pricing, no false promises" },
