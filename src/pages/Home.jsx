@@ -62,32 +62,66 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-navy/90 via-primary-navy/75 to-primary-navy/35" />
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-primary-gold/20 blur-3xl"
+          animate={{ x: [0, -35, 0], y: [0, 25, 0], scale: [1, 1.12, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 right-1/3 h-48 w-48 rounded-full bg-primary-navy-light/30 blur-3xl"
+          animate={{ x: [0, 30, 0], y: [0, -24, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
         <div className="relative mx-auto w-full max-w-7xl px-5 py-32 sm:px-8 sm:py-40 lg:py-44">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.16 } },
+            }}
             className="max-w-2xl space-y-6 sm:space-y-7"
           >
-            <h1 className="font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <motion.h1
+              variants={{
+                hidden: { opacity: 0, y: 28 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' } },
+              }}
+              className="font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
+            >
               {hero.heading || 'Your Gateway to Global Opportunities'}
-            </h1>
-            <p className="max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
+            </motion.h1>
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+              }}
+              className="max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8"
+            >
               {hero.subheading}
-            </p>
+            </motion.p>
             <motion.img
               src="/sydney-immigration-logo.png"
               alt="Sydney Immigration"
-              initial={{ opacity: 0, scale: 0.9, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: [0, -7, 0] }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.9 },
+                visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+              }}
+              animate={{ y: [0, -7, 0] }}
               transition={{
-                opacity: { duration: 0.5, delay: 0.2 },
-                scale: { duration: 0.5, delay: 0.2 },
                 y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
               }}
               className="h-auto w-36 rounded-xl shadow-elevated sm:w-44"
             />
-            <div className="flex flex-wrap gap-4">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 16 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+              }}
+              className="flex flex-wrap gap-4"
+            >
               <Button
                 to={hero.primaryButton?.link || '/contact'}
                 variant="gold"
@@ -99,7 +133,7 @@ export default function Home() {
               <Button to="/services" variant="secondary" size="lg">
                 {hero.secondaryButton?.text || 'Our Services'}
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
