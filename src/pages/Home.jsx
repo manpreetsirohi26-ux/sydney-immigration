@@ -113,12 +113,19 @@ export default function Home() {
           {stats.length > 0 && (
             <div className="grid grid-cols-2 gap-y-6 border-y border-primary-navy/10 py-7 md:grid-cols-4 md:gap-6">
               {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.45, delay: 0.06 }}
+                  className="text-center"
+                >
                   <p className="font-heading text-3xl font-bold text-primary-navy">
                     <Counter end={stat.value} suffix={stat.suffix} />
                   </p>
                   <p className="mt-1 text-xs uppercase tracking-wide text-secondary-gray">{stat.label}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           )}
@@ -131,10 +138,18 @@ export default function Home() {
             title="Support for every visa pathway"
           />
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const Icon = getVisaIcon(service.icon);
               return (
-                <article key={service.id} className="soft-card rounded-2xl p-5">
+                <motion.article
+                  key={service.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.45, delay: (index % 4) * 0.07 }}
+                  whileHover={{ y: -6, scale: 1.015 }}
+                  className="soft-card rounded-2xl p-5 transition-shadow duration-300 hover:border-primary-gold/40 hover:shadow-elevated"
+                >
                   <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary-gold/15 text-primary-navy">
                     <Icon className="h-5 w-5" />
                   </div>
@@ -149,7 +164,7 @@ export default function Home() {
                   >
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
-                </article>
+                </motion.article>
               );
             })}
           </div>
@@ -159,8 +174,16 @@ export default function Home() {
               className="mb-8"
             />
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {processSteps.map((step) => (
-                <div key={step.step} className="flex gap-4">
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={step.step}
+                  initial={{ opacity: 0, x: -14 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: (index % 4) * 0.07 }}
+                  whileHover={{ x: 4 }}
+                  className="flex gap-4 rounded-2xl p-3 transition-colors hover:bg-white"
+                >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-navy text-sm font-bold text-white">
                     {step.step}
                   </span>
@@ -168,7 +191,7 @@ export default function Home() {
                     <h3 className="font-semibold text-primary-navy">{step.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-secondary-gray">{step.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -243,10 +266,15 @@ export default function Home() {
             </motion.div>
           </AnimatePresence>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {destinations.map((destination) => (
-              <article
+            {destinations.map((destination, index) => (
+              <motion.article
                 key={destination.id}
-                className="flex items-start gap-4 rounded-2xl border border-primary-navy/10 p-5"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: (index % 3) * 0.07 }}
+                whileHover={{ y: -4 }}
+                className="flex items-start gap-4 rounded-2xl border border-primary-navy/10 p-5 transition-colors hover:border-primary-gold/50 hover:bg-secondary-light/60"
               >
                 <span className="text-3xl" aria-hidden="true">{destination.flag}</span>
                 <div>
@@ -256,7 +284,7 @@ export default function Home() {
                     {(destination.popularVisas ?? []).join(' · ')}
                   </p>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -272,8 +300,16 @@ export default function Home() {
                 subtitle="Thoughtful support can make a complex process feel simpler."
               />
               <div className="grid gap-5 md:grid-cols-2">
-                {testimonials.map((testimonial) => (
-                  <article key={testimonial.id} className="rounded-2xl border border-primary-navy/10 p-6 sm:p-7">
+                {testimonials.map((testimonial, index) => (
+                  <motion.article
+                    key={testimonial.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
+                    whileHover={{ y: -4 }}
+                    className="rounded-2xl border border-primary-navy/10 p-6 transition-colors hover:border-primary-gold/40 hover:shadow-soft sm:p-7"
+                  >
                     <div className="mb-4 flex items-center gap-1 text-primary-gold-dark" aria-label={`${testimonial.rating} out of 5 stars`}>
                       {Array.from({ length: testimonial.rating }, (_, index) => (
                         <Star key={index} className="h-4 w-4 fill-current" />
@@ -287,7 +323,7 @@ export default function Home() {
                         <p className="text-xs text-secondary-gray">{testimonial.visaType} · {testimonial.location}</p>
                       </div>
                     </div>
-                  </article>
+                  </motion.article>
                 ))}
               </div>
             </>
@@ -304,12 +340,17 @@ export default function Home() {
                 </Link>
               </div>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                {galleryImages.slice(0, 3).map((image) => (
-                  <img
+                {galleryImages.slice(0, 3).map((image, index) => (
+                  <motion.img
                     key={image.id}
                     src={image.src}
                     alt={image.alt}
-                    className="h-40 w-full rounded-2xl object-cover sm:h-52"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
+                    whileHover={{ scale: 1.025 }}
+                    className="h-40 w-full rounded-2xl object-cover shadow-soft sm:h-52"
                     loading="lazy"
                   />
                 ))}
