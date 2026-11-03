@@ -75,6 +75,18 @@ export default function Home() {
             <p className="max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
               {hero.subheading}
             </p>
+            <motion.img
+              src="/sydney-immigration-logo.png"
+              alt="Sydney Immigration"
+              initial={{ opacity: 0, scale: 0.9, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: [0, -7, 0] }}
+              transition={{
+                opacity: { duration: 0.5, delay: 0.2 },
+                scale: { duration: 0.5, delay: 0.2 },
+                y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+              }}
+              className="h-auto w-36 rounded-xl shadow-elevated sm:w-44"
+            />
             <div className="flex flex-wrap gap-4">
               <Button
                 to={hero.primaryButton?.link || '/contact'}
