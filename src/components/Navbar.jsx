@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, Clock, Menu, X, MessageCircle } from 'lucide-react';
+import { Phone, Mail, Clock, Menu, X } from 'lucide-react';
 import { siteContent } from '../data/content';
 import Logo from './Logo';
 
@@ -78,13 +78,6 @@ export default function Navbar() {
                 ></span>
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="ml-4 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-primary-gold to-primary-gold-light text-primary-navy font-bold text-sm shadow-gold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Free Consultation
-            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -134,14 +127,6 @@ export default function Navbar() {
                     {item.label}
                   </Link>
                 ))}
-                <Link
-                  to="/contact"
-                  onClick={closeMenu}
-                  className="mt-4 inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full bg-gradient-to-r from-primary-gold to-primary-gold-light text-primary-navy font-bold text-sm shadow-gold"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Free Consultation
-                </Link>
               </nav>
               <div className="p-5 text-xs text-secondary-gray border-t">
                 {contact.phone} · {contact.workingHours}
