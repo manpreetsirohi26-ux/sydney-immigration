@@ -2,6 +2,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 import WhatsApp from './WhatsApp';
+import ChatWidget from './ChatWidget';
 
 /**
  * Global page shell. Renders whatever is passed as `children`
@@ -15,6 +16,7 @@ export default function Layout({ children }) {
       <main className="flex-1">{children}</main>
       <Footer />
       <WhatsApp />
+      <ChatWidget />
     </div>
   );
 }
