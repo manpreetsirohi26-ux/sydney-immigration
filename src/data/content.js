@@ -53,7 +53,6 @@ export const siteContent = {
     { label: "Our Services", path: "/services" },
     { label: "Gallery", path: "/gallery" },
     { label: "Apply Now", path: "/apply" },
-    { label: "Contact", path: "/contact" },
   ],
 
   // ------------------------------------------------------------------------
