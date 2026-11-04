@@ -94,6 +94,8 @@ const buildStructuredData = ({ currentUrl, title, description, pathname }) => {
           addressCountry: 'IN',
           postalCode: '136027',
         },
+        description:
+          'Sydney Immigration India provides visa guidance for study, work, visitor, permanent residency and business pathways from its Kaithal branch.',
         openingHours: 'Mo-Sa 09:00-18:00',
         areaServed: 'Kaithal, Haryana, India',
         sameAs: Object.values(siteContent.social ?? {}),
