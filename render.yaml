@@ -1,10 +1,16 @@
 services:
   - type: web
-    name: sydney-immigration
-    runtime: static
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    name: sydney-immigration-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: node api/server.js
+    healthCheckPath: /ping
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: BREVO_SENDER_EMAIL
+        sync: false
+      - key: ENQUIRY_TO_EMAIL
+        sync: false

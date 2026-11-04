@@ -1,8 +1,6 @@
-const endpoint =
-  import.meta.env.VITE_ENQUIRY_API_URL ||
-  (window.location.hostname === 'sydney-immigration.vercel.app'
-    ? '/api/enquiry'
-    : 'https://sydney-immigration.vercel.app/api/enquiry');
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || 'https://sydney-immigration-api.onrender.com')
+  .replace(/\/+$/, '');
+const endpoint = `${apiBaseUrl}/api/enquiry`;
 
 export async function submitEnquiry(payload) {
   const response = await fetch(endpoint, {

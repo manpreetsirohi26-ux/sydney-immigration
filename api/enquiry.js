@@ -1,6 +1,8 @@
 const allowedOrigins = new Set([
   'https://sydney-immigration.vercel.app',
-  'https://sydney-immigration.onrender.com',
+  'https://sydney-immigration-api.onrender.com',
+  'https://sydneyimmigrationindia.com',
+  'https://www.sydneyimmigrationindia.com',
   'http://localhost:5173',
   'http://localhost:4173',
 ]);

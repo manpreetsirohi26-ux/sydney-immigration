@@ -13,6 +13,9 @@ import {
 } from 'lucide-react';
 import { siteContent } from '../data/content';
 
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || 'https://sydney-immigration-api.onrender.com')
+  .replace(/\/+$/, '');
+
 const welcomeMessage = {
   role: 'assistant',
   content: 'Hi! Welcome to Sydney Immigration India, Kaithal. How can I help you explore your options?',
@@ -73,7 +76,7 @@ export default function ChatWidget() {
 
     setIsTyping(true);
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch(`${apiBaseUrl}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
