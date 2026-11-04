@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Visa Consultant in Kaithal | Sydney Immigration"
+        title="Visa Consultant in Kaithal | Sydney Immigration India"
         description="Trusted visa consultancy in Kaithal for study, work, PR, visitor and business immigration to Australia, Canada, UK, USA, New Zealand and Europe."
         keywords="immigration consultant Kaithal, visa consultant Kaithal, visa consultancy Haryana, study visa consultant, PR consultant Haryana"
       />
