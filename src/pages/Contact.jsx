@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock, Send, CheckCircle, MessageSquare } from 'lu
 import toast from 'react-hot-toast';
 import PageBanner from '../components/PageBanner';
 import Button from '../components/Button';
+import Seo from '../components/Seo';
 import { siteContent } from '../data/content';
 import { submitEnquiry } from '../lib/submitEnquiry';
 
@@ -69,7 +70,7 @@ export default function Contact() {
       icon: MapPin,
       label: info.address?.label || 'Visit Our Office',
       value: info.address?.value || contact.address,
-      link: `https://maps.google.com/?q=${encodeURIComponent(info.address?.value || contact.address || '')}`,
+      link: contact.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(info.address?.value || contact.address || '')}`,
       external: true,
     },
     {
@@ -107,8 +108,13 @@ export default function Contact() {
 
   return (
     <>
+      <Seo
+        title="Contact Visa Consultant in Kaithal | Sydney Immigration"
+        description="Contact Sydney Immigration India in Kaithal to discuss study, work, PR or visitor visa options. Call, email or request a consultation today."
+        keywords="contact visa consultant Kaithal, immigration consultant contact Haryana, visa consultation Kaithal, Sydney Immigration contact"
+      />
       <PageBanner
-        title={contactPage.heading || 'Get in Touch'}
+        title={contactPage.heading || 'Contact Visa Consultants in Kaithal'}
         subtitle={contactPage.subheading}
         breadcrumb="Contact"
         image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80"

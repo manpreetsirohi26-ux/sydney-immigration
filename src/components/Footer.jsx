@@ -115,7 +115,7 @@ export default function Footer() {
             <ul className="space-y-3.5 text-sm">
               <li>
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(contact.address)}`}
+                  href={contact.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(contact.address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-primary-gold transition-colors flex items-start gap-2.5"

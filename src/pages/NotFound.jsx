@@ -2,13 +2,20 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Home, Phone, MessageSquare } from 'lucide-react';
 import Button from '../components/Button';
+import Seo from '../components/Seo';
 import { siteContent } from '../data/content';
 
 const contact = siteContent.contact ?? {};
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center bg-white px-4 pt-28 pb-16">
+    <>
+      <Seo
+        title="Page Not Found | Sydney Immigration India"
+        description="The page you are looking for could not be found. Visit Sydney Immigration India for trusted visa services in Kaithal."
+        robots="noindex, nofollow"
+      />
+      <div className="min-h-[80vh] flex items-center justify-center bg-white px-4 pt-28 pb-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -51,6 +58,7 @@ export default function NotFound() {
           <Link to="/contact" className="hover:text-primary-gold">Contact</Link>
         </p>
       </motion.div>
-    </div>
+      </div>
+    </>
   );
 }

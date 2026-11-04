@@ -5,6 +5,11 @@
 // No coding knowledge required - just edit the text between quotes
 // ============================================
 
+const officeAddress =
+  "3rd Floor, Sydney Immigration, Cantabil Women, Opposite Bansal Hospital, Model Town, Kaithal, Haryana 136027";
+const officeMapUrl = "https://maps.app.goo.gl/twKhmBFRJXxHQf7U8";
+const officeMapEmbedUrl = `https://www.google.com/maps?output=embed&q=${encodeURIComponent(officeAddress)}`;
+
 export const siteContent = {
   // ------------------------------------------------------------------------
   // GENERAL SITE SETTINGS
@@ -20,7 +25,8 @@ export const siteContent = {
   // CONTACT INFORMATION
   // ------------------------------------------------------------------------
   contact: {
-    address: "3rd Floor, Above Cantabil Women, Opposite Bansal Hospital, Ambala Road, Model Town, Kaithal, Haryana 136027",
+    address: officeAddress,
+    mapUrl: officeMapUrl,
     phone: "+91 72069 99548",
     phoneLink: "tel:+917206999548", // For click-to-call links
     emails: [
@@ -30,7 +36,7 @@ export const siteContent = {
     workingHours: "Monday to Saturday, 9:00 AM to 6:00 PM",
     whatsappNumber: "917206999548", // For WhatsApp link (no + or spaces)
     whatsappMessage: "Hi, I would like to know more about your visa services.",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3432.123456789!2d76.4!3d29.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDQ4JzAwLjAiTiA3NsKwMjQnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890", // Replace with actual Google Maps embed URL
+    mapEmbedUrl: officeMapEmbedUrl,
   },
 
   // ------------------------------------------------------------------------
@@ -59,7 +65,7 @@ export const siteContent = {
   // HERO SECTION (Home Page)
   // ------------------------------------------------------------------------
   hero: {
-    heading: "Study, Work & Settle Abroad",
+    heading: "Study, Work & Settle Abroad with Visa Guidance in Kaithal",
     subheading: "Visa guidance for Australia, Canada, the UK, the USA and more.",
     primaryButton: {
       text: "Free Consultation",
@@ -298,7 +304,7 @@ export const siteContent = {
       visaType: "PR Visa - Canada",
       rating: 5,
       text: "Great support with my Canada PR documents.",
-      image: "/placeholder-client.jpg",
+      image: "/placeholder-client.svg",
     },
     {
       id: 3,
@@ -307,7 +313,7 @@ export const siteContent = {
       visaType: "Work Visa - UK",
       rating: 5,
       text: "Professional, clear support for my UK work visa.",
-      image: "/placeholder-client.jpg",
+      image: "/placeholder-client.svg",
     },
     {
       id: 4,
@@ -316,7 +322,7 @@ export const siteContent = {
       visaType: "Visitor Visa - USA",
       rating: 5,
       text: "Helpful preparation for my US visitor visa.",
-      image: "/placeholder-client.jpg",
+      image: "/placeholder-client.svg",
     },
   ],
 
@@ -517,11 +523,11 @@ export const siteContent = {
     ],
     branchInfo: {
       heading: "Kaithal Branch",
-      address: "3rd Floor, Above Cantabil Women, Opposite Bansal Hospital, Ambala Road, Model Town, Kaithal, Haryana 136027",
+      address: officeAddress,
       phone: "+91 72069 99548",
       email: "sydneyimmigration.kaithal@gmail.com",
       hours: "Monday to Saturday: 9:00 AM - 6:00 PM",
-      mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3432.123456789!2d76.4!3d29.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDQ4JzAwLjAiTiA3NsKwMjQnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890",
+      mapEmbedUrl: officeMapEmbedUrl,
     },
   },
 
@@ -615,7 +621,7 @@ export const siteContent = {
   // CONTACT PAGE CONTENT
   // ------------------------------------------------------------------------
   contactPage: {
-    heading: "Get in Touch",
+    heading: "Contact Visa Consultants in Kaithal",
     subheading: "Ready to start your immigration journey? Contact us for a free consultation.",
     form: {
       title: "Send Us a Message",
@@ -655,7 +661,7 @@ export const siteContent = {
       heading: "Contact Information",
       address: {
         label: "Visit Our Office",
-        value: "3rd Floor, Above Cantabil Women, Opposite Bansal Hospital, Ambala Road, Model Town, Kaithal, Haryana 136027",
+        value: officeAddress,
       },
       phone: {
         label: "Call Us",
@@ -680,7 +686,7 @@ export const siteContent = {
   // APPLY PAGE CONTENT
   // ------------------------------------------------------------------------
   applyPage: {
-    heading: "Apply Online",
+    heading: "Apply for Visa Guidance in Kaithal",
     subheading: "Fill in the form below and our immigration experts will contact you to begin your application.",
     steps: [
       { title: "Submit Form", text: "Fill your basic details and preferred destination." },

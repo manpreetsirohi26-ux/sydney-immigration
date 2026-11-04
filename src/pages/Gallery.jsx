@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
+import Seo from '../components/Seo';
 import { galleryImages as images, galleryCategories as categories } from '../data/gallery';
 
 export default function Gallery() {
@@ -58,8 +59,13 @@ export default function Gallery() {
 
   return (
     <>
+      <Seo
+        title="Visa Consultation Gallery | Sydney Immigration Kaithal"
+        description="See the Sydney Immigration India office in Kaithal and photos from our visa consultation, study abroad and immigration service activities with our team."
+        keywords="Sydney Immigration Kaithal gallery, visa consultation photos, immigration office Kaithal, study abroad gallery"
+      />
       <PageBanner
-        title="Our Gallery"
+        title="Visa Consultation Gallery"
         subtitle="Glimpses of our office, success stories and community events."
         breadcrumb="Gallery"
         image="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1920&q=80"
@@ -111,7 +117,10 @@ export default function Gallery() {
                     src={image.src}
                     alt={image.alt}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    width="900"
+                    height="600"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -166,7 +175,14 @@ export default function Gallery() {
               className="max-w-4xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={currentImage.src} alt={currentImage.alt} className="w-full max-h-[80vh] object-contain rounded-2xl" />
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                className="w-full max-h-[80vh] object-contain rounded-2xl"
+                width="1200"
+                height="900"
+                decoding="async"
+              />
               <div className="mt-4 text-center text-white">
                 <p className="font-heading font-bold">{currentImage.caption}</p>
                 <p className="text-sm text-gray-300">{currentImage.category}</p>

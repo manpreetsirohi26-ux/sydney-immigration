@@ -25,6 +25,8 @@ export default function Logo({ size = 'md', variant = 'navy', className = '', al
       <img
         src={logoImage}
         alt={alt ?? `${siteName} logo`}
+        width={size === 'lg' ? 48 : size === 'sm' ? 36 : 40}
+        height={size === 'lg' ? 48 : size === 'sm' ? 36 : 40}
         onError={() => setFailed(true)}
         className={`${s.box} object-contain ${className}`}
         decoding="async"

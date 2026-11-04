@@ -11,9 +11,13 @@ export default function PageBanner({ title, subtitle, image, breadcrumb }) {
       {image && (
         <img
           src={image}
-          alt={title}
+          alt=""
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
+          width="1920"
+          height="600"
           loading="eager"
+          decoding="async"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-primary-navy via-primary-navy/70 to-primary-navy/40" />
@@ -23,12 +27,17 @@ export default function PageBanner({ title, subtitle, image, breadcrumb }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="text-white/70 text-sm mb-3"
+          aria-label="Breadcrumb"
         >
-          <Link to="/" className="hover:text-primary-gold transition-colors">
-            Home
-          </Link>
-          <span className="mx-1">/</span>
-          <span className="text-white/90">{breadcrumb || title}</span>
+          <ol className="flex items-center">
+            <li>
+              <Link to="/" className="hover:text-primary-gold transition-colors">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true" className="mx-1">/</li>
+            <li aria-current="page" className="text-white/90">{breadcrumb || title}</li>
+          </ol>
         </motion.nav>
         <motion.h1
           initial={{ opacity: 0, y: 16 }}

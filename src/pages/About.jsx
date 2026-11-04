@@ -5,6 +5,7 @@ import SectionTitle from '../components/SectionTitle';
 import ScrollReveal from '../components/ScrollReveal';
 import Counter from '../components/Counter';
 import Button from '../components/Button';
+import Seo from '../components/Seo';
 import { siteContent } from '../data/content';
 
 const about = siteContent.about ?? {};
@@ -17,7 +18,7 @@ const contact = siteContent.contact ?? {};
 const cta = siteContent.cta ?? {};
 
 const branchDetails = [
-  { icon: MapPin, label: 'Address', value: branchInfo.address, link: null },
+  { icon: MapPin, label: 'Address', value: branchInfo.address, link: contact.mapUrl },
   { icon: Phone, label: 'Phone', value: branchInfo.phone, link: contact.phoneLink },
   { icon: Mail, label: 'Email', value: branchInfo.email, link: branchInfo.email ? `mailto:${branchInfo.email}` : null },
   { icon: Clock, label: 'Working Hours', value: branchInfo.hours, link: null },
@@ -26,8 +27,13 @@ const branchDetails = [
 export default function About() {
   return (
     <>
+      <Seo
+        title="About Sydney Immigration India | Kaithal Visa Guidance"
+        description="Meet Sydney Immigration India in Kaithal. Learn about our team, approach and visa guidance for students, workers and families planning to travel abroad."
+        keywords="Sydney Immigration India Kaithal, Kaithal immigration consultancy, visa guidance Haryana, immigration consultant background"
+      />
       <PageBanner
-        title="About Us"
+        title="About Sydney Immigration India in Kaithal"
         subtitle={siteContent.tagline}
         breadcrumb="About Us"
         image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
@@ -41,8 +47,12 @@ export default function About() {
               <div className="relative">
                 <img
                   src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80"
-                  alt="Team discussion"
+                  alt="Immigration consultants discussing visa options"
                   className="rounded-3xl shadow-elevated w-full h-[420px] object-cover"
+                  width="900"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-3xl border-4 border-primary-gold" />
                 <div className="absolute -top-6 -left-6 w-24 h-24 rounded-3xl bg-primary-gold/20" />

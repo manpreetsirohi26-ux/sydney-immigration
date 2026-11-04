@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle, Phone, MessageCircle } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
 import ScrollReveal from '../components/ScrollReveal';
 import Button from '../components/Button';
+import Seo from '../components/Seo';
 import { siteContent } from '../data/content';
 import { getVisaIcon } from '../components/VisaIcons';
 
@@ -23,8 +24,13 @@ const visaImages = [
 export default function Services() {
   return (
     <>
+      <Seo
+        title="Visa Services in Kaithal | Sydney Immigration India"
+        description="Explore study, work, PR, visitor, business and family visa services in Kaithal, with guidance for applications to popular destinations worldwide."
+        keywords="visa services Kaithal, study visa consultant, work visa services, PR visa guidance, visitor visa consultant Haryana"
+      />
       <PageBanner
-        title="Our Services"
+        title="Study, Work & PR Visa Services in Kaithal"
         subtitle="Comprehensive immigration support for every pathway — expertly guided, transparently priced."
         breadcrumb="Our Services"
         image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80"
@@ -71,7 +77,10 @@ export default function Services() {
                       src={visaImages[index % visaImages.length]}
                       alt={service.title}
                       className="w-full h-[400px] object-cover"
+                      width="900"
+                      height="600"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/70 via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6 right-6">

@@ -15,6 +15,7 @@ import {
 import toast from 'react-hot-toast';
 import PageBanner from '../components/PageBanner';
 import Button from '../components/Button';
+import Seo from '../components/Seo';
 import { siteContent } from '../data/content';
 import { submitEnquiry } from '../lib/submitEnquiry';
 
@@ -148,8 +149,13 @@ export default function Apply() {
 
   return (
     <>
+      <Seo
+        title="Apply for Visa Services in Kaithal | Sydney Immigration"
+        description="Start your visa enquiry online with Sydney Immigration India in Kaithal. Share your study, work, PR or visitor visa goals for an initial review."
+        keywords="visa application Kaithal, apply for visa guidance, immigration enquiry Kaithal, student visa application help"
+      />
       <PageBanner
-        title={applyPage.heading || 'Apply Online'}
+        title={applyPage.heading || 'Apply for Visa Guidance in Kaithal'}
         subtitle={applyPage.subheading}
         breadcrumb="Apply Now"
         image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80"

@@ -16,6 +16,7 @@ import Button from '../components/Button';
 import Counter from '../components/Counter';
 import { getVisaIcon } from '../components/VisaIcons';
 import SectionTitle from '../components/SectionTitle';
+import Seo from '../components/Seo';
 import { siteContent } from '../data/content';
 import { galleryImages } from '../data/gallery';
 
@@ -55,11 +56,20 @@ export default function Home() {
 
   return (
     <>
+      <Seo
+        title="Visa Consultant in Kaithal | Sydney Immigration"
+        description="Trusted visa consultancy in Kaithal for study, work, PR, visitor and business immigration to Australia, Canada, UK, USA, New Zealand and Europe."
+        keywords="immigration consultant Kaithal, visa consultant Kaithal, visa consultancy Haryana, study visa consultant, PR consultant Haryana"
+      />
       <section className="relative flex min-h-[78vh] items-center overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1529070538774-18298c8fb782?auto=format&fit=crop&w=1920&q=80"
           alt="Airplane flying above the clouds"
           className="absolute inset-0 h-full w-full object-cover"
+          width="1920"
+          height="1080"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-navy/90 via-primary-navy/75 to-primary-navy/35" />
         <motion.div
@@ -113,6 +123,9 @@ export default function Home() {
               transition={{
                 y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
               }}
+              width="176"
+              height="176"
+              decoding="async"
               className="h-auto w-36 rounded-xl shadow-elevated sm:w-44"
             />
             <motion.div
@@ -377,7 +390,15 @@ export default function Home() {
                     </div>
                     <p className="text-sm leading-7 text-secondary-gray">“{testimonial.text}”</p>
                     <div className="mt-5 flex items-center gap-3">
-                      <img src={testimonial.image} alt="" className="h-11 w-11 rounded-full object-cover" loading="lazy" />
+                      <img
+                        src={testimonial.image}
+                        alt=""
+                        className="h-11 w-11 rounded-full object-cover"
+                        width="44"
+                        height="44"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div>
                         <p className="text-sm font-semibold text-primary-navy">{testimonial.name}</p>
                         <p className="text-xs text-secondary-gray">{testimonial.visaType} · {testimonial.location}</p>
@@ -411,7 +432,10 @@ export default function Home() {
                     transition={{ duration: 0.45, delay: index * 0.08 }}
                     whileHover={{ scale: 1.025 }}
                     className="h-40 w-full rounded-2xl object-cover shadow-soft sm:h-52"
+                    width="640"
+                    height="420"
                     loading="lazy"
+                    decoding="async"
                   />
                 ))}
               </div>
