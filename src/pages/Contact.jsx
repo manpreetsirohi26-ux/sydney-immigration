@@ -110,7 +110,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact Visa Consultant in Kaithal | Sydney Immigration"
-        description="Contact Sydney Immigration India in Kaithal to discuss study, work, PR or visitor visa options. Call, email or request a consultation today."
+        description="Contact Sydney Immigration India in Kaithal to discuss study, work, PR or visitor visa options. Call, email or request a consultation with our team today."
         keywords="contact visa consultant Kaithal, immigration consultant contact Haryana, visa consultation Kaithal, Sydney Immigration contact"
       />
       <PageBanner

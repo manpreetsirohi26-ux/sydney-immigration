@@ -65,7 +65,7 @@ export const siteContent = {
   // HERO SECTION (Home Page)
   // ------------------------------------------------------------------------
   hero: {
-    heading: "Study, Work & Settle Abroad with Visa Guidance in Kaithal",
+    heading: "Visa Consultant in Kaithal for Study, Work & Settlement Abroad",
     subheading: "Visa guidance for Australia, Canada, the UK, the USA and more.",
     primaryButton: {
       text: "Free Consultation",

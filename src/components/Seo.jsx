@@ -55,6 +55,24 @@ const buildStructuredData = ({ currentUrl, title, description, pathname }) => {
       };
     }),
   ];
+  const serviceList =
+    pathname === '/services'
+      ? {
+          '@type': 'ItemList',
+          itemListElement: (siteContent.visaServices ?? []).map((service, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'Service',
+              name: service.title,
+              description: service.description,
+              serviceType: service.title,
+              areaServed: service.destination,
+              provider: { '@id': businessId },
+            },
+          })),
+        }
+      : undefined;
 
   return {
     '@context': 'https://schema.org',
@@ -98,6 +116,7 @@ const buildStructuredData = ({ currentUrl, title, description, pathname }) => {
         about: { '@id': businessId },
         inLanguage: 'en-IN',
         breadcrumb: { '@id': `${pageId}-breadcrumb` },
+        mainEntity: serviceList,
       },
       {
         '@type': 'BreadcrumbList',

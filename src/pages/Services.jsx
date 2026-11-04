@@ -30,7 +30,7 @@ export default function Services() {
         keywords="visa services Kaithal, study visa consultant, work visa services, PR visa guidance, visitor visa consultant Haryana"
       />
       <PageBanner
-        title="Study, Work & PR Visa Services in Kaithal"
+        title="Visa & Immigration Services in Kaithal"
         subtitle="Comprehensive immigration support for every pathway — expertly guided, transparently priced."
         breadcrumb="Our Services"
         image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80"
