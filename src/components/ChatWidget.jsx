@@ -13,7 +13,10 @@ import {
 } from 'lucide-react';
 import { siteContent } from '../data/content';
 
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || 'https://sydney-immigration-api.onrender.com')
+const defaultApiBaseUrl = window.location.hostname === 'localhost'
+  ? 'https://sydney-immigration.vercel.app'
+  : window.location.origin;
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || defaultApiBaseUrl)
   .replace(/\/+$/, '');
 
 const welcomeMessage = {
