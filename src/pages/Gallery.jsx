@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
@@ -35,7 +35,6 @@ export default function Gallery() {
     setLightboxOpen(true);
   };
 
-  // Lock body scroll while the lightbox is open.
   useEffect(() => {
     document.body.style.overflow = lightboxOpen ? 'hidden' : '';
     return () => {
@@ -43,7 +42,6 @@ export default function Gallery() {
     };
   }, [lightboxOpen]);
 
-  // Keyboard controls for the lightbox.
   useEffect(() => {
     if (!lightboxOpen) return undefined;
     const handler = (e) => {
@@ -71,7 +69,13 @@ export default function Gallery() {
         image="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1920&q=80"
       />
 
-      <section className="py-20 sm:py-24 bg-white">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.6 }}
+        className="py-20 sm:py-24 bg-white"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filters */}
           <motion.div
@@ -79,7 +83,7 @@ export default function Gallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-3 mb-10"
+            className="flex flex-wrap justify-center gap-3 mb-12"
           >
             {categories.map((cat) => (
               <button
@@ -89,8 +93,8 @@ export default function Gallery() {
                 aria-pressed={activeCategory === cat}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   activeCategory === cat
-                    ? 'bg-gradient-to-r from-primary-gold to-primary-gold-light text-primary-navy shadow-gold'
-                    : 'bg-secondary-light text-secondary-gray hover:bg-primary-gold/10 hover:text-primary-navy'
+                    ? 'bg-gradient-to-r from-blue-primary to-blue-primary-light text-blue-navy shadow-blue'
+                    : 'bg-blue-tint-lightest text-slate-muted hover:bg-blue-primary/10 hover:text-blue-navy'
                 }`}
               >
                 {cat}
@@ -99,7 +103,7 @@ export default function Gallery() {
           </motion.div>
 
           {/* Grid */}
-          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[260px]">
+          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-[280px]">
             <AnimatePresence>
               {filteredImages.map((image, index) => (
                 <motion.div
@@ -110,7 +114,7 @@ export default function Gallery() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4, delay: index * 0.04 }}
                   whileHover={{ scale: 1.02 }}
-                  className="relative overflow-hidden rounded-2xl cursor-pointer group shadow-soft"
+                  className="relative overflow-hidden rounded-3xl cursor-pointer group shadow-soft border border-blue-tint-dark"
                   onClick={() => openLightbox(index)}
                 >
                   <img
@@ -122,13 +126,13 @@ export default function Gallery() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Search className="w-4 h-4 text-primary-navy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-navy/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/95 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-xl">
+                    <Search className="w-4.5 h-4.5 text-blue-navy" />
                   </div>
                   <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                     <p className="font-heading font-bold text-sm">{image.caption}</p>
-                    <p className="text-xs opacity-80">{image.category}</p>
+                    <p className="text-xs opacity-90">{image.category}</p>
                   </div>
                 </motion.div>
               ))}
@@ -136,13 +140,13 @@ export default function Gallery() {
           </motion.div>
 
           {filteredImages.length === 0 && (
-            <div className="text-center py-20">
-              <ImageIcon className="w-12 h-12 mx-auto text-gray-300 mb-3" />
-              <p className="text-secondary-gray">No images found in this category.</p>
+            <div className="text-center py-24">
+              <ImageIcon className="w-14 h-14 mx-auto text-slate-line mb-4" />
+              <p className="text-slate-muted">No images found in this category.</p>
             </div>
           )}
         </div>
-      </section>
+      </motion.section>
 
       {/* LIGHTBOX */}
       <AnimatePresence>
@@ -151,14 +155,14 @@ export default function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-primary-navy/95 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+            className="fixed inset-0 bg-blue-navy/97 backdrop-blur-md z-[100] flex items-center justify-center p-6"
             onClick={closeLightbox}
             role="dialog"
             aria-modal="true"
           >
             <button
               type="button"
-              className="absolute top-4 right-4 w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+              className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
               onClick={(e) => {
                 e.stopPropagation();
                 closeLightbox();
@@ -168,31 +172,31 @@ export default function Gallery() {
               <X className="w-5 h-5 text-white" />
             </button>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="max-w-4xl w-full"
+              className="max-w-5xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={currentImage.src}
                 alt={currentImage.alt}
-                className="w-full max-h-[80vh] object-contain rounded-2xl"
-                width="1200"
-                height="900"
+                className="w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl border border-white/10"
+                width="1600"
+                height="1200"
                 decoding="async"
               />
-              <div className="mt-4 text-center text-white">
-                <p className="font-heading font-bold">{currentImage.caption}</p>
-                <p className="text-sm text-gray-300">{currentImage.category}</p>
+              <div className="mt-6 text-center text-white">
+                <p className="font-heading font-bold text-xl">{currentImage.caption}</p>
+                <p className="text-sm text-blue-tint-lightest">{currentImage.category}</p>
               </div>
             </motion.div>
             {filteredImages.length > 1 && (
               <>
                 <button
                   type="button"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                   onClick={(e) => {
                     e.stopPropagation();
                     goToPrev();
@@ -203,7 +207,7 @@ export default function Gallery() {
                 </button>
                 <button
                   type="button"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                   onClick={(e) => {
                     e.stopPropagation();
                     goToNext();

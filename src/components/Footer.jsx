@@ -40,21 +40,23 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-primary-navy text-white relative mt-0 border-t-4 border-primary-gold">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-blue-navy text-white relative border-t-4 border-blue-primary">
+      {/* Decorative blob */}
+      <div className="absolute -top-40 -right-20 w-96 h-96 rounded-full blob-blue opacity-30 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-3 mb-5" aria-label="Sydney Immigration India Home">
-              <Logo size="lg" variant="gold" className="shrink-0" />
+            <Link to="/" className="flex items-center gap-3 mb-6" aria-label="Sydney Immigration India Home">
+              <Logo size="lg" variant="navy" className="shrink-0" />
               <div>
                 <span className="block font-heading font-bold text-white text-lg">{siteContent.siteName}</span>
-                <span className="block text-xs text-gray-400 font-medium">{siteContent.branchName}</span>
+                <span className="block text-xs text-slate-muted font-medium">{siteContent.branchName}</span>
               </div>
             </Link>
-            <p className="text-gray-300 text-sm leading-relaxed mb-4 max-w-xs">{footer.tagline}</p>
-            <p className="text-gray-500 text-xs italic mb-6 max-w-xs break-words">{footer.disclaimer}</p>
-            <div className="flex gap-2">
+            <p className="text-slate-muted text-sm leading-relaxed mb-5 max-w-xs">{footer.tagline}</p>
+            <p className="text-slate-muted/60 text-xs italic mb-7 max-w-xs break-words">{footer.disclaimer}</p>
+            <div className="flex gap-3">
               {socials.map(({ key, url, Icon, label }) => (
                 <a
                   key={key}
@@ -62,7 +64,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-gold hover:text-primary-navy transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-primary hover:text-white transition-all duration-300"
                 >
                   <Icon />
                 </a>
@@ -72,14 +74,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-bold text-white text-base mb-4 relative inline-block">
+            <h4 className="font-heading font-bold text-white text-base mb-5 relative inline-block">
               Quick Links
-              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-primary-gold rounded-full" />
+              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-blue-primary rounded-full" />
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {footer.quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-300 text-sm hover:text-primary-gold transition-colors flex items-center gap-2 group">
+                  <Link to={link.path} className="text-slate-muted text-sm hover:text-blue-primary transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     {link.label}
                   </Link>
@@ -90,14 +92,14 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-bold text-white text-base mb-4 relative inline-block">
+            <h4 className="font-heading font-bold text-white text-base mb-5 relative inline-block">
               Our Services
-              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-primary-gold rounded-full" />
+              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-blue-primary rounded-full" />
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {footer.servicesLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-300 text-sm hover:text-primary-gold transition-colors flex items-center gap-2 group">
+                  <Link to={link.path} className="text-slate-muted text-sm hover:text-blue-primary transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     {link.label}
                   </Link>
@@ -108,50 +110,50 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading font-bold text-white text-base mb-4 relative inline-block">
+            <h4 className="font-heading font-bold text-white text-base mb-5 relative inline-block">
               Contact Us
-              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-primary-gold rounded-full" />
+              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-blue-primary rounded-full" />
             </h4>
-            <ul className="space-y-3.5 text-sm">
+            <ul className="space-y-4 text-sm">
               <li>
                 <a
                   href={contact.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(contact.address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-primary-gold transition-colors flex items-start gap-2.5"
+                  className="text-slate-muted hover:text-blue-primary transition-colors flex items-start gap-2.5"
                 >
-                  <MapPin className="w-4 h-4 text-primary-gold shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-blue-primary shrink-0 mt-0.5" />
                   <span className="break-words">{contact.address}</span>
                 </a>
               </li>
               <li>
-                <a href={contact.phoneLink} className="text-gray-300 hover:text-primary-gold transition-colors flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-primary-gold shrink-0" />
+                <a href={contact.phoneLink} className="text-slate-muted hover:text-blue-primary transition-colors flex items-center gap-2.5">
+                  <Phone className="w-4 h-4 text-blue-primary shrink-0" />
                   {contact.phone}
                 </a>
               </li>
-              <li className="flex flex-col gap-1.5">
+              <li className="flex flex-col gap-2">
                 {contact.emails.map((email, i) => (
                   <a
                     key={i}
                     href={`mailto:${email}`}
-                    className="text-gray-300 hover:text-primary-gold transition-colors flex items-start gap-2.5"
+                    className="text-slate-muted hover:text-blue-primary transition-colors flex items-start gap-2.5"
                   >
-                    <Mail className="w-4 h-4 text-primary-gold shrink-0 mt-0.5" />
+                    <Mail className="w-4 h-4 text-blue-primary shrink-0 mt-0.5" />
                     <span className="break-all">{email}</span>
                   </a>
                 ))}
               </li>
               <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-primary-gold shrink-0 mt-0.5" />
-                <span className="text-gray-300">{contact.workingHours}</span>
+                <Clock className="w-4 h-4 text-blue-primary shrink-0 mt-0.5" />
+                <span className="text-slate-muted">{contact.workingHours}</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-400">
+        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-muted/60 relative z-10">
           <p>{footer.copyright.replace('2025', '2026')}</p>
           <p>{footer.disclaimer}</p>
         </div>

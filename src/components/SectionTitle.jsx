@@ -22,17 +22,17 @@ export default function SectionTitle({
       className={`${isCenter ? 'text-center' : ''} mb-10 ${className}`}
     >
       {eyebrow && (
-        <span className="inline-block text-primary-gold text-xs font-bold tracking-widest uppercase mb-3">
+        <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
           {eyebrow}
         </span>
       )}
-      <h2 className={`font-heading font-bold text-3xl sm:text-4xl ${light ? 'text-white' : 'text-primary-navy'}`}>
+      <h2 className={`font-heading font-bold text-3xl sm:text-4xl ${light ? 'text-white' : 'text-blue-navy'}`}>
         {title}
       </h2>
-      <div className={`w-16 h-0.5 bg-primary-gold mt-4 rounded-full ${isCenter ? 'mx-auto' : ''}`} />
+      <div className={`w-16 h-0.5 bg-blue-primary-light mt-4 rounded-full ${isCenter ? 'mx-auto' : ''}`} />
       {subtitle && (
         <p
-          className={`text-base sm:text-lg max-w-3xl mt-4 ${light ? 'text-gray-300' : 'text-secondary-gray'} ${
+          className={`text-base sm:text-lg max-w-3xl mt-4 ${light ? 'text-blue-tint-lightest' : 'text-slate-muted'} ${
             isCenter ? 'mx-auto' : ''
           }`}
         >

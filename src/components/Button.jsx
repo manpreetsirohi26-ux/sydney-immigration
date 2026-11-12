@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const baseStyles =
-  'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  'inline-flex items-center justify-center font-semibold rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
 
 const variants = {
   primary:
-    'bg-primary-navy text-white hover:bg-primary-dark focus:ring-primary-navy hover:shadow-lg hover:shadow-primary-navy/20',
+    'bg-blue-navy text-white hover:bg-blue-primary focus:ring-blue-primary hover:shadow-lg hover:shadow-blue-navy/20',
   secondary:
-    'bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-primary-navy focus:ring-white',
+    'bg-transparent text-blue-navy border-2 border-blue-navy hover:bg-blue-navy hover:text-white focus:ring-blue-navy',
   outline:
-    'bg-transparent text-primary-navy border-2 border-primary-navy hover:bg-primary-navy hover:text-white focus:ring-primary-navy',
-  gold:
-    'bg-gradient-to-r from-primary-gold to-primary-gold-light text-primary-navy shadow-gold hover:shadow-elevated hover:-translate-y-0.5 focus:ring-primary-gold',
-  ghost: 'bg-transparent text-secondary-dark hover:bg-secondary-light focus:ring-gray-300',
+    'bg-transparent text-blue-navy border-2 border-blue-navy hover:bg-blue-navy hover:text-white focus:ring-blue-navy',
+  blue:
+    'bg-blue-tint text-blue-navy hover:bg-blue-primary hover:text-white focus:ring-blue-primary hover:shadow-lg hover:shadow-blue/20',
+  ghost: 'bg-transparent text-slate-text hover:bg-blue-tint-lightest focus:ring-slate-line',
 };
 
 const sizes = {

@@ -46,14 +46,14 @@ const EMPTY_FORM = {
 };
 
 const inputClass = (hasError) =>
-  `w-full px-4 py-3 rounded-xl border ${
-    hasError ? 'border-red-400' : 'border-gray-200'
-  } focus:outline-none focus:ring-2 focus:ring-primary-gold/40 focus:border-primary-gold transition-all`;
+  `w-full px-4 py-3 rounded-2xl border ${
+    hasError ? 'border-red-400' : 'border-slate-line'
+  } bg-white focus:outline-none focus:ring-2 focus:ring-blue-primary-light focus:border-transparent transition-all`;
 
 function Field({ id, label, required, error, children }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-primary-navy mb-1">
+      <label htmlFor={id} className="block text-sm font-semibold text-blue-navy mb-1">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       {children}
@@ -110,7 +110,6 @@ export default function Apply() {
     }
   };
 
-  // Build a WhatsApp message with the entered details (available any time).
   const whatsappLink = useMemo(() => {
     const lines = [
       `*New Visa Application - ${siteContent.siteName}*`,
@@ -163,9 +162,9 @@ export default function Apply() {
 
       {/* STEPS */}
       {steps.length > 0 && (
-        <section className="py-14 bg-white border-b border-gray-100">
+        <section className="py-14 bg-white border-b border-blue-tint-dark">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
               {steps.map((step, i) => {
                 const Icon = STEP_ICONS[i] ?? ClipboardList;
                 return (
@@ -177,14 +176,14 @@ export default function Apply() {
                     transition={{ duration: 0.4, delay: i * 0.08 }}
                     className="text-center"
                   >
-                    <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-primary-gold/20 to-primary-gold/5 flex items-center justify-center mb-3 relative">
-                      <Icon className="w-6 h-6 text-primary-gold" />
-                      <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-primary-navy text-white text-xs font-bold flex items-center justify-center">
+                    <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center mb-3 relative">
+                      <Icon className="w-6 h-6 text-blue-primary" />
+                      <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-blue-navy text-white text-xs font-bold flex items-center justify-center">
                         {i + 1}
                       </span>
                     </div>
-                    <h3 className="font-heading font-bold text-primary-navy text-sm mb-1">{step.title}</h3>
-                    <p className="text-secondary-gray text-xs leading-relaxed">{step.text}</p>
+                    <h3 className="font-heading font-bold text-blue-navy text-sm mb-1">{step.title}</h3>
+                    <p className="text-slate-muted text-xs leading-relaxed">{step.text}</p>
                   </motion.div>
                 );
               })}
@@ -194,7 +193,7 @@ export default function Apply() {
       )}
 
       {/* FORM */}
-      <section className="py-20 sm:py-24 bg-secondary-light">
+      <section className="py-20 sm:py-24 bg-blue-tint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-10">
             <motion.div
@@ -202,12 +201,12 @@ export default function Apply() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-2 bg-white rounded-3xl p-7 sm:p-9 shadow-elevated border border-gray-100"
+              className="lg:col-span-2 bg-white rounded-3xl p-7 sm:p-9 shadow-blue border border-blue-tint-dark"
             >
-              <h2 className="font-heading font-bold text-2xl text-primary-navy mb-2">
+              <h2 className="font-heading font-bold text-2xl text-blue-navy mb-2">
                 {form.title || 'Visa Application Form'}
               </h2>
-              <p className="text-secondary-gray mb-8 text-sm">
+              <p className="text-slate-muted mb-10 text-sm">
                 {sections.personal || 'Personal Details'} · Fields marked with * are required.
               </p>
 
@@ -215,21 +214,21 @@ export default function Apply() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-8"
+                  className="text-center py-10"
                   role="status"
                 >
-                  <div className="w-20 h-20 mx-auto rounded-full bg-green-50 flex items-center justify-center mb-5">
-                    <CheckCircle2 className="w-10 h-10 text-green-600" />
+                  <div className="w-24 h-24 mx-auto rounded-full bg-blue-primary-light/10 flex items-center justify-center mb-6">
+                    <CheckCircle2 className="w-12 h-12 text-blue-primary" />
                   </div>
-                  <h3 className="font-heading font-bold text-2xl text-primary-navy mb-2">Application Received!</h3>
-                  <p className="text-secondary-gray mb-6 max-w-md mx-auto">
+                  <h3 className="font-heading font-bold text-2xl text-blue-navy mb-2">Application Received!</h3>
+                  <p className="text-slate-muted mb-8 max-w-md mx-auto">
                     {form.successMessage || 'Your application has been submitted successfully.'}
                   </p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <Button href={whatsappLink} target="_blank" rel="noopener noreferrer" variant="gold" leftIcon={<MessageSquare className="w-4 h-4" />}>
+                    <Button href={whatsappLink} target="_blank" rel="noopener noreferrer" variant="blue" leftIcon={<MessageSquare className="w-4 h-4" />}>
                       {form.whatsappButton || 'Send Details on WhatsApp'}
                     </Button>
-                    <Button onClick={resetForm} variant="outline" leftIcon={<ClipboardList className="w-4 h-4" />}>
+                    <Button onClick={resetForm} variant="secondary" leftIcon={<ClipboardList className="w-4 h-4" />}>
                       Submit Another Application
                     </Button>
                   </div>
@@ -248,7 +247,7 @@ export default function Apply() {
                   />
                   {/* Personal */}
                   <fieldset className="space-y-5">
-                    <legend className="font-heading font-bold text-primary-navy text-lg mb-2 border-b border-gray-100 pb-2 w-full">
+                    <legend className="font-heading font-bold text-blue-navy text-lg mb-2 border-b border-blue-tint-dark pb-2 w-full">
                       {sections.personal || 'Personal Details'}
                     </legend>
                     <div className="grid sm:grid-cols-2 gap-5">
@@ -288,7 +287,7 @@ export default function Apply() {
 
                   {/* Education */}
                   <fieldset className="space-y-5">
-                    <legend className="font-heading font-bold text-primary-navy text-lg mb-2 border-b border-gray-100 pb-2 w-full">
+                    <legend className="font-heading font-bold text-blue-navy text-lg mb-2 border-b border-blue-tint-dark pb-2 w-full">
                       {sections.passport || 'Education'}
                     </legend>
                     <div className="grid sm:grid-cols-2 gap-5">
@@ -316,7 +315,7 @@ export default function Apply() {
 
                   {/* Application preference */}
                   <fieldset className="space-y-5">
-                    <legend className="font-heading font-bold text-primary-navy text-lg mb-2 border-b border-gray-100 pb-2 w-full">
+                    <legend className="font-heading font-bold text-blue-navy text-lg mb-2 border-b border-blue-tint-dark pb-2 w-full">
                       {sections.application || 'Application Preference'}
                     </legend>
                     <div className="grid sm:grid-cols-2 gap-5">
@@ -362,9 +361,9 @@ export default function Apply() {
                           setConsent(e.target.checked);
                           if (errors.consent) setErrors((prev) => ({ ...prev, consent: '' }));
                         }}
-                        className="mt-1 w-4 h-4 accent-primary-gold"
+                        className="mt-1 w-4 h-4 accent-blue-primary"
                       />
-                      <span className="text-sm text-secondary-gray">
+                      <span className="text-sm text-slate-muted">
                         {fields.consent || form.consent || 'I confirm the information provided is correct and consent to be contacted.'}
                       </span>
                     </label>
@@ -380,7 +379,7 @@ export default function Apply() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-primary-gold to-primary-gold-light text-primary-navy font-bold shadow-gold hover:shadow-elevated disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-blue-primary to-blue-primary-light text-blue-navy font-bold shadow-blue hover:shadow-elevated disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
                   >
                     {isSubmitting ? 'Submitting...' : form.submitButton || 'Submit Application'}
                     <Send className="w-4 h-4" />
@@ -397,14 +396,14 @@ export default function Apply() {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <div className="bg-white rounded-3xl p-7 shadow-elevated border border-gray-100">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary-gold/20 to-primary-gold/5 flex items-center justify-center">
-                    <ShieldCheck className="w-5 h-5 text-primary-gold" />
+              <div className="bg-white rounded-3xl p-7 shadow-blue border border-blue-tint-dark">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center">
+                    <ShieldCheck className="w-5 h-5 text-blue-primary" />
                   </div>
-                  <h3 className="font-heading font-bold text-primary-navy">Why Apply Through Us?</h3>
+                  <h3 className="font-heading font-bold text-blue-navy">Why Apply Through Us?</h3>
                 </div>
-                <ul className="space-y-3 text-sm text-secondary-gray">
+                <ul className="space-y-3 text-sm text-slate-muted">
                   {[
                     'Free profile assessment & eligibility check',
                     'Expert guidance by certified consultants',
@@ -420,17 +419,17 @@ export default function Apply() {
                 </ul>
               </div>
 
-              <div className="bg-primary-navy rounded-3xl p-7 text-white">
+              <div className="bg-blue-navy rounded-3xl p-7 text-white">
                 <h3 className="font-heading font-bold text-lg mb-2">Need help filling the form?</h3>
-                <p className="text-gray-300 text-sm mb-5">
+                <p className="text-blue-tint-lightest text-sm mb-6">
                   Talk to our experts — we&apos;ll guide you through the whole process.
                 </p>
                 <div className="space-y-3">
-                  <a href={contact.phoneLink} className="flex items-center gap-3 text-sm hover:text-primary-gold transition-colors">
-                    <Phone className="w-4 h-4 text-primary-gold" /> {contact.phone}
+                  <a href={contact.phoneLink} className="flex items-center gap-3 text-sm hover:text-blue-primary-light transition-colors">
+                    <Phone className="w-4 h-4 text-blue-primary-light" /> {contact.phone}
                   </a>
-                  <a href={`mailto:${contact.emails?.[0]}`} className="flex items-center gap-3 text-sm hover:text-primary-gold transition-colors break-all">
-                    <Mail className="w-4 h-4 text-primary-gold shrink-0" /> {contact.emails?.[0]}
+                  <a href={`mailto:${contact.emails?.[0]}`} className="flex items-center gap-3 text-sm hover:text-blue-primary-light transition-colors break-all">
+                    <Mail className="w-4 h-4 text-blue-primary-light shrink-0" /> {contact.emails?.[0]}
                   </a>
                 </div>
                 <a

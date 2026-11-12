@@ -102,9 +102,9 @@ export default function Contact() {
     info.emails?.values ?? (contact.emails ?? []).map((t) => ({ text: t, link: `mailto:${t}` }));
 
   const inputClass = (hasError) =>
-    `w-full px-4 py-3 rounded-xl border ${
-      hasError ? 'border-red-400' : 'border-gray-200'
-    } focus:outline-none focus:ring-2 focus:ring-primary-gold/40 focus:border-primary-gold transition-all`;
+    `w-full px-4 py-3 rounded-2xl border ${
+      hasError ? 'border-red-400' : 'border-slate-line'
+    } bg-white focus:outline-none focus:ring-2 focus:ring-blue-primary-light focus:border-transparent transition-all`;
 
   return (
     <>
@@ -120,7 +120,7 @@ export default function Contact() {
         image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80"
       />
 
-      <section className="py-20 sm:py-24 bg-secondary-light">
+      <section className="py-20 sm:py-24 bg-blue-tint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10">
             {/* FORM */}
@@ -129,12 +129,12 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl p-7 sm:p-9 shadow-elevated border border-gray-100"
+              className="bg-white rounded-3xl p-7 sm:p-9 shadow-blue border border-blue-tint-dark"
             >
-              <h2 className="font-heading font-bold text-2xl text-primary-navy mb-2">
+              <h2 className="font-heading font-bold text-2xl text-blue-navy mb-2">
                 {form.title || 'Send Us a Message'}
               </h2>
-              <p className="text-secondary-gray mb-6 text-sm">
+              <p className="text-slate-muted mb-8 text-sm">
                 Fill out the form and our team will get back to you within 24 hours.
               </p>
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -149,7 +149,7 @@ export default function Contact() {
                   className="hidden"
                 />
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-primary-navy mb-1">
+                  <label htmlFor="name" className="block text-sm font-semibold text-blue-navy mb-1">
                     {fields.name?.label || 'Full Name'} *
                   </label>
                   <input
@@ -164,7 +164,7 @@ export default function Contact() {
                   {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-primary-navy mb-1">
+                  <label htmlFor="email" className="block text-sm font-semibold text-blue-navy mb-1">
                     {fields.email?.label || 'Email Address'} *
                   </label>
                   <input
@@ -179,7 +179,7 @@ export default function Contact() {
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-primary-navy mb-1">
+                  <label htmlFor="phone" className="block text-sm font-semibold text-blue-navy mb-1">
                     {fields.phone?.label || 'Phone Number'} *
                   </label>
                   <input
@@ -194,7 +194,7 @@ export default function Contact() {
                   {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
                 <div>
-                  <label htmlFor="countryOfInterest" className="block text-sm font-semibold text-primary-navy mb-1">
+                  <label htmlFor="countryOfInterest" className="block text-sm font-semibold text-blue-navy mb-1">
                     {fields.countryOfInterest?.label || 'Country of Interest'} *
                   </label>
                   <select
@@ -214,7 +214,7 @@ export default function Contact() {
                   {errors.countryOfInterest && <p className="text-red-500 text-xs mt-1">{errors.countryOfInterest}</p>}
                 </div>
                 <div>
-                  <label htmlFor="visaType" className="block text-sm font-semibold text-primary-navy mb-1">
+                  <label htmlFor="visaType" className="block text-sm font-semibold text-blue-navy mb-1">
                     {fields.visaType?.label || 'Visa Type'} *
                   </label>
                   <select
@@ -234,7 +234,7 @@ export default function Contact() {
                   {errors.visaType && <p className="text-red-500 text-xs mt-1">{errors.visaType}</p>}
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-primary-navy mb-1">
+                  <label htmlFor="message" className="block text-sm font-semibold text-blue-navy mb-1">
                     {fields.message?.label || 'Message'} *
                   </label>
                   <textarea
@@ -251,7 +251,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-primary-gold to-primary-gold-light text-primary-navy font-bold shadow-gold hover:shadow-elevated disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-blue-primary to-blue-primary-light text-blue-navy font-bold shadow-blue hover:shadow-elevated disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
                 >
                   {isSubmitting ? 'Sending...' : form.submitButton || 'Submit Enquiry'}
                   <Send className="w-4 h-4" />
@@ -260,11 +260,11 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-50 border border-green-200 rounded-xl flex items-start gap-3"
+                    className="p-4 bg-blue-primary-light/10 border border-blue-primary-light rounded-2xl flex items-start gap-3"
                     role="status"
                   >
-                    <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
-                    <p className="text-green-800 text-sm">
+                    <CheckCircle className="w-5 h-5 text-blue-primary shrink-0 mt-0.5" />
+                    <p className="text-blue-navy text-sm">
                       {form.successMessage || 'Thank you! Your enquiry has been submitted successfully.'}
                     </p>
                   </motion.div>
@@ -283,44 +283,43 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl p-7 sm:p-9 shadow-elevated border border-gray-100"
+              className="bg-white rounded-3xl p-7 sm:p-9 shadow-blue border border-blue-tint-dark"
             >
-              <h2 className="font-heading font-bold text-2xl text-primary-navy mb-6">
+              <h2 className="font-heading font-bold text-2xl text-blue-navy mb-6">
                 {info.heading || 'Contact Information'}
               </h2>
               <div className="space-y-6">
                 {infoItems.map((item, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary-gold/20 to-primary-gold/5 flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-primary-gold" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-blue-primary" />
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-heading font-bold text-primary-navy text-sm">{item.label}</h3>
+                      <h3 className="font-heading font-bold text-blue-navy text-sm">{item.label}</h3>
                       {item.link ? (
                         <a
                           href={item.link}
                           target={item.external ? '_blank' : undefined}
                           rel={item.external ? 'noopener noreferrer' : undefined}
-                          className="text-secondary-gray text-sm hover:text-primary-gold transition-colors break-words"
+                          className="text-slate-muted text-sm hover:text-blue-primary transition-colors break-words"
                         >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-secondary-gray text-sm whitespace-pre-line break-words">{item.value}</p>
+                        <p className="text-slate-muted text-sm whitespace-pre-line break-words">{item.value}</p>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* per-email links */}
               {emailList.length > 0 && (
                 <div className="mt-4 space-y-1">
                   {emailList.map((e, i) => (
                     <a
                       key={i}
                       href={e.link}
-                      className="block text-sm text-secondary-gray hover:text-primary-gold transition-colors break-all"
+                      className="block text-sm text-slate-muted hover:text-blue-primary transition-colors break-all"
                     >
                       {e.text}
                     </a>
@@ -329,12 +328,12 @@ export default function Contact() {
               )}
 
               {/* WhatsApp */}
-              <div className="mt-8 pt-6 border-t border-gray-100">
+              <div className="mt-10 pt-6 border-t border-blue-tint-dark">
                 <a
                   href={`https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(contact.whatsappMessage || '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-bold rounded-full hover:bg-green-600 transition-colors shadow-soft"
+                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-blue-navy text-white font-bold rounded-full hover:bg-blue-primary transition-colors shadow-blue border border-white/10"
                 >
                   <MessageSquare className="w-5 h-5" />
                   Chat on WhatsApp
@@ -353,7 +352,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5 }}
-            className="rounded-3xl overflow-hidden shadow-elevated border border-gray-100"
+            className="rounded-3xl overflow-hidden shadow-blue border border-blue-tint-dark"
           >
             <iframe
               src={contact.mapEmbedUrl || info.mapEmbedUrl}
@@ -370,10 +369,10 @@ export default function Contact() {
       </section>
 
       {/* SOCIAL */}
-      <section className="py-20 bg-secondary-light">
+      <section className="py-20 bg-blue-tint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading font-bold text-3xl text-primary-navy mb-3">Connect With Us</h2>
-          <p className="text-secondary-gray mb-8">Follow us for immigration updates, success stories and tips.</p>
+          <h2 className="font-heading font-bold text-3xl text-blue-navy mb-3">Connect With Us</h2>
+          <p className="text-slate-muted mb-10">Follow us for immigration updates, success stories and tips.</p>
           <div className="flex flex-wrap justify-center gap-4">
             {Object.entries(social).map(([platform, url]) => (
               <a
@@ -381,18 +380,18 @@ export default function Contact() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 rounded-2xl bg-white border border-gray-100 shadow-soft flex items-center justify-center hover:bg-primary-navy hover:text-white hover:-translate-y-1 transition-all duration-300 text-primary-navy"
+                className="w-14 h-14 rounded-2xl bg-white border border-blue-tint-dark shadow-soft flex items-center justify-center hover:bg-blue-navy hover:text-white hover:-translate-y-1 transition-all duration-300 text-blue-navy"
                 aria-label={`Follow us on ${platform}`}
               >
                 <span className="text-xs font-bold uppercase">{platform.slice(0, 2)}</span>
               </a>
             ))}
           </div>
-          <div className="mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
-            <Button to="/apply" variant="gold" rightIcon={<Send className="w-4 h-4" />}>
+          <div className="mt-12 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
+            <Button to="/apply" variant="blue" rightIcon={<Send className="w-4 h-4" />}>
               Apply Online
             </Button>
-            <Button to="/services" variant="outline">
+            <Button to="/services" variant="secondary">
               Explore Our Services
             </Button>
           </div>

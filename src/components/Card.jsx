@@ -1,17 +1,17 @@
 import { motion } from 'framer-motion';
 
 const variantStyles = {
-  default: 'bg-white border border-gray-100 rounded-2xl shadow-soft',
+  default: 'bg-white border border-slate-line rounded-2xl shadow-soft',
   elevated: 'bg-white rounded-2xl shadow-elevated',
-  outlined: 'bg-white border-2 border-gray-200 rounded-2xl',
-  gradient: 'bg-gradient-to-br from-primary-navy to-primary-navy-dark rounded-2xl text-white',
+  outlined: 'bg-white border-2 border-blue-tint-dark rounded-2xl',
+  gradient: 'bg-gradient-to-br from-blue-navy to-blue-navy-dark rounded-2xl text-white',
 };
 
 const hoverMotion = {
   default: { y: -8, boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.15)' },
   elevated: { y: -8, boxShadow: '0 30px 60px -12px rgba(15, 23, 42, 0.2)' },
-  outlined: { y: -8, borderColor: '#e17858', boxShadow: '0 20px 40px -12px rgba(225, 120, 88, 0.15)' },
-  gradient: { y: -8, boxShadow: '0 25px 50px -12px rgba(212, 168, 67, 0.3)' },
+  outlined: { y: -8, borderColor: '#3b82f6', boxShadow: '0 20px 40px -12px rgba(59, 130, 246, 0.15)' },
+  gradient: { y: -8, boxShadow: '0 25px 50px -12px rgba(30, 58, 138, 0.3)' },
 };
 
 /**

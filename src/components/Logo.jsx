@@ -36,9 +36,9 @@ export default function Logo({ size = 'md', variant = 'navy', className = '', al
 
   const badgeStyles =
     variant === 'gold'
-      ? 'bg-gradient-to-br from-primary-gold to-primary-gold-light shadow-gold'
-      : 'bg-gradient-to-br from-primary-navy to-primary-navy-dark shadow-gold';
-  const textStyles = variant === 'gold' ? 'text-primary-navy' : 'text-primary-gold';
+      ? 'bg-gradient-to-br from-blue-primary-light to-blue-primary shadow-blue'
+      : 'bg-gradient-to-br from-blue-navy to-blue-navy-dark shadow-blue';
+  const textStyles = variant === 'gold' ? 'text-blue-navy' : 'text-blue-primary-light';
 
   return (
     <div className={`${s.box} rounded-xl flex items-center justify-center ${badgeStyles} ${className}`}>

@@ -10,7 +10,7 @@ import ChatWidget from './ChatWidget';
  */
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-secondary-dark">
+    <div className="min-h-screen flex flex-col bg-white text-slate-text">
       <Navbar />
       <ScrollToTop />
       <main className="flex-1">{children}</main>

@@ -22,20 +22,20 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
       {/* Slim navy top bar */}
-      <div className="hidden md:block bg-primary-navy text-white h-10">
+      <div className="hidden md:block bg-blue-navy text-white h-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between text-sm">
           <div className="flex items-center gap-5">
-            <a href={contact.phoneLink} className="flex items-center gap-2 hover:text-primary-gold transition-colors">
-              <Phone className="w-4 h-4 text-primary-gold" />
+            <a href={contact.phoneLink} className="flex items-center gap-2 hover:text-blue-primary-light transition-colors">
+              <Phone className="w-4 h-4 text-blue-primary-light" />
               <span>{contact.phone}</span>
             </a>
-            <a href={`mailto:${contact.emails[0]}`} className="flex items-center gap-2 hover:text-primary-gold transition-colors">
-              <Mail className="w-4 h-4 text-primary-gold" />
+            <a href={`mailto:${contact.emails[0]}`} className="flex items-center gap-2 hover:text-blue-primary-light transition-colors">
+              <Mail className="w-4 h-4 text-blue-primary-light" />
               <span className="truncate">{contact.emails[0]}</span>
             </a>
           </div>
-          <div className="hidden lg:flex items-center gap-2 text-gray-300">
-            <Clock className="w-4 h-4 text-primary-gold" />
+          <div className="hidden lg:flex items-center gap-2 text-blue-tint-lightest">
+            <Clock className="w-4 h-4 text-blue-primary-light" />
             <span>{contact.workingHours}</span>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function Navbar() {
       {/* Main navbar */}
       <nav
         className={`bg-white/95 backdrop-blur-md transition-all duration-300 border-b ${
-          isScrolled ? 'shadow-soft border-gray-100' : 'border-transparent'
+          isScrolled ? 'shadow-soft border-blue-tint-lightest' : 'border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -52,42 +52,40 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-3 group" aria-label={siteContent.siteName}>
             <Logo size="md" variant="navy" className="shrink-0" />
             <div className="leading-tight">
-              <span className="block font-heading font-bold text-primary-navy text-base sm:text-lg">{siteContent.siteName}</span>
-              <span className="block text-[11px] text-secondary-gray font-medium tracking-wide">{siteContent.branchName}</span>
+              <span className="block font-heading font-bold text-blue-navy text-base sm:text-lg">{siteContent.siteName}</span>
+              <span className="block text-[11px] text-slate-muted font-medium tracking-wide">{siteContent.branchName}</span>
             </div>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 aria-current={location.pathname === item.path ? 'page' : undefined}
-                className={`relative px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
+                className={`relative px-5 py-2.5 text-sm font-semibold rounded-2xl transition-all duration-300 ${
                   location.pathname === item.path
-                    ? 'text-primary-navy'
-                    : 'text-secondary-gray hover:text-primary-navy'
+                    ? 'text-white bg-blue-primary shadow-blue'
+                    : 'text-slate-muted hover:text-blue-primary hover:bg-blue-tint-lightest'
                 }`}
               >
                 {item.label}
-                <span
-                  className={`absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 bg-primary-gold transition-all duration-300 ${
-                    location.pathname === item.path ? 'w-5' : 'w-0 group-hover:w-5'
-                  }`}
-                ></span>
+                {location.pathname === item.path && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-blue-primary-light" />
+                )}
               </Link>
             ))}
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-secondary-light transition-colors"
+            className="lg:hidden p-2 rounded-2xl hover:bg-blue-tint-lightest transition-colors"
             onClick={() => setIsOpen((v) => !v)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
           >
-            <Menu className="w-6 h-6 text-primary-navy" />
+            <Menu className="w-6 h-6 text-blue-navy" />
           </button>
         </div>
 
@@ -101,14 +99,14 @@ export default function Navbar() {
               transition={{ type: 'spring', stiffness: 260, damping: 25 }}
               className="lg:hidden fixed inset-y-0 right-0 w-72 bg-white shadow-elevated z-50 flex flex-col"
             >
-              <div className="flex items-center justify-between px-5 py-4 border-b">
-                <span className="font-heading font-bold text-primary-navy">Menu</span>
+              <div className="flex items-center justify-between px-5 py-4 border-b border-blue-tint-lightest">
+                <span className="font-heading font-bold text-blue-navy">Menu</span>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-lg hover:bg-secondary-light"
+                  className="p-2 rounded-2xl hover:bg-blue-tint-lightest"
                   aria-label="Close"
                 >
-                  <X className="w-5 h-5 text-primary-navy" />
+                  <X className="w-5 h-5 text-blue-navy" />
                 </button>
               </div>
               <nav className="flex-1 p-5 space-y-2">
@@ -118,17 +116,17 @@ export default function Navbar() {
                     to={item.path}
                     onClick={closeMenu}
                     aria-current={location.pathname === item.path ? 'page' : undefined}
-                    className={`block px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                    className={`block px-3 py-2.5 rounded-2xl text-sm font-semibold transition-colors ${
                       location.pathname === item.path
-                        ? 'bg-primary-gold/15 text-primary-navy border border-primary-gold/40'
-                        : 'text-secondary-gray hover:bg-secondary-light hover:text-primary-navy'
+                        ? 'bg-blue-tint text-blue-primary border border-blue-tint-dark'
+                        : 'text-slate-muted hover:bg-blue-tint-lightest hover:text-blue-primary'
                     }`}
                   >
                     {item.label}
                   </Link>
                 ))}
               </nav>
-              <div className="p-5 text-xs text-secondary-gray border-t">
+              <div className="p-5 text-xs text-slate-muted border-t border-blue-tint-lightest">
                 {contact.phone} · {contact.workingHours}
               </div>
             </motion.div>
@@ -136,7 +134,7 @@ export default function Navbar() {
         </AnimatePresence>
         {isOpen && (
           <div
-            className="lg:hidden fixed inset-0 bg-primary-navy/40 backdrop-blur-sm z-40"
+            className="lg:hidden fixed inset-0 bg-blue-navy/40 backdrop-blur-sm z-40"
             onClick={() => setIsOpen(false)}
           />
         )}

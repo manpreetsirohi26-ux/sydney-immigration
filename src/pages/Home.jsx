@@ -15,7 +15,6 @@ import {
 import Button from '../components/Button';
 import Counter from '../components/Counter';
 import { getVisaIcon } from '../components/VisaIcons';
-import SectionTitle from '../components/SectionTitle';
 import Seo from '../components/Seo';
 import { siteContent } from '../data/content';
 import { galleryImages } from '../data/gallery';
@@ -61,89 +60,83 @@ export default function Home() {
         description="Trusted visa consultancy in Kaithal for study, work, PR, visitor and business immigration to Australia, Canada, UK, USA, New Zealand and Europe."
         keywords="immigration consultant Kaithal, visa consultant Kaithal, visa consultancy Haryana, study visa consultant, PR consultant Haryana"
       />
-      <section className="relative flex min-h-[78vh] items-center overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1529070538774-18298c8fb782?auto=format&fit=crop&w=1920&q=80"
-          alt="Airplane flying above the clouds"
-          className="absolute inset-0 h-full w-full object-cover"
-          width="1920"
-          height="1080"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-navy/90 via-primary-navy/75 to-primary-navy/35" />
+      {/* HERO */}
+      <section className="relative min-h-[82vh] overflow-hidden">
+        {/* Background picture pinned to right side */}
+        <div className="absolute inset-y-0 right-0 w-full max-w-[55%] h-full">
+          <img
+            src="https://images.unsplash.com/photo-1529070538774-18298c8fb782?auto=format&fit=crop&w=1920&q=80"
+            alt="Airplane flying above the clouds"
+            className="h-full w-full object-cover object-right"
+            width="1920"
+            height="1080"
+            fetchPriority="high"
+            decoding="async"
+            aria-hidden="true"
+          />
+        </div>
+        {/* Dark blue overlay over picture */}
+        <div className="absolute inset-y-0 right-0 w-full max-w-[55%] bg-gradient-to-r from-blue-navy/95 via-blue-navy/80 to-transparent" />
+        {/* Blue animations behind content */}
+        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-blue-primary/20 blur-[120px] animate-blob" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[520px] h-[520px] rounded-full bg-blue-primary/15 blur-[120px] animate-blob" style={{ animationDelay: '-3s' }} />
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-primary-gold/20 blur-3xl"
-          animate={{ x: [0, -35, 0], y: [0, 25, 0], scale: [1, 1.12, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          className="pointer-events-none absolute -top-12 left-1/3 h-72 w-72 rounded-full bg-blue-primary/15 blur-4xl"
+          animate={{ x: [0, -40, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
+          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 right-1/3 h-48 w-48 rounded-full bg-primary-navy-light/30 blur-3xl"
-          animate={{ x: [0, 30, 0], y: [0, -24, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="pointer-events-none absolute bottom-0 left-1/3 h-56 w-56 rounded-full bg-blue-primary-lighter/25 blur-4xl"
+          animate={{ x: [0, 35, 0], y: [0, -28, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <div className="relative mx-auto w-full max-w-7xl px-5 py-32 sm:px-8 sm:py-40 lg:py-44">
+        {/* Content on left */}
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-36 sm:px-8 sm:py-48 lg:py-56">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={{
               hidden: {},
-              visible: { transition: { staggerChildren: 0.16 } },
+              visible: { transition: { staggerChildren: 0.18 } },
             }}
-            className="max-w-2xl space-y-6 sm:space-y-7"
+            className="max-w-3xl space-y-8 sm:space-y-9 text-left"
           >
             <motion.h1
               variants={{
-                hidden: { opacity: 0, y: 28 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' } },
+                hidden: { opacity: 0, y: 34 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
               }}
-              className="font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
+              className="font-heading text-4xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl tracking-tight"
             >
               {hero.heading || 'Your Gateway to Global Opportunities'}
             </motion.h1>
             <motion.p
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+                hidden: { opacity: 0, y: 28 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
               }}
-              className="max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8"
+              className="max-w-xl text-lg leading-8 text-blue-tint-lightest sm:text-xl sm:leading-9 mb-2"
             >
               {hero.subheading}
             </motion.p>
-            <motion.img
-              src="/sydney-immigration-logo.png"
-              alt="Sydney Immigration"
-              variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
-              }}
-              animate={{ y: [0, -7, 0] }}
-              transition={{
-                y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-              }}
-              width="176"
-              height="176"
-              decoding="async"
-              className="h-auto w-36 rounded-xl shadow-elevated sm:w-44"
-            />
             <motion.div
               variants={{
-                hidden: { opacity: 0, y: 16 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                hidden: { opacity: 0, y: 24 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' } },
               }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 sm:gap-5 justify-start"
             >
               <Button
                 to={hero.primaryButton?.link || '/contact'}
-                variant="gold"
-                size="lg"
-                rightIcon={<ArrowRight className="h-4 w-4" />}
+                variant="blue"
+                size="xl"
+                rightIcon={<ArrowRight className="h-5 w-5" />}
               >
                 {hero.primaryButton?.text || 'Free Consultation'}
               </Button>
-              <Button to="/services" variant="secondary" size="lg">
+              <Button to="/services" variant="secondary" size="xl">
                 {hero.secondaryButton?.text || 'Our Services'}
               </Button>
             </motion.div>
@@ -151,53 +144,53 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <SectionTitle
-            title="Guidance at Every Visa Step"
-            className="mb-8"
-          />
-          {stats.length > 0 && (
-            <div className="grid grid-cols-2 gap-y-6 border-y border-primary-navy/10 py-7 md:grid-cols-4 md:gap-6">
+      {stats.length > 0 && (
+        <section className="bg-section-alt border-y border-blue-tint-dark/40">
+          <div className="container-custom">
+            <div className="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 gap-x-8">
               {stats.map((stat) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: 0.06 }}
-                  className="text-center"
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.55 }}
+                  className="stat-card"
                 >
-                  <p className="font-heading text-3xl font-bold text-primary-navy">
+                  <div className="w-10 h-10 mx-auto mb-4 rounded-2xl bg-blue-primary-light flex items-center justify-center">
+                    <span className="text-white text-lg font-bold">+</span>
+                  </div>
+                  <p className="font-heading text-3xl font-bold text-blue-navy mb-1.5">
                     <Counter end={stat.value} suffix={stat.suffix} />
                   </p>
-                  <p className="mt-1 text-xs uppercase tracking-wide text-secondary-gray">{stat.label}</p>
+                  <p className="text-xs sm:text-sm uppercase tracking-widest text-slate-muted">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
-      <section className="bg-white pb-12">
+      {/* ABOUT INTRO */}
+      <section className="bg-white">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.45 }}
-            className="flex flex-col items-start justify-between gap-5 rounded-3xl border border-primary-navy/10 bg-gradient-to-r from-secondary-light to-white p-6 shadow-soft sm:flex-row sm:items-center sm:p-8"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center rounded-3xl border border-blue-tint-dark/40 bg-gradient-to-r from-blue-tint to-white p-8 sm:p-10 shadow-soft"
           >
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-primary-gold-dark">About Us</p>
-              <h2 className="mt-2 font-heading text-2xl font-bold text-primary-navy">Sydney Immigration India</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-secondary-gray sm:text-base">
+              <p className="text-xs font-bold uppercase tracking-widest text-blue-primary-light">About Us</p>
+              <h2 className="mt-1.5 font-heading text-2xl sm:text-3xl font-bold text-blue-navy">Sydney Immigration India</h2>
+              <p className="mt-2.5 max-w-2xl text-sm sm:text-base leading-7 text-slate-muted">
                 Kaithal-based guidance for study, work, visitor, and PR visa options abroad.
               </p>
             </div>
             <Link
               to="/about"
-              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-navy-dark"
+              className="inline-flex shrink-0 items-center gap-2.5 rounded-full bg-blue-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-primary hover:-translate-y-0.5"
             >
               About our team <ArrowRight className="h-4 w-4" />
             </Link>
@@ -205,12 +198,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-padding mb-6 bg-secondary-light sm:mb-8">
+      <div className="section-sep" />
+
+      {/* SERVICES */}
+      <section className="section-padding bg-white">
         <div className="container-custom">
-          <SectionTitle
-            title="Support for every visa pathway"
-          />
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="text-center mb-16">
+            <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
+              Our Services
+            </span>
+            <h2 className="section-heading">Support for every visa pathway</h2>
+            <div className="section-divider" />
+            <p className="section-subheading">
+              Expert guidance for study, work, PR, visitor, business, and family visas to destinations worldwide.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => {
               const Icon = getVisaIcon(service.icon);
               return (
@@ -219,21 +222,23 @@ export default function Home() {
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.15 }}
-                  transition={{ duration: 0.45, delay: (index % 4) * 0.07 }}
-                  whileHover={{ y: -6, scale: 1.015 }}
-                  className="soft-card rounded-2xl p-5 transition-shadow duration-300 hover:border-primary-gold/40 hover:shadow-elevated"
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  whileHover={{ y: -6 }}
+                  className="aesthetic-card"
                 >
-                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary-gold/15 text-primary-navy">
-                    <Icon className="h-5 w-5" />
+                  <div className="mb-5 flex h-13 w-13 items-center justify-center rounded-2xl bg-blue-tint text-blue-navy">
+                    <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-primary-navy">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-secondary-gray">
+                  <h3 className="font-heading text-lg font-semibold text-blue-navy mb-2.5">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm leading-7 text-slate-muted mb-5">
                     {serviceSummaries[service.slug] || service.description}
                   </p>
-                  <p className="mt-2 text-xs font-medium text-primary-navy/75">{service.destination}</p>
+                  <span className="text-xs font-medium text-blue-navy/60">{service.destination}</span>
                   <Link
                     to={`/services#${service.slug}`}
-                    className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-gold-dark hover:gap-3"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-primary hover:gap-3 transition-colors"
                   >
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -241,44 +246,59 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="mt-20 border-t border-primary-navy/10 pt-12">
-            <SectionTitle
-              title="Your visa process"
-              className="mb-8"
-            />
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, x: -14 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.4, delay: (index % 4) * 0.07 }}
-                  whileHover={{ x: 4 }}
-                  className="flex gap-4 rounded-2xl p-3 transition-colors hover:bg-white"
-                >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-navy text-sm font-bold text-white">
-                    {step.step}
-                  </span>
-                  <div>
-                    <h3 className="font-semibold text-primary-navy">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-secondary-gray">{step.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+        </div>
+      </section>
+
+      <div className="section-sep" />
+
+      {/* PROCESS */}
+      <section className="section-padding bg-section-alt">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
+              Process
+            </span>
+            <h2 className="section-heading">Your visa process</h2>
+            <div className="section-divider" />
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+                whileHover={{ y: -4 }}
+                className="aesthetic-card flex flex-col items-center gap-4 text-center"
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-navy text-sm font-bold text-white shadow-blue/30">
+                  {step.step}
+                </span>
+                <div>
+                  <h3 className="font-heading font-semibold text-blue-navy">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-muted">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
+      <div className="section-sep" />
+
+      {/* GOALS */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <SectionTitle
-            title="Where would you like to go?"
-            subtitle="Compare destinations and visa options."
-            className="mb-8"
-          />
-          <div className="mb-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+          <div className="text-center mb-12">
+            <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
+              Choose Your Path
+            </span>
+            <h2 className="section-heading">Where would you like to go?</h2>
+            <div className="section-divider" />
+            <p className="section-subheading">Compare destinations and visa options.</p>
+          </div>
+          <div className="mb-14 flex flex-wrap justify-center gap-3 sm:gap-4">
             {goals.map((goal) => {
               const Icon = goalIcons[goal.id] ?? GraduationCap;
               const selected = goal.id === activeGoalData.id;
@@ -288,13 +308,13 @@ export default function Home() {
                   type="button"
                   onClick={() => setActiveGoal(goal.id)}
                   aria-pressed={selected}
-                  className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors ${
+                  className={`inline-flex items-center gap-2.5 rounded-full border px-6 py-3 text-sm font-semibold transition-all duration-300 ${
                     selected
-                      ? 'border-primary-navy bg-primary-navy text-white'
-                      : 'border-primary-navy/15 bg-white text-primary-navy hover:border-primary-gold'
+                      ? 'border-blue-navy bg-blue-navy text-white shadow-blue/25'
+                      : 'border-blue-tint-dark/60 bg-white text-blue-navy hover:border-blue-primary-light hover:shadow-blue/20'
                   }`}
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-5 w-5" />
                   {goal.label}
                 </button>
               );
@@ -303,57 +323,59 @@ export default function Home() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeGoalData.id}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="grid gap-6 rounded-3xl bg-secondary-light p-6 sm:p-8 lg:grid-cols-2 lg:gap-10"
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="grid gap-8 rounded-3xl bg-blue-tint p-8 sm:p-10 lg:grid-cols-2 lg:gap-12 shadow-soft border border-blue-tint-dark/40"
             >
               <div>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-gold/15 text-primary-navy">
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-blue-navy shadow-soft">
                   <ActiveGoalIcon className="h-6 w-6" />
                 </div>
-                <h3 className="font-heading text-2xl font-semibold text-primary-navy">{activeGoalData.heading}</h3>
-                <p className="mt-3 leading-6 text-secondary-gray">{activeGoalData.blurb}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
+                <h3 className="font-heading text-2xl sm:text-3xl font-semibold text-blue-navy mb-3">
+                  {activeGoalData.heading}
+                </h3>
+                <p className="leading-7 text-slate-muted mb-6">{activeGoalData.blurb}</p>
+                <div className="flex flex-wrap gap-2 mb-2">
                   {(activeGoalData.countries ?? []).map((country) => (
-                    <span key={country} className="rounded-full bg-white px-3 py-1.5 text-sm text-primary-navy">
+                    <span key={country} className="rounded-full bg-blue-tint-dark/40 px-3 py-1.5 text-sm text-blue-navy border border-blue-tint-dark/60">
                       {country}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col justify-between gap-6">
-                <ul className="space-y-2">
+              <div className="flex flex-col justify-between gap-8">
+                <ul className="space-y-3">
                   {(activeGoalData.highlights ?? []).slice(0, 3).map((highlight) => (
-                    <li key={highlight} className="flex items-start gap-3 text-sm leading-6 text-primary-navy">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary-gold-dark" />
+                    <li key={highlight} className="flex items-start gap-3 text-sm leading-7 text-blue-navy">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-blue-primary-light" />
                       {highlight}
                     </li>
                   ))}
                 </ul>
-                <Button to="/apply" variant="gold" rightIcon={<ArrowRight className="h-4 w-4" />}>
+                <Button to="/apply" variant="blue" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
                   Find out more
                 </Button>
               </div>
             </motion.div>
           </AnimatePresence>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map((destination, index) => (
               <motion.article
                 key={destination.id}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: (index % 3) * 0.07 }}
-                whileHover={{ y: -4 }}
-                className="flex items-start gap-4 rounded-2xl border border-primary-navy/10 p-5 transition-colors hover:border-primary-gold/50 hover:bg-secondary-light/60"
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
+                className="flex items-start gap-4 rounded-3xl border border-blue-tint-dark/40 p-6 transition-all duration-300 hover:border-blue-primary-light/60 hover:bg-white/40 shadow-soft"
               >
-                <span className="text-3xl" aria-hidden="true">{destination.flag}</span>
+                <span className="text-3xl sm:text-4xl" aria-hidden="true">{destination.flag}</span>
                 <div>
-                  <h3 className="font-heading font-semibold text-primary-navy">{destination.name}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm leading-5 text-secondary-gray">{destination.description}</p>
-                  <p className="mt-2 line-clamp-1 text-xs leading-5 text-primary-navy/75">
+                  <h3 className="font-heading font-semibold text-blue-navy mb-1">{destination.name}</h3>
+                  <p className="line-clamp-2 text-sm leading-6 text-slate-muted">{destination.description}</p>
+                  <p className="mt-2 line-clamp-1 text-xs sm:text-sm leading-6 text-blue-navy/60">
                     {(destination.popularVisas ?? []).join(' · ')}
                   </p>
                 </div>
@@ -363,45 +385,51 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-sep" />
+
+      {/* TESTIMONIALS */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           {testimonials.length > 0 && (
             <>
-              <SectionTitle
-                eyebrow="Client stories"
-                title="What our clients say"
-                subtitle="Hear from our clients."
-              />
-              <div className="grid gap-5 md:grid-cols-2">
+              <div className="text-center mb-16">
+                <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
+                  Client stories
+                </span>
+                <h2 className="section-heading">What our clients say</h2>
+                <div className="section-divider" />
+                <p className="section-subheading">Hear from our clients.</p>
+              </div>
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {testimonials.map((testimonial, index) => (
                   <motion.article
                     key={testimonial.id}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.45, delay: index * 0.08 }}
-                    whileHover={{ y: -4 }}
-                    className="rounded-2xl border border-primary-navy/10 p-6 transition-colors hover:border-primary-gold/40 hover:shadow-soft sm:p-7"
+                    transition={{ duration: 0.55, delay: index * 0.08 }}
+                    whileHover={{ y: -5 }}
+                    className="aesthetic-card"
                   >
-                    <div className="mb-4 flex items-center gap-1 text-primary-gold-dark" aria-label={`${testimonial.rating} out of 5 stars`}>
-                      {Array.from({ length: testimonial.rating }, (_, index) => (
-                        <Star key={index} className="h-4 w-4 fill-current" />
+                    <div className="mb-5 flex items-center gap-1 text-blue-primary-light" aria-label={`${testimonial.rating} out of 5 stars`}>
+                      {Array.from({ length: testimonial.rating }, (_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-current" />
                       ))}
                     </div>
-                    <p className="text-sm leading-7 text-secondary-gray">“{testimonial.text}”</p>
-                    <div className="mt-5 flex items-center gap-3">
+                    <p className="text-sm leading-7 text-slate-muted mb-6">“{testimonial.text}”</p>
+                    <div className="flex items-center gap-3">
                       <img
                         src={testimonial.image}
                         alt=""
-                        className="h-11 w-11 rounded-full object-cover"
-                        width="44"
-                        height="44"
+                        className="h-12 w-12 rounded-full object-cover border border-blue-tint-dark/40"
+                        width="48"
+                        height="48"
                         loading="lazy"
                         decoding="async"
                       />
                       <div>
-                        <p className="text-sm font-semibold text-primary-navy">{testimonial.name}</p>
-                        <p className="text-xs text-secondary-gray">{testimonial.visaType} · {testimonial.location}</p>
+                        <p className="text-sm font-semibold text-blue-navy">{testimonial.name}</p>
+                        <p className="text-xs text-slate-muted">{testimonial.visaType} · {testimonial.location}</p>
                       </div>
                     </div>
                   </motion.article>
@@ -410,17 +438,17 @@ export default function Home() {
             </>
           )}
           {galleryImages.length > 0 && (
-            <div className="mt-14 border-t border-primary-navy/10 pt-10">
-              <div className="mb-7 flex items-end justify-between gap-4">
+            <div className="mt-20 border-t border-blue-tint-dark/40 pt-16">
+              <div className="mb-10 flex items-end justify-between gap-4">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary-gold-dark">Our gallery</p>
-                  <h3 className="mt-2 font-heading text-2xl font-semibold text-primary-navy">A glimpse of our work</h3>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-primary-light">Our gallery</p>
+                  <h3 className="mt-1 font-heading text-2xl font-semibold text-blue-navy">A glimpse of our work</h3>
                 </div>
-                <Link to="/gallery" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-navy">
+                <Link to="/gallery" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-navy hover:gap-3 transition-colors">
                   View gallery <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+              <div className="grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3">
                 {galleryImages.slice(0, 3).map((image, index) => (
                   <motion.img
                     key={image.id}
@@ -429,9 +457,9 @@ export default function Home() {
                     initial={{ opacity: 0, scale: 0.96 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.45, delay: index * 0.08 }}
-                    whileHover={{ scale: 1.025 }}
-                    className="h-40 w-full rounded-2xl object-cover shadow-soft sm:h-52"
+                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                    whileHover={{ scale: 1.03 }}
+                    className="h-52 sm:h-60 w-full rounded-2xl object-cover shadow-soft border border-blue-tint-dark/40 transition-all duration-500"
                     width="640"
                     height="420"
                     loading="lazy"
@@ -441,6 +469,37 @@ export default function Home() {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      <div className="section-sep" />
+
+      {/* CTA */}
+      <section className="py-24 sm:py-32 bg-gradient-to-r from-blue-navy to-blue-navy-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(30,58,138,0.35),_transparent_70%)]" />
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.55 }}
+            className="text-center"
+          >
+            <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-4 leading-tight">
+              Ready to Start Your Journey?
+            </h2>
+            <p className="text-blue-tint-lightest text-base sm:text-lg mb-10 leading-relaxed">
+              Book your free consultation today and take the first step towards your dream destination.
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5 justify-center">
+              <Button to="/apply" variant="blue" size="xl" rightIcon={<ArrowRight className="h-5 w-5" />}>
+                Apply Now
+              </Button>
+              <Button to="/contact" variant="secondary" size="xl" leftIcon={<HeartHandshake className="w-5 h-5" />}>
+                Book Free Consultation
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>

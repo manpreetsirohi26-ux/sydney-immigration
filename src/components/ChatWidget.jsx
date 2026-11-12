@@ -146,11 +146,11 @@ export default function ChatWidget() {
       {isOpen && (
         <section
           aria-label="Sydney Immigration chat"
-          className="fixed bottom-24 right-4 z-50 flex h-[min(34rem,calc(100dvh-8rem))] w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-primary-navy/10 bg-white shadow-elevated sm:right-6"
+          className="fixed bottom-24 right-4 z-50 flex h-[min(34rem,calc(100dvh-8rem))] w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-blue-navy/10 bg-white shadow-elevated sm:right-6"
         >
-          <header className="flex items-center justify-between bg-primary-navy px-4 py-3.5 text-white">
+          <header className="flex items-center justify-between bg-blue-navy px-4 py-3.5 text-white">
             <div className="flex min-w-0 items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-primary-gold-light">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-blue-primary-light">
                 <Sparkles className="h-5 w-5" aria-hidden="true" />
               </span>
               <div className="min-w-0">
@@ -168,23 +168,23 @@ export default function ChatWidget() {
             </button>
           </header>
 
-          <div className="flex-1 space-y-3 overflow-y-auto bg-secondary-light/60 px-3 py-4 sm:px-4" aria-live="polite">
-            {messages.map((message, index) => (
-              <div
-                key={message.id || `welcome-${index}`}
-                className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <p
-                  className={`max-w-[85%] whitespace-pre-wrap break-words rounded-2xl px-3.5 py-2.5 text-sm leading-6 ${
-                    message.role === 'user'
-                      ? 'rounded-br-md bg-primary-navy text-white'
-                      : 'rounded-bl-md border border-primary-navy/10 bg-white text-secondary-dark shadow-sm'
-                  }`}
-                >
-                  {message.content}
-                </p>
-              </div>
-            ))}
+          <div className="flex-1 space-y-3 overflow-y-auto bg-blue-tint-lightest/60 px-3 py-4 sm:px-4" aria-live="polite">
+            {messages.map((message) => {
+              const isUser = message.role === 'user';
+              return (
+                <div key={message.id} className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
+                  <p
+                    className={`max-w-[85%] whitespace-pre-wrap break-words rounded-2xl px-3.5 py-2.5 text-sm leading-6 ${
+                      isUser
+                        ? 'rounded-br-md bg-blue-navy text-white'
+                        : 'rounded-bl-md border border-blue-navy/10 bg-white text-slate-text shadow-sm'
+                    }`}
+                  >
+                    {message.content}
+                  </p>
+                </div>
+              );
+            })}
 
             {messages.length === 1 && (
               <div className="flex flex-wrap gap-2 pl-1 pt-1">
@@ -194,7 +194,7 @@ export default function ChatWidget() {
                     type="button"
                     onClick={() => (reply === 'Free Consultation' ? startConsultation() : sendMessage(reply))}
                     disabled={isTyping}
-                    className="rounded-full border border-primary-navy/20 bg-white px-3 py-1.5 text-xs font-semibold text-primary-navy transition hover:border-primary-gold hover:bg-primary-gold/10 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="rounded-full border border-blue-navy/20 bg-white px-3 py-1.5 text-xs font-semibold text-blue-navy transition hover:border-blue-primary-light hover:bg-blue-tint/10 disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {reply}
                   </button>
@@ -203,27 +203,27 @@ export default function ChatWidget() {
             )}
 
             {leadStage === 'form' && (
-              <form onSubmit={submitLead} className="space-y-3 rounded-2xl border border-primary-navy/10 bg-white p-3.5 shadow-sm">
-                <p className="text-sm font-semibold text-primary-navy">Request your free consultation</p>
+              <form onSubmit={submitLead} className="space-y-3 rounded-2xl border border-blue-navy/10 bg-white p-3.5 shadow-sm">
+                <p className="text-sm font-semibold text-blue-navy">Request your free consultation</p>
                 <label className="block">
-                  <span className="mb-1 block text-xs font-medium text-secondary-gray">Your name</span>
-                  <span className="flex items-center gap-2 rounded-lg border border-slate-200 px-3 focus-within:border-primary-navy">
-                    <UserRound className="h-4 w-4 shrink-0 text-secondary-gray" aria-hidden="true" />
+                  <span className="mb-1 block text-xs font-medium text-slate-muted">Your name</span>
+                  <span className="flex items-center gap-2 rounded-lg border border-slate-line px-3 focus-within:border-blue-primary-light">
+                    <UserRound className="h-4 w-4 shrink-0 text-slate-muted" aria-hidden="true" />
                     <input
                       value={lead.name}
                       onChange={(event) => setLead({ ...lead, name: event.target.value })}
                       maxLength={120}
                       autoComplete="name"
                       required
-                      className="min-w-0 flex-1 py-2 text-sm text-secondary-dark outline-none"
+                      className="min-w-0 flex-1 py-2 text-sm text-slate-text outline-none"
                       placeholder="Enter your name"
                     />
                   </span>
                 </label>
                 <label className="block">
-                  <span className="mb-1 block text-xs font-medium text-secondary-gray">Phone number</span>
-                  <span className="flex items-center gap-2 rounded-lg border border-slate-200 px-3 focus-within:border-primary-navy">
-                    <Phone className="h-4 w-4 shrink-0 text-secondary-gray" aria-hidden="true" />
+                  <span className="mb-1 block text-xs font-medium text-slate-muted">Phone number</span>
+                  <span className="flex items-center gap-2 rounded-lg border border-slate-line px-3 focus-within:border-blue-primary-light">
+                    <Phone className="h-4 w-4 shrink-0 text-slate-muted" aria-hidden="true" />
                     <input
                       value={lead.phone}
                       onChange={(event) => setLead({ ...lead, phone: event.target.value })}
@@ -231,28 +231,28 @@ export default function ChatWidget() {
                       autoComplete="tel"
                       type="tel"
                       required
-                      className="min-w-0 flex-1 py-2 text-sm text-secondary-dark outline-none"
+                      className="min-w-0 flex-1 py-2 text-sm text-slate-text outline-none"
                       placeholder="Enter your phone number"
                     />
                   </span>
                 </label>
                 <label className="block">
-                  <span className="mb-1 block text-xs font-medium text-secondary-gray">Country of interest</span>
-                  <span className="flex items-center gap-2 rounded-lg border border-slate-200 px-3 focus-within:border-primary-navy">
-                    <Globe2 className="h-4 w-4 shrink-0 text-secondary-gray" aria-hidden="true" />
+                  <span className="mb-1 block text-xs font-medium text-slate-muted">Country of interest</span>
+                  <span className="flex items-center gap-2 rounded-lg border border-slate-line px-3 focus-within:border-blue-primary-light">
+                    <Globe2 className="h-4 w-4 shrink-0 text-slate-muted" aria-hidden="true" />
                     <input
                       value={lead.country}
                       onChange={(event) => setLead({ ...lead, country: event.target.value })}
                       maxLength={80}
                       required
-                      className="min-w-0 flex-1 py-2 text-sm text-secondary-dark outline-none"
+                      className="min-w-0 flex-1 py-2 text-sm text-slate-text outline-none"
                       placeholder="e.g. Australia"
                     />
                   </span>
                 </label>
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-gold px-4 py-2.5 text-sm font-semibold text-primary-navy transition hover:bg-primary-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-navy"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-primary px-4 py-2.5 text-sm font-semibold text-blue-navy transition hover:bg-blue-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-primary"
                 >
                   Review details <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -260,22 +260,22 @@ export default function ChatWidget() {
             )}
 
             {leadStage === 'confirm' && confirmedLead && (
-              <div className="space-y-3 rounded-2xl border border-primary-navy/10 bg-white p-3.5 shadow-sm">
-                <div className="flex items-center gap-2 text-sm font-semibold text-primary-navy">
-                  <CheckCircle2 className="h-4 w-4 text-primary-navy-light" aria-hidden="true" />
+              <div className="space-y-3 rounded-2xl border border-blue-navy/10 bg-white p-3.5 shadow-sm">
+                <div className="flex items-center gap-2 text-sm font-semibold text-blue-navy">
+                  <CheckCircle2 className="h-4 w-4 text-blue-primary-light" aria-hidden="true" />
                   Please confirm your details
                 </div>
-                <dl className="space-y-1.5 rounded-lg bg-secondary-light p-3 text-sm">
+                <dl className="space-y-1.5 rounded-lg bg-blue-tint-lightest p-3 text-sm">
                   <div className="flex gap-2"><dt className="font-medium">Name:</dt><dd className="min-w-0 break-words">{confirmedLead.name}</dd></div>
                   <div className="flex gap-2"><dt className="font-medium">Phone:</dt><dd className="min-w-0 break-words">{confirmedLead.phone}</dd></div>
                   <div className="flex gap-2"><dt className="font-medium">Country:</dt><dd className="min-w-0 break-words">{confirmedLead.country}</dd></div>
                 </dl>
-                <p className="text-xs leading-5 text-secondary-gray">Your details will be shared only if you choose to continue to WhatsApp.</p>
+                <p className="text-xs leading-5 text-slate-muted">Your details will be shared only if you choose to continue to WhatsApp.</p>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => setLeadStage('form')}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-primary-navy/20 px-3 py-2 text-xs font-semibold text-primary-navy transition hover:bg-secondary-light"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-blue-navy/20 px-3 py-2 text-xs font-semibold text-blue-navy transition hover:bg-blue-tint-lightest"
                   >
                     <Pencil className="h-3.5 w-3.5" aria-hidden="true" /> Edit
                   </button>
@@ -284,7 +284,7 @@ export default function ChatWidget() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setLeadStage('sent')}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary-navy px-3 py-2 text-xs font-semibold text-white transition hover:bg-primary-navy-dark"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-blue-navy px-3 py-2 text-xs font-semibold text-white transition hover:bg-blue-primary"
                   >
                     Confirm &amp; send <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </a>
@@ -293,9 +293,9 @@ export default function ChatWidget() {
             )}
 
             {leadStage === 'sent' && (
-              <div className="rounded-2xl border border-primary-navy/10 bg-white p-3.5 text-sm text-secondary-dark shadow-sm">
+              <div className="rounded-2xl border border-blue-navy/10 bg-white p-3.5 text-sm text-slate-text shadow-sm">
                 Thanks! WhatsApp should open with your consultation request. You can call us at{' '}
-                <a className="font-semibold text-primary-navy underline" href={siteContent.contact.phoneLink}>
+                <a className="font-semibold text-blue-navy underline" href={siteContent.contact.phoneLink}>
                   {siteContent.contact.phone}
                 </a>{' '}
                 if you need help.
@@ -304,10 +304,10 @@ export default function ChatWidget() {
 
             {isTyping && (
               <div className="flex justify-start" role="status" aria-label="Assistant is typing">
-                <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md border border-primary-navy/10 bg-white px-4 py-3 shadow-sm">
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-primary-navy/60 [animation-delay:-0.2s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-primary-navy/60 [animation-delay:-0.1s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-primary-navy/60" />
+                <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md border border-blue-navy/10 bg-white px-4 py-3 shadow-sm">
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-navy/60 [animation-delay:-0.2s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-navy/60 [animation-delay:-0.1s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-navy/60" />
                   <span className="sr-only">Assistant is typing</span>
                 </div>
               </div>
@@ -321,7 +321,7 @@ export default function ChatWidget() {
               event.preventDefault();
               sendMessage(input);
             }}
-            className="flex items-center gap-2 border-t border-primary-navy/10 bg-white p-3"
+            className="flex items-center gap-2 border-t border-blue-navy/10 bg-white p-3"
           >
             <input
               ref={inputRef}
@@ -329,14 +329,14 @@ export default function ChatWidget() {
               onChange={(event) => setInput(event.target.value)}
               maxLength={1200}
               disabled={isTyping}
-              className="min-w-0 flex-1 rounded-full border border-slate-200 bg-secondary-light/50 px-4 py-2.5 text-sm text-secondary-dark outline-none transition placeholder:text-secondary-gray/80 focus:border-primary-navy focus:bg-white disabled:opacity-60"
+              className="min-w-0 flex-1 rounded-full border border-slate-line bg-blue-tint-lightest/50 px-4 py-2.5 text-sm text-slate-text outline-none transition placeholder:text-slate-muted/80 focus:border-blue-primary-light focus:bg-white disabled:opacity-60"
               placeholder="Type your message..."
               aria-label="Type your message"
             />
             <button
               type="submit"
               disabled={!input.trim() || isTyping}
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-navy text-white transition hover:bg-primary-navy-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-gold disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-navy text-white transition hover:bg-blue-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-primary-light disabled:cursor-not-allowed disabled:opacity-40"
               aria-label="Send message"
             >
               <Send className="h-4 w-4" aria-hidden="true" />
@@ -348,7 +348,7 @@ export default function ChatWidget() {
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        className="fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary-gold text-primary-navy shadow-gold transition hover:scale-105 hover:bg-primary-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-navy"
+        className="fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-primary text-blue-navy shadow-blue transition hover:scale-105 hover:bg-blue-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-primary-light"
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
         aria-expanded={isOpen}
       >

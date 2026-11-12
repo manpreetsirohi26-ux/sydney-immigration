@@ -14,11 +14,9 @@ const visaImages = [
   'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',
   'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80',
   'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80',
   'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=80',
   'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=80',
   'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80',
 ];
 
 export default function Services() {
@@ -37,7 +35,13 @@ export default function Services() {
       />
 
       {/* SERVICES (alternating) */}
-      <section className="py-20 sm:py-24 bg-white">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.6 }}
+        className="py-20 sm:py-24 bg-white"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           {visaServices.map((service, index) => {
             const Icon = getVisaIcon(service.icon);
@@ -50,48 +54,48 @@ export default function Services() {
                 className={`grid lg:grid-cols-2 gap-12 items-center ${isReverse ? 'lg:grid-flow-dense' : ''}`}
               >
                 <div className={`scroll-mt-32 ${isReverse ? 'lg:col-start-2' : ''}`} id={id}>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-gold/20 to-primary-gold/5 flex items-center justify-center mb-5">
-                    <Icon className="w-8 h-8 text-primary-gold" />
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center mb-5">
+                    <Icon className="w-8 h-8 text-blue-primary" />
                   </div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary-navy/5 text-primary-navy text-xs font-bold mb-3">
+                  <span className="inline-block px-3 py-1 rounded-full bg-blue-tint text-blue-navy text-xs font-bold mb-3">
                     {service.destination}
                   </span>
-                  <h2 className="font-heading font-bold text-3xl text-primary-navy mb-3">{service.title}</h2>
-                  <div className="w-16 h-0.5 bg-primary-gold mb-5 rounded-full" />
-                  <p className="text-secondary-gray leading-relaxed mb-6">{service.description}</p>
-                  <ul className="space-y-2.5 mb-7">
+                  <h2 className="font-heading font-bold text-3xl text-blue-navy mb-3">{service.title}</h2>
+                  <div className="w-16 h-0.5 bg-blue-primary mb-5 rounded-full" />
+                  <p className="text-slate-muted leading-relaxed mb-6">{service.description}</p>
+                  <ul className="space-y-3 mb-8">
                     {(service.features ?? []).map((f, i) => (
-                      <li key={i} className="flex items-center gap-3 text-secondary-gray text-sm">
-                        <CheckCircle className="w-5 h-5 text-primary-gold shrink-0" />
+                      <li key={i} className="flex items-center gap-3 text-slate-muted text-sm">
+                        <CheckCircle className="w-5 h-5 text-blue-primary shrink-0" />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <Button to="/contact" variant="gold" rightIcon={<ArrowRight className="w-4 h-4" />}>
+                  <Button to="/contact" variant="blue" rightIcon={<ArrowRight className="w-4 h-4" />}>
                     Enquire Now
                   </Button>
                 </div>
                 <div className={isReverse ? 'lg:col-start-1 lg:row-start-1' : ''}>
-                  <motion.div whileHover={{ scale: 1.02 }} className="relative rounded-3xl overflow-hidden shadow-elevated">
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative rounded-3xl overflow-hidden shadow-blue border border-blue-tint-dark">
                     <img
                       src={visaImages[index % visaImages.length]}
                       alt={service.title}
-                      className="w-full h-[400px] object-cover"
+                      className="w-full h-[420px] object-cover"
                       width="900"
                       height="600"
                       loading="lazy"
                       decoding="async"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-navy/80 via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6 right-6">
                       <p className="text-white font-heading font-bold text-lg">{service.title}</p>
-                      <p className="text-gray-200 text-xs">Sydney Immigration India — Kaithal Branch</p>
+                      <p className="text-blue-tint-lightest text-xs">Sydney Immigration India — Kaithal Branch</p>
                     </div>
                   </motion.div>
-                  <div className="mt-4 grid grid-cols-2 gap-3">
+                  <div className="mt-6 grid grid-cols-2 gap-3">
                     {['Expert policy knowledge', 'Document verification', 'End-to-end filing', 'Interview prep'].map((t, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-secondary-gray">
-                        <CheckCircle className="w-4 h-4 text-primary-gold shrink-0" />
+                      <div key={i} className="flex items-center gap-2 text-xs text-slate-muted">
+                        <CheckCircle className="w-4 h-4 text-blue-primary shrink-0" />
                         {t}
                       </div>
                     ))}
@@ -101,16 +105,22 @@ export default function Services() {
             );
           })}
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-primary-navy to-primary-navy-dark relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(225,120,88,0.2),_transparent_70%)]" />
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.6 }}
+        className="py-20 bg-gradient-to-r from-blue-navy to-blue-navy-dark relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(30,58,138,0.3),_transparent_70%)]" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-4">Ready to Begin Your Journey?</h2>
-          <p className="text-gray-300 text-base sm:text-lg mb-8">Book a free consultation with our expert consultants today.</p>
+          <p className="text-blue-tint-lightest text-base sm:text-lg mb-10">Book a free consultation with our expert consultants today.</p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
-            <Button to="/apply" variant="gold" rightIcon={<ArrowRight className="w-5 h-5" />}>
+            <Button to="/apply" variant="blue" rightIcon={<ArrowRight className="w-5 h-5" />}>
               Apply Now
             </Button>
             <Button to="/contact" variant="secondary" leftIcon={<MessageCircle className="w-5 h-5" />}>
@@ -121,7 +131,7 @@ export default function Services() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 }
