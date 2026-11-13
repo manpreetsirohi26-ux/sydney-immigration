@@ -92,6 +92,34 @@ export default function Home() {
           animate={{ x: [0, 35, 0], y: [0, -28, 0] }}
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
         />
+        {/* Flying airplane animation */}
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-20 text-white/40 drop-shadow-lg"
+          initial={{ x: '-15vw', y: '65vh', rotate: 20, opacity: 0 }}
+          animate={{ x: '110vw', y: '10vh', opacity: [0, 1, 1, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: 'linear', repeatDelay: 2 }}
+        >
+          <Plane className="w-14 h-14 sm:w-16 sm:h-16" />
+        </motion.div>
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-20 text-blue-primary-light/30"
+          initial={{ x: '-20vw', y: '75vh', rotate: 15, opacity: 0 }}
+          animate={{ x: '115vw', y: '25vh', opacity: [0, 0.8, 0.8, 0] }}
+          transition={{ duration: 22, repeat: Infinity, ease: 'linear', delay: 6, repeatDelay: 3 }}
+        >
+          <Plane className="w-10 h-10 sm:w-12 sm:h-12" />
+        </motion.div>
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-20 text-white/20"
+          initial={{ x: '5vw', y: '80vh', rotate: 25, opacity: 0 }}
+          animate={{ x: '100vw', y: '5vh', opacity: [0, 0.6, 0.6, 0] }}
+          transition={{ duration: 26, repeat: Infinity, ease: 'linear', delay: 12, repeatDelay: 4 }}
+        >
+          <Plane className="w-8 h-8 sm:w-10 sm:h-10" />
+        </motion.div>
         {/* Content on left */}
         <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-36 sm:px-8 sm:py-48 lg:py-56">
           <motion.div

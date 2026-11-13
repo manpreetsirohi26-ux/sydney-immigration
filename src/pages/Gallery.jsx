@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
@@ -69,13 +69,7 @@ export default function Gallery() {
         image="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1920&q=80"
       />
 
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.6 }}
-        className="py-20 sm:py-24 bg-white"
-      >
+      <section className="py-20 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filters */}
           <motion.div
@@ -146,7 +140,7 @@ export default function Gallery() {
             </div>
           )}
         </div>
-      </motion.section>
+      </section>
 
       {/* LIGHTBOX */}
       <AnimatePresence>

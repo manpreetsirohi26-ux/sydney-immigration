@@ -7,10 +7,6 @@ import {
   CheckCircle2,
   MessageSquare,
   ShieldCheck,
-  ClipboardList,
-  Users,
-  FileCheck2,
-  PlaneTakeoff,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import PageBanner from '../components/PageBanner';
@@ -24,9 +20,6 @@ const applyPage = siteContent.applyPage ?? {};
 const form = applyPage.form ?? {};
 const fields = form.fields ?? {};
 const sections = form.sections ?? {};
-const steps = applyPage.steps ?? [];
-
-const STEP_ICONS = [ClipboardList, Users, FileCheck2, PlaneTakeoff];
 
 const EMPTY_FORM = {
   fullName: '',
@@ -46,14 +39,14 @@ const EMPTY_FORM = {
 };
 
 const inputClass = (hasError) =>
-  `w-full px-4 py-3 rounded-2xl border ${
-    hasError ? 'border-red-400' : 'border-slate-line'
-  } bg-white focus:outline-none focus:ring-2 focus:ring-blue-primary-light focus:border-transparent transition-all`;
+  `w-full px-4 py-3 rounded-xl border ${
+    hasError ? 'border-red-400' : 'border-slate-200'
+  } bg-white text-slate-text focus:outline-none focus:ring-2 focus:ring-blue-primary-light/40 focus:border-blue-primary-light transition`;
 
-function Field({ id, label, required, error, children }) {
+function Field({ id, label, required, error, children, className = '' }) {
   return (
-    <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-blue-navy mb-1">
+    <div className={className}>
+      <label htmlFor={id} className="block text-sm font-medium text-blue-navy mb-1.5">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       {children}
@@ -116,16 +109,9 @@ export default function Apply() {
       formData.fullName && `Name: ${formData.fullName}`,
       formData.email && `Email: ${formData.email}`,
       formData.phone && `Phone: ${formData.phone}`,
-      formData.gender && `Gender: ${formData.gender}`,
-      formData.maritalStatus && `Marital Status: ${formData.maritalStatus}`,
-      formData.nationality && `Nationality: ${formData.nationality}`,
-      formData.city && `City/State: ${formData.city}`,
-      formData.highestQualification && `Qualification: ${formData.highestQualification}`,
-      formData.englishTest && `English Test: ${formData.englishTest}`,
-      formData.englishScore && `English Score: ${formData.englishScore}`,
       formData.countryOfInterest && `Preferred Country: ${formData.countryOfInterest}`,
       formData.visaType && `Visa Type: ${formData.visaType}`,
-      formData.intake && `Intake/Time: ${formData.intake}`,
+      formData.city && `City/State: ${formData.city}`,
       formData.message && `Details: ${formData.message}`,
     ].filter(Boolean);
     return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
@@ -154,82 +140,42 @@ export default function Apply() {
         keywords="visa application Kaithal, apply for visa guidance, immigration enquiry Kaithal, student visa application help"
       />
       <PageBanner
-        title={applyPage.heading || 'Apply for Visa Guidance in Kaithal'}
-        subtitle={applyPage.subheading}
+        title={applyPage.heading || 'Apply for Visa Guidance'}
+        subtitle={applyPage.subheading || 'Share your details and our team will get back to you with the right guidance.'}
         breadcrumb="Apply Now"
         image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80"
       />
 
-      {/* STEPS */}
-      {steps.length > 0 && (
-        <section className="py-14 bg-white border-b border-blue-tint-dark">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-              {steps.map((step, i) => {
-                const Icon = STEP_ICONS[i] ?? ClipboardList;
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.1 }}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className="text-center"
-                  >
-                    <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center mb-3 relative">
-                      <Icon className="w-6 h-6 text-blue-primary" />
-                      <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-blue-navy text-white text-xs font-bold flex items-center justify-center">
-                        {i + 1}
-                      </span>
-                    </div>
-                    <h3 className="font-heading font-bold text-blue-navy text-sm mb-1">{step.title}</h3>
-                    <p className="text-slate-muted text-xs leading-relaxed">{step.text}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* FORM */}
-      <section className="py-20 sm:py-24 bg-blue-tint">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-10">
+      <section className="py-16 sm:py-20 bg-blue-tint/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_320px] gap-8 lg:gap-10 items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2 bg-white rounded-3xl p-7 sm:p-9 shadow-blue border border-blue-tint-dark"
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-soft border border-blue-tint-dark/40"
             >
-              <h2 className="font-heading font-bold text-2xl text-blue-navy mb-2">
-                {form.title || 'Visa Application Form'}
-              </h2>
-              <p className="text-slate-muted mb-10 text-sm">
-                {sections.personal || 'Personal Details'} · Fields marked with * are required.
-              </p>
-
               {submitStatus === 'success' ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-10"
+                  className="text-center py-12"
                   role="status"
                 >
-                  <div className="w-24 h-24 mx-auto rounded-full bg-blue-primary-light/10 flex items-center justify-center mb-6">
-                    <CheckCircle2 className="w-12 h-12 text-blue-primary" />
+                  <div className="w-20 h-20 mx-auto rounded-full bg-blue-tint flex items-center justify-center mb-5">
+                    <CheckCircle2 className="w-10 h-10 text-blue-primary" />
                   </div>
-                  <h3 className="font-heading font-bold text-2xl text-blue-navy mb-2">Application Received!</h3>
+                  <h2 className="font-heading font-bold text-2xl text-blue-navy mb-2">Application Received</h2>
                   <p className="text-slate-muted mb-8 max-w-md mx-auto">
-                    {form.successMessage || 'Your application has been submitted successfully.'}
+                    {form.successMessage || 'Your application has been submitted successfully. We will contact you soon.'}
                   </p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <Button href={whatsappLink} target="_blank" rel="noopener noreferrer" variant="blue" leftIcon={<MessageSquare className="w-4 h-4" />}>
-                      {form.whatsappButton || 'Send Details on WhatsApp'}
+                      Send on WhatsApp
                     </Button>
-                    <Button onClick={resetForm} variant="secondary" leftIcon={<ClipboardList className="w-4 h-4" />}>
-                      Submit Another Application
+                    <Button onClick={resetForm} variant="secondary">
+                      Submit Another
                     </Button>
                   </div>
                 </motion.div>
@@ -245,55 +191,51 @@ export default function Apply() {
                     aria-hidden="true"
                     className="hidden"
                   />
-                  {/* Personal */}
-                  <fieldset className="space-y-5">
-                    <legend className="font-heading font-bold text-blue-navy text-lg mb-2 border-b border-blue-tint-dark pb-2 w-full">
+
+                  <div>
+                    <h2 className="font-heading font-bold text-xl sm:text-2xl text-blue-navy">Visa Application Form</h2>
+                    <p className="text-slate-muted text-sm mt-1">Fields marked with * are required.</p>
+                  </div>
+
+                  <div className="space-y-5">
+                    <h3 className="font-heading font-semibold text-blue-navy text-base border-b border-blue-tint-dark/40 pb-2">
                       {sections.personal || 'Personal Details'}
-                    </legend>
-                    <div className="grid sm:grid-cols-2 gap-5">
+                    </h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <Field id="fullName" label={fields.fullName?.label || 'Full Name'} required error={errors.fullName}>
-                        <input id="fullName" name="fullName" type="text" value={formData.fullName} onChange={handleChange} placeholder={fields.fullName?.placeholder || 'Enter your full name'} className={inputClass(errors.fullName)} />
+                        <input id="fullName" name="fullName" type="text" value={formData.fullName} onChange={handleChange} placeholder={fields.fullName?.placeholder || 'Your full name'} className={inputClass(errors.fullName)} />
                       </Field>
                       <Field id="email" label={fields.email?.label || 'Email Address'} required error={errors.email}>
-                        <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder={fields.email?.placeholder || 'Enter your email'} className={inputClass(errors.email)} />
+                        <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder={fields.email?.placeholder || 'you@example.com'} className={inputClass(errors.email)} />
                       </Field>
                       <Field id="phone" label={fields.phone?.label || 'Phone Number'} required error={errors.phone}>
-                        <input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder={fields.phone?.placeholder || 'Enter your phone number'} className={inputClass(errors.phone)} />
+                        <input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder={fields.phone?.placeholder || '+91 XXXXX XXXXX'} className={inputClass(errors.phone)} />
                       </Field>
-                      <Field id="gender" label={fields.gender?.label || 'Gender'}>
-                        <select {...selectProps('gender')}>
-                          <option value="">{fields.gender?.placeholder || 'Select gender'}</option>
-                          {(fields.gender?.options ?? []).map((o) => (
-                            <option key={o} value={o}>{o}</option>
-                          ))}
-                        </select>
+                      <Field id="city" label={fields.city?.label || 'City / State'} required error={errors.city}>
+                        <input id="city" name="city" type="text" value={formData.city} onChange={handleChange} placeholder={fields.city?.placeholder || 'e.g. Kaithal, Haryana'} className={inputClass(errors.city)} />
+                      </Field>
+                      <Field id="nationality" label={fields.nationality?.label || 'Nationality'}>
+                        <input id="nationality" name="nationality" type="text" value={formData.nationality} onChange={handleChange} placeholder={fields.nationality?.placeholder || 'e.g. Indian'} className={inputClass(errors.nationality)} />
                       </Field>
                       <Field id="maritalStatus" label={fields.maritalStatus?.label || 'Marital Status'}>
                         <select {...selectProps('maritalStatus')}>
-                          <option value="">{fields.maritalStatus?.placeholder || 'Select marital status'}</option>
+                          <option value="">{fields.maritalStatus?.placeholder || 'Select'}</option>
                           {(fields.maritalStatus?.options ?? []).map((o) => (
                             <option key={o} value={o}>{o}</option>
                           ))}
                         </select>
                       </Field>
-                      <Field id="nationality" label={fields.nationality?.label || 'Nationality'}>
-                        <input id="nationality" name="nationality" type="text" value={formData.nationality} onChange={handleChange} placeholder={fields.nationality?.placeholder || 'e.g. Indian'} className={inputClass(errors.nationality)} />
-                      </Field>
-                      <Field id="city" label={fields.city?.label || 'Current City / State'} required error={errors.city}>
-                        <input id="city" name="city" type="text" value={formData.city} onChange={handleChange} placeholder={fields.city?.placeholder || 'e.g. Kaithal, Haryana'} className={inputClass(errors.city)} />
-                      </Field>
                     </div>
-                  </fieldset>
+                  </div>
 
-                  {/* Education */}
-                  <fieldset className="space-y-5">
-                    <legend className="font-heading font-bold text-blue-navy text-lg mb-2 border-b border-blue-tint-dark pb-2 w-full">
-                      {sections.passport || 'Education'}
-                    </legend>
-                    <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-5">
+                    <h3 className="font-heading font-semibold text-blue-navy text-base border-b border-blue-tint-dark/40 pb-2">
+                      {sections.passport || 'Education & Background'}
+                    </h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <Field id="highestQualification" label={fields.highestQualification?.label || 'Highest Qualification'}>
                         <select {...selectProps('highestQualification')}>
-                          <option value="">{fields.highestQualification?.placeholder || 'Select qualification'}</option>
+                          <option value="">{fields.highestQualification?.placeholder || 'Select'}</option>
                           {(fields.highestQualification?.options ?? []).map((o) => (
                             <option key={o} value={o}>{o}</option>
                           ))}
@@ -301,27 +243,26 @@ export default function Apply() {
                       </Field>
                       <Field id="englishTest" label={fields.englishTest?.label || 'English Test'}>
                         <select {...selectProps('englishTest')}>
-                          <option value="">{fields.englishTest?.placeholder || 'Select test'}</option>
+                          <option value="">{fields.englishTest?.placeholder || 'Select'}</option>
                           {(fields.englishTest?.options ?? []).map((o) => (
                             <option key={o} value={o}>{o}</option>
                           ))}
                         </select>
                       </Field>
-                      <Field id="englishScore" label={fields.englishScore?.label || 'English Test Score'}>
-                        <input id="englishScore" name="englishScore" type="text" value={formData.englishScore} onChange={handleChange} placeholder={fields.englishScore?.placeholder || 'e.g. IELTS 6.5 overall'} className={inputClass(errors.englishScore)} />
+                      <Field id="englishScore" label={fields.englishScore?.label || 'Test Score'} className="sm:col-span-2">
+                        <input id="englishScore" name="englishScore" type="text" value={formData.englishScore} onChange={handleChange} placeholder={fields.englishScore?.placeholder || 'e.g. IELTS 7.0 (optional)'} className={inputClass(errors.englishScore)} />
                       </Field>
                     </div>
-                  </fieldset>
+                  </div>
 
-                  {/* Application preference */}
-                  <fieldset className="space-y-5">
-                    <legend className="font-heading font-bold text-blue-navy text-lg mb-2 border-b border-blue-tint-dark pb-2 w-full">
-                      {sections.application || 'Application Preference'}
-                    </legend>
-                    <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-5">
+                    <h3 className="font-heading font-semibold text-blue-navy text-base border-b border-blue-tint-dark/40 pb-2">
+                      {sections.application || 'Visa Preference'}
+                    </h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <Field id="countryOfInterest" label={fields.countryOfInterest?.label || 'Preferred Country'} required error={errors.countryOfInterest}>
                         <select {...selectProps('countryOfInterest')}>
-                          <option value="">{fields.countryOfInterest?.placeholder || 'Select a country'}</option>
+                          <option value="">{fields.countryOfInterest?.placeholder || 'Select country'}</option>
                           {(fields.countryOfInterest?.options ?? []).map((o) => (
                             <option key={o} value={o}>{o}</option>
                           ))}
@@ -335,24 +276,21 @@ export default function Apply() {
                           ))}
                         </select>
                       </Field>
-                      <Field id="intake" label={fields.intake?.label || 'Preferred Intake / Travel Time'}>
+                      <Field id="intake" label={fields.intake?.label || 'Preferred Intake'} className="sm:col-span-2">
                         <select {...selectProps('intake')}>
-                          <option value="">{fields.intake?.placeholder || 'Select intake'}</option>
+                          <option value="">{fields.intake?.placeholder || 'Select (optional)'}</option>
                           {(fields.intake?.options ?? []).map((o) => (
                             <option key={o} value={o}>{o}</option>
                           ))}
                         </select>
                       </Field>
-                      <div className="sm:col-span-2">
-                        <Field id="message" label={fields.message?.label || 'Additional Details'} error={errors.message}>
-                          <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} placeholder={fields.message?.placeholder || 'Tell us anything else we should know...'} className={`${inputClass(errors.message)} resize-y`} />
-                        </Field>
-                      </div>
+                      <Field id="message" label={fields.message?.label || 'Additional Details'} className="sm:col-span-2">
+                        <textarea id="message" name="message" rows={3} value={formData.message} onChange={handleChange} placeholder={fields.message?.placeholder || 'Anything else you want us to know (optional)'} className={`${inputClass(errors.message)} resize-y`} />
+                      </Field>
                     </div>
-                  </fieldset>
+                  </div>
 
-                  {/* Consent */}
-                  <div>
+                  <div className="pt-2 space-y-4">
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input
                         type="checkbox"
@@ -361,87 +299,85 @@ export default function Apply() {
                           setConsent(e.target.checked);
                           if (errors.consent) setErrors((prev) => ({ ...prev, consent: '' }));
                         }}
-                        className="mt-1 w-4 h-4 accent-blue-primary"
+                        className="mt-1 w-4 h-4 accent-blue-primary rounded"
                       />
-                      <span className="text-sm text-slate-muted">
-                        {fields.consent || form.consent || 'I confirm the information provided is correct and consent to be contacted.'}
+                      <span className="text-sm text-slate-muted leading-relaxed">
+                        {fields.consent || form.consent || 'I confirm the information is correct and agree to be contacted by Sydney Immigration India.'}
                       </span>
                     </label>
-                    {errors.consent && <p className="text-red-500 text-xs mt-1">{errors.consent}</p>}
+                    {errors.consent && <p className="text-red-500 text-xs">{errors.consent}</p>}
+
+                    {submitStatus === 'error' && (
+                      <p className="text-red-700 text-sm bg-red-50 rounded-lg px-3 py-2" role="alert">
+                        Your enquiry could not be sent. Please try again or contact us directly.
+                      </p>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-blue-navy text-white font-semibold hover:bg-blue-primary disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 shadow-soft"
+                    >
+                      {isSubmitting ? 'Submitting...' : form.submitButton || 'Submit Application'}
+                      <Send className="w-4 h-4" />
+                    </button>
                   </div>
-
-                  {submitStatus === 'error' && (
-                    <p className="text-red-700 text-sm" role="alert">
-                      Your application enquiry was not sent. Please try again or contact us by phone/WhatsApp.
-                    </p>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-blue-primary to-blue-primary-light text-blue-navy font-bold shadow-blue hover:shadow-elevated disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
-                  >
-                    {isSubmitting ? 'Submitting...' : form.submitButton || 'Submit Application'}
-                    <Send className="w-4 h-4" />
-                  </button>
                 </form>
               )}
             </motion.div>
 
-            {/* SIDEBAR */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+            <motion.aside
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="space-y-5 lg:sticky lg:top-28"
             >
-              <div className="bg-white rounded-3xl p-7 shadow-blue border border-blue-tint-dark">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center">
+              <div className="bg-white rounded-2xl p-6 shadow-soft border border-blue-tint-dark/40">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-tint flex items-center justify-center">
                     <ShieldCheck className="w-5 h-5 text-blue-primary" />
                   </div>
-                  <h3 className="font-heading font-bold text-blue-navy">Why Apply Through Us?</h3>
+                  <h3 className="font-heading font-bold text-blue-navy">Why apply with us</h3>
                 </div>
-                <ul className="space-y-3 text-sm text-slate-muted">
+                <ul className="space-y-2.5 text-sm text-slate-muted">
                   {[
-                    'Free profile assessment & eligibility check',
-                    'Expert guidance by certified consultants',
-                    'End-to-end documentation support',
-                    'High visa success rate & honest advice',
-                    'Transparent process, no hidden charges',
+                    'Free profile assessment',
+                    'Expert visa guidance',
+                    'End-to-end documentation help',
+                    'Transparent process',
                   ].map((point) => (
                     <li key={point} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-blue-primary shrink-0 mt-0.5" />
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-blue-navy rounded-3xl p-7 text-white">
-                <h3 className="font-heading font-bold text-lg mb-2">Need help filling the form?</h3>
-                <p className="text-blue-tint-lightest text-sm mb-6">
-                  Talk to our experts — we&apos;ll guide you through the whole process.
-                </p>
-                <div className="space-y-3">
-                  <a href={contact.phoneLink} className="flex items-center gap-3 text-sm hover:text-blue-primary-light transition-colors">
+              <div className="bg-blue-navy rounded-2xl p-6 text-white">
+                <h3 className="font-heading font-bold text-lg mb-1">Need help?</h3>
+                <p className="text-blue-tint-lightest text-sm mb-5">Talk to our team for quick guidance.</p>
+                <div className="space-y-3 text-sm">
+                  <a href={contact.phoneLink} className="flex items-center gap-2.5 hover:text-blue-primary-light transition-colors">
                     <Phone className="w-4 h-4 text-blue-primary-light" /> {contact.phone}
                   </a>
-                  <a href={`mailto:${contact.emails?.[0]}`} className="flex items-center gap-3 text-sm hover:text-blue-primary-light transition-colors break-all">
-                    <Mail className="w-4 h-4 text-blue-primary-light shrink-0" /> {contact.emails?.[0]}
-                  </a>
+                  {contact.emails?.[0] && (
+                    <a href={`mailto:${contact.emails[0]}`} className="flex items-center gap-2.5 hover:text-blue-primary-light transition-colors break-all">
+                      <Mail className="w-4 h-4 text-blue-primary-light shrink-0" /> {contact.emails[0]}
+                    </a>
+                  )}
                 </div>
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 w-full flex items-center justify-center gap-2 px-5 py-3 bg-green-500 text-white font-bold rounded-full hover:bg-green-600 transition-colors"
+                  className="mt-5 w-full flex items-center justify-center gap-2 px-4 py-3 bg-white/10 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors"
                 >
-                  <MessageSquare className="w-4 h-4" /> Chat on WhatsApp
+                  <MessageSquare className="w-4 h-4" /> WhatsApp
                 </a>
               </div>
-            </motion.div>
+            </motion.aside>
           </div>
         </div>
       </section>

@@ -13,38 +13,37 @@ export default function PageBanner({ title, subtitle, image, breadcrumb }) {
           src={image}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover brightness-[0.55] contrast-110"
+          className="absolute inset-0 w-full h-full object-cover brightness-[0.7] contrast-105"
           width="1920"
           height="600"
           loading="eager"
           decoding="async"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-navy/95 via-blue-navy/70 to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(30,58,138,0.25),_transparent_70%)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-navy/80 via-blue-navy/35 to-blue-navy/10" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-12 z-10">
         <motion.nav
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-blue-tint-dark text-sm mb-3"
+          className="!text-white/90 text-sm mb-3"
           aria-label="Breadcrumb"
         >
-          <ol className="flex items-center">
+          <ol className="flex items-center text-white/90 drop-shadow-sm">
             <li>
               <Link to="/" className="hover:text-blue-primary-light transition-colors">
                 Home
               </Link>
             </li>
-            <li aria-hidden="true" className="mx-1">/</li>
-            <li aria-current="page" className="text-white/90">{breadcrumb || title}</li>
+            <li aria-hidden="true" className="mx-1 text-white/70">/</li>
+            <li aria-current="page" className="text-white font-medium">{breadcrumb || title}</li>
           </ol>
         </motion.nav>
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="font-heading font-extrabold text-4xl sm:text-5xl text-white"
+          className="!text-white font-heading font-extrabold text-4xl sm:text-5xl drop-shadow-md"
         >
           {title}
         </motion.h1>
@@ -53,7 +52,7 @@ export default function PageBanner({ title, subtitle, image, breadcrumb }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-blue-tint-lightest mt-2 max-w-2xl"
+            className="!text-white/90 mt-2 max-w-2xl drop-shadow-sm"
           >
             {subtitle}
           </motion.p>
