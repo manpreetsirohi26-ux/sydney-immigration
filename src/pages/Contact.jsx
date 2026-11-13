@@ -121,20 +121,20 @@ export default function Contact() {
       />
 
       <section className="py-20 sm:py-24 bg-blue-tint">
-        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
-          <div className="grid lg:grid-cols-2 gap-10">
+        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
+          <div className="grid lg:grid-cols-1 gap-10 max-w-3xl mx-auto">
             {/* FORM */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6 }}
               className="bg-white rounded-3xl p-7 sm:p-9 shadow-blue border border-blue-tint-dark"
             >
-              <h2 className="font-heading font-bold text-2xl text-blue-navy mb-2">
+              <h2 className="font-heading font-bold text-2xl text-blue-navy mb-2 text-center">
                 {form.title || 'Send Us a Message'}
               </h2>
-              <p className="text-slate-muted mb-8 text-sm">
+              <p className="text-slate-muted mb-8 text-sm text-center">
                 Fill out the form and our team will get back to you within 24 hours.
               </p>
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -279,23 +279,23 @@ export default function Contact() {
 
             {/* INFO */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl p-7 sm:p-9 shadow-blue border border-blue-tint-dark"
+              className="bg-white rounded-3xl p-7 sm:p-9 shadow-blue border border-blue-tint-dark text-center"
             >
               <h2 className="font-heading font-bold text-2xl text-blue-navy mb-6">
                 {info.heading || 'Contact Information'}
               </h2>
               <div className="space-y-6">
                 {infoItems.map((item, i) => (
-                  <div key={i} className="flex gap-4">
+                  <div key={i} className="flex flex-col items-center gap-3">
                     <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center shrink-0">
                       <item.icon className="w-5 h-5 text-blue-primary" />
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-heading font-bold text-blue-navy text-sm">{item.label}</h3>
+                      <h3 className="font-heading font-bold text-blue-navy text-sm mb-1">{item.label}</h3>
                       {item.link ? (
                         <a
                           href={item.link}
@@ -314,7 +314,7 @@ export default function Contact() {
               </div>
 
               {emailList.length > 0 && (
-                <div className="mt-4 space-y-1">
+                <div className="mt-6 space-y-1 text-center">
                   {emailList.map((e, i) => (
                     <a
                       key={i}
@@ -346,7 +346,7 @@ export default function Contact() {
 
       {/* MAP */}
       <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
+        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -370,7 +370,7 @@ export default function Contact() {
 
       {/* SOCIAL */}
       <section className="py-20 bg-blue-tint">
-        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20 text-center">
+        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24 text-center">
           <h2 className="font-heading font-bold text-3xl text-blue-navy mb-3">Connect With Us</h2>
           <p className="text-slate-muted mb-10">Follow us for immigration updates, success stories and tips.</p>
           <div className="flex flex-wrap justify-center gap-4">

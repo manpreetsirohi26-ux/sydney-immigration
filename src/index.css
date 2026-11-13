@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom Utility Classes */
 .container-custom {
-  @apply max-w-5xl mx-auto px-8 sm:px-14 lg:px-20;
+  @apply max-w-4xl mx-auto px-10 sm:px-16 lg:px-24;
 }
 
 .section-padding {

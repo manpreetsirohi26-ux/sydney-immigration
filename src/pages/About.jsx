@@ -46,37 +46,37 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="section-padding bg-white"
       >
-        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <ScrollReveal x={-30} y={0} className="relative">
+        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
+          <div className="grid lg:grid-cols-1 gap-12 items-center">
+            <ScrollReveal x={0} y={20} className="relative max-w-3xl mx-auto w-full">
               <div className="relative">
                 <img
                   src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80"
                   alt="Immigration consultants discussing visa options"
-                  className="rounded-3xl shadow-blue w-full h-[460px] object-cover"
+                  className="rounded-3xl shadow-blue w-full h-[360px] sm:h-[460px] object-cover"
                   width="900"
                   height="600"
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="absolute -bottom-8 -right-8 w-40 h-40 rounded-3xl border-4 border-blue-primary-light opacity-90" />
-                <div className="absolute -top-8 -left-8 w-32 h-32 rounded-3xl bg-blue-primary-light/20" />
+                <div className="absolute -bottom-6 -right-4 sm:-right-8 w-32 sm:w-40 h-32 sm:h-40 rounded-3xl border-4 border-blue-primary-light opacity-90" />
+                <div className="absolute -top-6 -left-4 sm:-left-8 w-24 sm:w-32 h-24 sm:h-32 rounded-3xl bg-blue-primary-light/20" />
               </div>
             </ScrollReveal>
-            <ScrollReveal x={30} y={0} delay={0.15} className="text-center lg:text-left">
+            <ScrollReveal x={0} y={20} delay={0.15} className="text-center">
               <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
                 Our Journey
               </span>
               <h2 className="font-heading text-3xl sm:text-4xl font-bold text-blue-navy mb-4 leading-tight">
                 {story.heading || 'Our Story'}
               </h2>
-              <div className="w-16 h-1 bg-blue-primary mb-8 rounded-full mx-auto lg:mx-0" />
-              <div className="space-y-5 text-slate-muted leading-relaxed text-sm sm:text-base max-w-2xl mx-auto lg:mx-0">
+              <div className="w-16 h-1 bg-blue-primary mb-8 rounded-full mx-auto" />
+              <div className="space-y-5 text-slate-muted leading-relaxed text-sm sm:text-base max-w-3xl mx-auto">
                 {paragraphs.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>
-              <div className="mt-12 flex justify-center lg:justify-start">
+              <div className="mt-12 flex justify-center">
                 <Button to="/contact" variant="blue" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
                   Start Your Journey
                 </Button>
@@ -96,7 +96,7 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="section-padding bg-section-alt"
       >
-        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
+        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
           <div className="text-center mb-16">
             <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
               Our Purpose
@@ -156,7 +156,7 @@ export default function About() {
           className="py-20 sm:py-24 bg-gradient-to-r from-blue-navy to-blue-navy-dark relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(30,58,138,0.3),_transparent_70%)]" />
-          <div className="relative max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
+          <div className="relative max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
             <div className="text-center mb-16">
               <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white leading-tight">Our Achievements</h2>
               <p className="text-blue-tint-lightest mt-3">Numbers that reflect our commitment to client success.</p>
@@ -190,7 +190,7 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="section-padding bg-section-alt"
       >
-        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
+        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
           <div className="text-center mb-16">
             <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
               Visit Us
@@ -198,11 +198,11 @@ export default function About() {
             <h2 className="section-heading">{branchInfo.heading || 'Kaithal Branch'}</h2>
             <div className="section-divider" />
           </div>
-          <div className="grid lg:grid-cols-2 gap-12">
-            <ScrollReveal x={-30} y={0}>
-              <div className="aesthetic-card p-7 space-y-5 h-full text-center sm:text-left">
+          <div className="grid lg:grid-cols-1 gap-10 max-w-3xl mx-auto">
+            <ScrollReveal x={0} y={20}>
+              <div className="aesthetic-card p-7 space-y-5 h-full text-center">
                 {branchDetails.map((item, i) => (
-                  <div key={i} className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center sm:items-start">
+                  <div key={i} className="flex flex-col gap-2 items-center">
                     <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center shrink-0">
                       <item.icon className="w-5 h-5 text-blue-primary" />
                     </div>
@@ -221,15 +221,15 @@ export default function About() {
                     </div>
                   </div>
                 ))}
-                <div className="flex justify-center sm:justify-start">
+                <div className="flex justify-center pt-2">
                   <Button to="/contact" variant="blue" size="sm" rightIcon={<ArrowRight className="w-4 h-4" />}>
                     Get Directions
                   </Button>
                 </div>
               </div>
             </ScrollReveal>
-            <ScrollReveal x={30} y={0}>
-              <div className="rounded-3xl overflow-hidden shadow-blue border border-blue-tint-dark/40 h-[460px]">
+            <ScrollReveal x={0} y={20}>
+              <div className="rounded-3xl overflow-hidden shadow-blue border border-blue-tint-dark/40 h-[360px] sm:h-[460px]">
                 <iframe
                   src={branchInfo.mapEmbedUrl || contact.mapEmbedUrl}
                   width="100%"

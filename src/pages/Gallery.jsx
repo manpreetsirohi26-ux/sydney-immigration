@@ -70,7 +70,7 @@ export default function Gallery() {
       />
 
       <section className="py-20 sm:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
+        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
           {/* Filters */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

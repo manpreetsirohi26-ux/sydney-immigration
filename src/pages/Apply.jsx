@@ -147,8 +147,8 @@ export default function Apply() {
       />
 
       <section className="py-16 sm:py-20 bg-blue-tint/30">
-        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
-          <div className="grid lg:grid-cols-[1fr_320px] gap-8 lg:gap-10 items-start">
+        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
+          <div className="grid lg:grid-cols-1 gap-8 lg:gap-10 items-start max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
