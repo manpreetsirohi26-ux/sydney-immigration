@@ -43,20 +43,20 @@ export default function Footer() {
     <footer className="bg-blue-navy text-white relative border-t-4 border-blue-primary">
       {/* Decorative blob */}
       <div className="absolute -top-40 -right-20 w-96 h-96 rounded-full blob-blue opacity-30 pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20 py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
           {/* Brand */}
-          <div>
-            <Link to="/" className="flex items-center gap-3 mb-6" aria-label="Sydney Immigration India Home">
+          <div className="flex flex-col items-center">
+            <Link to="/" className="flex flex-col items-center gap-3 mb-6" aria-label="Sydney Immigration India Home">
               <Logo size="lg" variant="navy" className="shrink-0" />
               <div>
                 <span className="block font-heading font-bold text-white text-lg">{siteContent.siteName}</span>
                 <span className="block text-xs text-slate-muted font-medium">{siteContent.branchName}</span>
               </div>
             </Link>
-            <p className="text-slate-muted text-sm leading-relaxed mb-5 max-w-xs">{footer.tagline}</p>
-            <p className="text-slate-muted/60 text-xs italic mb-7 max-w-xs break-words">{footer.disclaimer}</p>
-            <div className="flex gap-3">
+            <p className="text-slate-muted text-sm leading-relaxed mb-5 max-w-xs mx-auto">{footer.tagline}</p>
+            <p className="text-slate-muted/60 text-xs italic mb-7 max-w-xs mx-auto break-words">{footer.disclaimer}</p>
+            <div className="flex gap-3 justify-center">
               {socials.map(({ key, url, Icon, label }) => (
                 <a
                   key={key}
@@ -73,15 +73,15 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col items-center">
             <h4 className="font-heading font-bold text-white text-base mb-5 relative inline-block">
               Quick Links
-              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-blue-primary rounded-full" />
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-primary rounded-full" />
             </h4>
             <ul className="space-y-3">
               {footer.quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-slate-muted text-sm hover:text-blue-primary transition-colors flex items-center gap-2 group">
+                  <Link to={link.path} className="text-slate-muted text-sm hover:text-blue-primary transition-colors inline-flex items-center justify-center gap-2 group">
                     <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     {link.label}
                   </Link>
@@ -91,15 +91,15 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="flex flex-col items-center">
             <h4 className="font-heading font-bold text-white text-base mb-5 relative inline-block">
               Our Services
-              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-blue-primary rounded-full" />
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-primary rounded-full" />
             </h4>
             <ul className="space-y-3">
               {footer.servicesLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-slate-muted text-sm hover:text-blue-primary transition-colors flex items-center gap-2 group">
+                  <Link to={link.path} className="text-slate-muted text-sm hover:text-blue-primary transition-colors inline-flex items-center justify-center gap-2 group">
                     <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     {link.label}
                   </Link>
@@ -109,42 +109,42 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="flex flex-col items-center">
             <h4 className="font-heading font-bold text-white text-base mb-5 relative inline-block">
               Contact Us
-              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-blue-primary rounded-full" />
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-primary rounded-full" />
             </h4>
-            <ul className="space-y-4 text-sm">
+            <ul className="space-y-4 text-sm flex flex-col items-center">
               <li>
                 <a
                   href={contact.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(contact.address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-muted hover:text-blue-primary transition-colors flex items-start gap-2.5"
+                  className="text-slate-muted hover:text-blue-primary transition-colors inline-flex items-start justify-center gap-2.5 text-center"
                 >
                   <MapPin className="w-4 h-4 text-blue-primary shrink-0 mt-0.5" />
-                  <span className="break-words">{contact.address}</span>
+                  <span className="break-words max-w-xs">{contact.address}</span>
                 </a>
               </li>
               <li>
-                <a href={contact.phoneLink} className="text-slate-muted hover:text-blue-primary transition-colors flex items-center gap-2.5">
+                <a href={contact.phoneLink} className="text-slate-muted hover:text-blue-primary transition-colors inline-flex items-center justify-center gap-2.5">
                   <Phone className="w-4 h-4 text-blue-primary shrink-0" />
                   {contact.phone}
                 </a>
               </li>
-              <li className="flex flex-col gap-2">
+              <li className="flex flex-col gap-2 items-center">
                 {contact.emails.map((email, i) => (
                   <a
                     key={i}
                     href={`mailto:${email}`}
-                    className="text-slate-muted hover:text-blue-primary transition-colors flex items-start gap-2.5"
+                    className="text-slate-muted hover:text-blue-primary transition-colors inline-flex items-start justify-center gap-2.5"
                   >
                     <Mail className="w-4 h-4 text-blue-primary shrink-0 mt-0.5" />
                     <span className="break-all">{email}</span>
                   </a>
                 ))}
               </li>
-              <li className="flex items-start gap-2.5">
+              <li className="inline-flex items-start justify-center gap-2.5">
                 <Clock className="w-4 h-4 text-blue-primary shrink-0 mt-0.5" />
                 <span className="text-slate-muted">{contact.workingHours}</span>
               </li>
@@ -153,9 +153,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-muted/60 relative z-10">
+        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-3 text-xs text-slate-muted/60 relative z-10 text-center">
           <p>{footer.copyright.replace('2025', '2026')}</p>
-          <p>{footer.disclaimer}</p>
+          <p className="max-w-2xl">{footer.disclaimer}</p>
         </div>
       </div>
     </footer>

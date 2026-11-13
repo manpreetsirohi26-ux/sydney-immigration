@@ -53,7 +53,7 @@ export default function Services() {
         transition={{ duration: 0.6 }}
         className="py-20 sm:py-24 bg-white"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20 space-y-20">
           {visaServices.map((service, index) => {
             const Icon = getVisaIcon(service.icon);
             const isReverse = index % 2 === 1;
@@ -64,17 +64,17 @@ export default function Services() {
                 y={40}
                 className={`grid lg:grid-cols-2 gap-12 items-center ${isReverse ? 'lg:grid-flow-dense' : ''}`}
               >
-                <div className={`scroll-mt-32 ${isReverse ? 'lg:col-start-2' : ''}`} id={id}>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center mb-5">
+                <div className={`scroll-mt-32 ${isReverse ? 'lg:col-start-2' : ''} text-center`} id={id}>
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center mb-5 mx-auto">
                     <Icon className="w-8 h-8 text-blue-primary" />
                   </div>
                   <span className="inline-block px-3 py-1 rounded-full bg-blue-tint text-blue-navy text-xs font-bold mb-3">
                     {service.destination}
                   </span>
                   <h2 className="font-heading font-bold text-3xl text-blue-navy mb-3">{service.title}</h2>
-                  <div className="w-16 h-0.5 bg-blue-primary mb-5 rounded-full" />
-                  <p className="text-slate-muted leading-relaxed mb-6">{service.description}</p>
-                  <ul className="space-y-3 mb-8">
+                  <div className="w-16 h-0.5 bg-blue-primary mb-5 rounded-full mx-auto" />
+                  <p className="text-slate-muted leading-relaxed mb-6 max-w-xl mx-auto">{service.description}</p>
+                  <ul className="space-y-3 mb-8 inline-block text-left mx-auto">
                     {(service.features ?? []).map((f, i) => (
                       <li key={i} className="flex items-center gap-3 text-slate-muted text-sm">
                         <CheckCircle className="w-5 h-5 text-blue-primary shrink-0" />
@@ -82,9 +82,11 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
-                  <Button to="/contact" variant="blue" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                    Enquire Now
-                  </Button>
+                  <div className="flex justify-center">
+                    <Button to="/contact" variant="blue" rightIcon={<ArrowRight className="w-4 h-4" />}>
+                      Enquire Now
+                    </Button>
+                  </div>
                 </div>
                 <div className={isReverse ? 'lg:col-start-1 lg:row-start-1' : ''}>
                   <motion.div whileHover={{ scale: 1.02 }} className="relative rounded-3xl overflow-hidden shadow-blue border border-blue-tint-dark">

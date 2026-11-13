@@ -23,7 +23,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
       {/* Slim navy top bar */}
       <div className="hidden md:block bg-blue-navy text-white h-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between text-sm">
+        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20 h-full flex items-center justify-between text-sm">
           <div className="flex items-center gap-5">
             <a href={contact.phoneLink} className="flex items-center gap-2 hover:text-blue-primary-light transition-colors">
               <Phone className="w-4 h-4 text-blue-primary-light" />
@@ -47,7 +47,7 @@ export default function Navbar() {
           isScrolled ? 'shadow-soft border-blue-tint-lightest' : 'border-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group" aria-label={siteContent.siteName}>
             <Logo size="md" variant="navy" className="shrink-0" />

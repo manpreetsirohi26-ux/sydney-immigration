@@ -147,7 +147,7 @@ export default function Apply() {
       />
 
       <section className="py-16 sm:py-20 bg-blue-tint/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
           <div className="grid lg:grid-cols-[1fr_320px] gap-8 lg:gap-10 items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -192,7 +192,7 @@ export default function Apply() {
                     className="hidden"
                   />
 
-                  <div>
+                  <div className="text-center">
                     <h2 className="font-heading font-bold text-xl sm:text-2xl text-blue-navy">Visa Application Form</h2>
                     <p className="text-slate-muted text-sm mt-1">Fields marked with * are required.</p>
                   </div>

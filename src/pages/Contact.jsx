@@ -121,7 +121,7 @@ export default function Contact() {
       />
 
       <section className="py-20 sm:py-24 bg-blue-tint">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
           <div className="grid lg:grid-cols-2 gap-10">
             {/* FORM */}
             <motion.div
@@ -346,7 +346,7 @@ export default function Contact() {
 
       {/* MAP */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -370,7 +370,7 @@ export default function Contact() {
 
       {/* SOCIAL */}
       <section className="py-20 bg-blue-tint">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-5xl mx-auto px-8 sm:px-14 lg:px-20 text-center">
           <h2 className="font-heading font-bold text-3xl text-blue-navy mb-3">Connect With Us</h2>
           <p className="text-slate-muted mb-10">Follow us for immigration updates, success stories and tips.</p>
           <div className="flex flex-wrap justify-center gap-4">

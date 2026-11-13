@@ -121,7 +121,7 @@ export default function Home() {
           <Plane className="w-8 h-8 sm:w-10 sm:h-10" />
         </motion.div>
         {/* Content on left */}
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-36 sm:px-8 sm:py-48 lg:py-56">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16 py-36 sm:py-48 lg:py-56">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -129,7 +129,7 @@ export default function Home() {
               hidden: {},
               visible: { transition: { staggerChildren: 0.18 } },
             }}
-            className="max-w-3xl space-y-8 sm:space-y-9 text-left"
+            className="max-w-3xl mx-auto space-y-8 sm:space-y-9 text-center"
           >
             <motion.h1
               variants={{
@@ -145,7 +145,7 @@ export default function Home() {
                 hidden: { opacity: 0, y: 28 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
               }}
-              className="max-w-xl text-lg leading-8 text-blue-tint-lightest sm:text-xl sm:leading-9 mb-2"
+              className="max-w-xl mx-auto text-lg leading-8 text-blue-tint-lightest sm:text-xl sm:leading-9 mb-2"
             >
               {hero.subheading}
             </motion.p>
@@ -154,7 +154,7 @@ export default function Home() {
                 hidden: { opacity: 0, y: 24 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' } },
               }}
-              className="flex flex-wrap gap-4 sm:gap-5 justify-start"
+              className="flex flex-wrap gap-4 sm:gap-5 justify-center"
             >
               <Button
                 to={hero.primaryButton?.link || '/contact'}
