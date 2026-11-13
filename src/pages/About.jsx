@@ -48,7 +48,7 @@ export default function About() {
       >
         <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
           <div className="grid lg:grid-cols-1 gap-12 items-center">
-            <ScrollReveal x={0} y={20} className="relative max-w-3xl mx-auto w-full">
+            <ScrollReveal x={0} y={20} className="relative max-w-2xl mx-auto w-full">
               <div className="relative">
                 <img
                   src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80"
@@ -71,7 +71,7 @@ export default function About() {
                 {story.heading || 'Our Story'}
               </h2>
               <div className="w-16 h-1 bg-blue-primary mb-8 rounded-full mx-auto" />
-              <div className="space-y-5 text-slate-muted leading-relaxed text-sm sm:text-base max-w-3xl mx-auto">
+              <div className="space-y-5 text-slate-muted leading-relaxed text-sm sm:text-base max-w-2xl mx-auto">
                 {paragraphs.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
@@ -198,7 +198,7 @@ export default function About() {
             <h2 className="section-heading">{branchInfo.heading || 'Kaithal Branch'}</h2>
             <div className="section-divider" />
           </div>
-          <div className="grid lg:grid-cols-1 gap-10 max-w-3xl mx-auto">
+          <div className="grid lg:grid-cols-1 gap-10 max-w-2xl mx-auto">
             <ScrollReveal x={0} y={20}>
               <div className="aesthetic-card p-7 space-y-5 h-full text-center">
                 {branchDetails.map((item, i) => (

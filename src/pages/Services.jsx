@@ -63,7 +63,7 @@ export default function Services() {
                 y={40}
                 className="scroll-mt-32 rounded-3xl border border-blue-tint-dark/40 bg-white p-6 sm:p-8 lg:p-10 shadow-soft"
               >
-                <div id={id} className="text-center max-w-3xl mx-auto">
+                <div id={id} className="text-center max-w-2xl mx-auto">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center mb-5 mx-auto">
                     <Icon className="w-8 h-8 text-blue-primary" />
                   </div>
@@ -73,7 +73,7 @@ export default function Services() {
                   <h2 className="font-heading font-bold text-3xl text-blue-navy mb-3">{service.title}</h2>
                   <div className="w-16 h-0.5 bg-blue-primary mb-5 rounded-full mx-auto" />
                   <p className="text-slate-muted leading-relaxed mb-6">{service.description}</p>
-                  <ul className="grid sm:grid-cols-2 gap-3 mb-8 text-left max-w-xl mx-auto">
+                  <ul className="grid sm:grid-cols-2 gap-3 mb-8 text-left max-w-lg mx-auto">
                     {(service.features ?? []).map((f, i) => (
                       <li key={i} className="flex items-center gap-3 text-slate-muted text-sm">
                         <CheckCircle className="w-5 h-5 text-blue-primary shrink-0" />
@@ -87,7 +87,7 @@ export default function Services() {
                     </Button>
                   </div>
                 </div>
-                <div className="mt-8 max-w-3xl mx-auto">
+                <div className="mt-8 max-w-2xl mx-auto">
                   <motion.div whileHover={{ scale: 1.01 }} className="relative rounded-3xl overflow-hidden shadow-blue border border-blue-tint-dark">
                     <img
                       src={visaImagesBySlug[service.slug] || fallbackVisaImages[index % fallbackVisaImages.length]}

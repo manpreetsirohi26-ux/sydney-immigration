@@ -120,8 +120,8 @@ export default function Home() {
         >
           <Plane className="w-8 h-8 sm:w-10 sm:h-10" />
         </motion.div>
-        {/* Content on left */}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16 py-36 sm:py-48 lg:py-56">
+        {/* Content */}
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-10 sm:px-16 lg:px-24 py-36 sm:py-48 lg:py-56">
           <motion.div
             initial="hidden"
             animate="visible"

@@ -122,7 +122,7 @@ export default function Contact() {
 
       <section className="py-20 sm:py-24 bg-blue-tint">
         <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
-          <div className="grid lg:grid-cols-1 gap-10 max-w-3xl mx-auto">
+          <div className="grid lg:grid-cols-1 gap-10 max-w-2xl mx-auto">
             {/* FORM */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
