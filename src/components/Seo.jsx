@@ -4,6 +4,7 @@ import { siteContent } from '../data/content';
 
 const SITE_URL = 'https://sydneyimmigrationindia.com';
 const DEFAULT_IMAGE = '/sydney-immigration-logo.png';
+const DEFAULT_IMAGE_META = { width: '579', height: '453', type: 'image/png' };
 const PAGE_LABELS = {
   '/': 'Home',
   '/about': 'About',
@@ -167,11 +168,18 @@ export default function Seo({
     setMetaTag('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
     setMetaTag('meta[property="og:image"]', 'property', 'og:image', imageUrl);
     setMetaTag('meta[property="og:image:alt"]', 'property', 'og:image:alt', `${siteContent.siteName} logo`);
+    const imageMeta = image === DEFAULT_IMAGE ? DEFAULT_IMAGE_META : { width: '', height: '', type: '' };
+    if (imageMeta.type) {
+      setMetaTag('meta[property="og:image:type"]', 'property', 'og:image:type', imageMeta.type);
+      setMetaTag('meta[property="og:image:width"]', 'property', 'og:image:width', imageMeta.width);
+      setMetaTag('meta[property="og:image:height"]', 'property', 'og:image:height', imageMeta.height);
+    }
     setMetaTag('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
     setMetaTag('meta[name="twitter:url"]', 'name', 'twitter:url', canonicalUrl);
     setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', pageTitle);
     setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', metaDescription);
     setMetaTag('meta[name="twitter:image"]', 'name', 'twitter:image', imageUrl);
+    setMetaTag('meta[name="twitter:image:alt"]', 'name', 'twitter:image:alt', `${siteContent.siteName} preview`);
     setCanonicalLink(canonicalUrl);
 
     let jsonLdTag = document.head.querySelector('script[data-seo-jsonld]');

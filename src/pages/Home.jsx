@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -43,8 +43,28 @@ const content = siteContent;
 const stats = content.about?.stats ?? [];
 const goals = content.goals ?? [];
 
+const heroImages = [
+  {
+    src: 'https://images.unsplash.com/photo-1529070538774-18298c8fb782?auto=format&fit=crop&w=1920&q=80',
+    alt: 'Airplane flying above the clouds',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80',
+    alt: 'Airplane wing over scenic landscape',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80',
+    alt: 'Students celebrating international study success',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80',
+    alt: 'Traveler exploring a global destination',
+  },
+];
+
 export default function Home() {
   const [activeGoal, setActiveGoal] = useState(goals[0]?.id ?? null);
+  const [heroIndex, setHeroIndex] = useState(0);
   const activeGoalData = goals.find((goal) => goal.id === activeGoal) ?? goals[0] ?? {};
   const ActiveGoalIcon = goalIcons[activeGoalData.id] ?? GraduationCap;
   const hero = content.hero ?? {};
@@ -52,6 +72,13 @@ export default function Home() {
   const destinations = content.destinations ?? [];
   const processSteps = content.processSteps ?? [];
   const testimonials = content.testimonials ?? [];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex((i) => (i + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
@@ -62,18 +89,26 @@ export default function Home() {
       />
       {/* HERO */}
       <section className="relative min-h-[90svh] sm:min-h-[85vh] lg:min-h-[82vh] overflow-x-hidden bg-blue-navy flex items-center">
-        {/* Background picture */}
-        <div className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto lg:w-[55%] h-full">
-          <img
-            src="https://images.unsplash.com/photo-1529070538774-18298c8fb782?auto=format&fit=crop&w=1920&q=80"
-            alt="Airplane flying above the clouds"
-            className="h-full w-full object-cover object-center lg:object-right opacity-40 lg:opacity-100"
-            width="1920"
-            height="1080"
-            fetchPriority="high"
-            decoding="async"
-            aria-hidden="true"
-          />
+        {/* Background picture slider */}
+        <div className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto lg:w-[55%] h-full overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={heroImages[heroIndex].src}
+              src={heroImages[heroIndex].src}
+              alt={heroImages[heroIndex].alt}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.1, ease: 'easeInOut' }}
+              className="h-full w-full object-cover object-center lg:object-right opacity-40 lg:opacity-100"
+              width="1920"
+              height="1080"
+              fetchPriority={heroIndex === 0 ? 'high' : 'auto'}
+              loading={heroIndex === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              aria-hidden="true"
+            />
+          </AnimatePresence>
         </div>
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-navy/90 via-blue-navy/80 to-blue-navy/90 lg:bg-gradient-to-r lg:from-blue-navy lg:via-blue-navy/90 lg:to-transparent" />
