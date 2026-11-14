@@ -112,7 +112,7 @@ export default function Home() {
           <Plane className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
         </motion.div>
         {/* Content */}
-        <div className="relative z-10 container-custom py-28 sm:py-36 md:py-44 lg:py-56">
+        <div className="relative z-10 container-custom py-24 sm:py-32 md:py-40 lg:py-56">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -127,7 +127,7 @@ export default function Home() {
                 hidden: { opacity: 0, y: 34 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
               }}
-              className="font-heading text-3xl xs:text-4xl font-bold leading-tight !text-white sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
+              className="font-heading text-[1.85rem] xs:text-4xl font-bold leading-[1.15] !text-white sm:text-5xl md:text-6xl lg:text-7xl tracking-tight break-words"
             >
               {hero.heading || 'Your Gateway to Global Opportunities'}
             </motion.h1>
@@ -136,7 +136,7 @@ export default function Home() {
                 hidden: { opacity: 0, y: 28 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
               }}
-              className="max-w-xl mx-auto text-base leading-7 !text-white/90 sm:text-lg sm:leading-8 md:text-xl md:leading-9 mb-2"
+              className="max-w-xl mx-auto text-sm leading-6 !text-white/90 sm:text-lg sm:leading-8 md:text-xl md:leading-9 mb-2"
             >
               {hero.subheading}
             </motion.p>

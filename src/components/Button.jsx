@@ -19,9 +19,9 @@ const variants = {
 
 const sizes = {
   sm: 'px-4 py-2 text-sm gap-1.5',
-  md: 'px-6 py-3 text-base gap-2',
-  lg: 'px-8 py-3.5 text-base gap-2',
-  xl: 'px-10 py-5 text-xl gap-3',
+  md: 'px-5 sm:px-6 py-3 text-sm sm:text-base gap-2',
+  lg: 'px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base gap-2',
+  xl: 'px-6 sm:px-10 py-3.5 sm:py-5 text-base sm:text-xl gap-2 sm:gap-3',
 };
 
 function buttonClasses({ variant = 'primary', size = 'md', fullWidth = false, className = '' } = {}) {
