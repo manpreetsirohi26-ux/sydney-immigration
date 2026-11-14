@@ -2,6 +2,17 @@ const GROQ_MODEL = 'openai/gpt-oss-20b';
 const MAX_MESSAGES = 10;
 const MAX_MESSAGE_LENGTH = 1600;
 
+const allowedOrigins = new Set([
+  'https://sydney-immigration.vercel.app',
+  'https://sydneyimmigrationindia.com',
+  'https://www.sydneyimmigrationindia.com',
+  'http://localhost:5173',
+  'http://localhost:4173',
+]);
+const allowedVercelPreviewOrigin =
+  /^https:\/\/sydney-immigration-[a-z0-9-]+-manpreetsirohi26-ux\.vercel\.app$/;
+const allowedCodespacesOrigin = /^https:\/\/[a-z0-9-]+-\d+\.app\.github\.dev$/;
+
 const SYSTEM_PROMPT = `You are the friendly chat assistant for Sydney Immigration India, Kaithal branch, Haryana, India.
 Business information:
 - Services: Study, Work, PR, and Visitor visas for Australia, Canada, the UK, the USA, New Zealand, and Europe.
@@ -16,6 +27,14 @@ Rules:
 - Do not give legal advice.
 - For specific personal cases, ask the visitor to book a free consultation or call the office.
 - Do not invent business details, fees, requirements, or policies.`;
+
+function isAllowedOrigin(origin) {
+  return (
+    allowedOrigins.has(origin) ||
+    allowedVercelPreviewOrigin.test(origin) ||
+    allowedCodespacesOrigin.test(origin)
+  );
+}
 
 function getMessages(body) {
   if (!Array.isArray(body.messages)) return null;
@@ -38,6 +57,15 @@ function getMessages(body) {
 }
 
 export default async function handler(req, res) {
+  const origin = req.headers.origin;
+  if (origin && isAllowedOrigin(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Method not allowed.' });

@@ -13,11 +13,10 @@ import {
 } from 'lucide-react';
 import { siteContent } from '../data/content';
 
-const defaultApiBaseUrl = window.location.hostname === 'localhost'
+const defaultApiBaseUrl = import.meta.env.DEV
   ? 'https://sydney-immigration.vercel.app'
   : window.location.origin;
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || defaultApiBaseUrl)
-  .replace(/\/+$/, '');
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || defaultApiBaseUrl).replace(/\/+$/, '');
 
 const welcomeMessage = {
   role: 'assistant',
@@ -89,11 +88,21 @@ export default function ChatWidget() {
             .map(({ role, content }) => ({ role, content: content.slice(0, 1600) })),
         }),
       });
-      const result = await response.json();
-      if (!response.ok) {
-        throw new Error(result.error || 'Chat is temporarily unavailable. Please try again shortly.');
+
+      const raw = await response.text();
+      let result = null;
+      if (raw) {
+        try {
+          result = JSON.parse(raw);
+        } catch {
+          result = null;
+        }
       }
-      if (typeof result.reply !== 'string' || !result.reply.trim()) {
+
+      if (!response.ok) {
+        throw new Error(result?.error || 'Chat is temporarily unavailable. Please try again shortly.');
+      }
+      if (typeof result?.reply !== 'string' || !result.reply.trim()) {
         throw new Error('Chat could not prepare a reply. Please try again.');
       }
       setMessages((current) => [...current, makeMessage('assistant', result.reply.trim())]);
