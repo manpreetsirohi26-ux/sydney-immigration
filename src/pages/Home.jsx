@@ -61,13 +61,13 @@ export default function Home() {
         keywords="immigration consultant Kaithal, visa consultant Kaithal, visa consultancy Haryana, study visa consultant, PR consultant Haryana"
       />
       {/* HERO */}
-      <section className="relative min-h-[82vh] overflow-hidden">
-        {/* Background picture pinned to right side */}
-        <div className="absolute inset-y-0 right-0 w-full max-w-[55%] h-full">
+      <section className="relative min-h-[85vh] lg:min-h-[82vh] overflow-hidden bg-blue-navy">
+        {/* Background picture */}
+        <div className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto lg:w-[55%] h-full">
           <img
             src="https://images.unsplash.com/photo-1529070538774-18298c8fb782?auto=format&fit=crop&w=1920&q=80"
             alt="Airplane flying above the clouds"
-            className="h-full w-full object-cover object-right"
+            className="h-full w-full object-cover object-center lg:object-right opacity-40 lg:opacity-100"
             width="1920"
             height="1080"
             fetchPriority="high"
@@ -75,53 +75,44 @@ export default function Home() {
             aria-hidden="true"
           />
         </div>
-        {/* Dark blue overlay over picture */}
-        <div className="absolute inset-y-0 right-0 w-full max-w-[55%] bg-gradient-to-r from-blue-navy/95 via-blue-navy/80 to-transparent" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-navy/90 via-blue-navy/80 to-blue-navy/90 lg:bg-gradient-to-r lg:from-blue-navy lg:via-blue-navy/90 lg:to-transparent" />
         {/* Blue animations behind content */}
-        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-blue-primary/20 blur-[120px] animate-blob" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[520px] h-[520px] rounded-full bg-blue-primary/15 blur-[120px] animate-blob" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-[-10%] left-[-10%] w-64 h-64 sm:w-96 sm:h-96 lg:w-[600px] lg:h-[600px] rounded-full bg-blue-primary/20 blur-[80px] sm:blur-[120px] animate-blob" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-56 h-56 sm:w-80 sm:h-80 lg:w-[520px] lg:h-[520px] rounded-full bg-blue-primary/15 blur-[80px] sm:blur-[120px] animate-blob" style={{ animationDelay: '-3s' }} />
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-12 left-1/3 h-72 w-72 rounded-full bg-blue-primary/15 blur-4xl"
+          className="pointer-events-none absolute -top-12 left-1/3 h-40 w-40 sm:h-56 sm:w-56 lg:h-72 lg:w-72 rounded-full bg-blue-primary/15 blur-3xl lg:blur-4xl"
           animate={{ x: [0, -40, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
           transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 left-1/3 h-56 w-56 rounded-full bg-blue-primary-lighter/25 blur-4xl"
+          className="pointer-events-none absolute bottom-0 left-1/3 h-32 w-32 sm:h-44 sm:w-44 lg:h-56 lg:w-56 rounded-full bg-blue-primary-lighter/25 blur-3xl lg:blur-4xl"
           animate={{ x: [0, 35, 0], y: [0, -28, 0] }}
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
         />
         {/* Flying airplane animation */}
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute z-20 text-white/40 drop-shadow-lg"
+          className="pointer-events-none absolute z-20 text-white/40 drop-shadow-lg hidden sm:block"
           initial={{ x: '-15vw', y: '65vh', rotate: 20, opacity: 0 }}
           animate={{ x: '110vw', y: '10vh', opacity: [0, 1, 1, 0] }}
           transition={{ duration: 16, repeat: Infinity, ease: 'linear', repeatDelay: 2 }}
         >
-          <Plane className="w-14 h-14 sm:w-16 sm:h-16" />
+          <Plane className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16" />
         </motion.div>
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute z-20 text-blue-primary-light/30"
+          className="pointer-events-none absolute z-20 text-blue-primary-light/30 hidden sm:block"
           initial={{ x: '-20vw', y: '75vh', rotate: 15, opacity: 0 }}
           animate={{ x: '115vw', y: '25vh', opacity: [0, 0.8, 0.8, 0] }}
           transition={{ duration: 22, repeat: Infinity, ease: 'linear', delay: 6, repeatDelay: 3 }}
         >
-          <Plane className="w-10 h-10 sm:w-12 sm:h-12" />
-        </motion.div>
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none absolute z-20 text-white/20"
-          initial={{ x: '5vw', y: '80vh', rotate: 25, opacity: 0 }}
-          animate={{ x: '100vw', y: '5vh', opacity: [0, 0.6, 0.6, 0] }}
-          transition={{ duration: 26, repeat: Infinity, ease: 'linear', delay: 12, repeatDelay: 4 }}
-        >
-          <Plane className="w-8 h-8 sm:w-10 sm:h-10" />
+          <Plane className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
         </motion.div>
         {/* Content */}
-        <div className="relative z-10 container-custom py-36 sm:py-48 lg:py-56">
+        <div className="relative z-10 container-custom py-28 sm:py-36 md:py-44 lg:py-56">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -136,7 +127,7 @@ export default function Home() {
                 hidden: { opacity: 0, y: 34 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
               }}
-              className="font-heading text-4xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl tracking-tight"
+              className="font-heading text-3xl xs:text-4xl font-bold leading-tight !text-white sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
             >
               {hero.heading || 'Your Gateway to Global Opportunities'}
             </motion.h1>
@@ -145,7 +136,7 @@ export default function Home() {
                 hidden: { opacity: 0, y: 28 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
               }}
-              className="max-w-xl mx-auto text-lg leading-8 text-blue-tint-lightest sm:text-xl sm:leading-9 mb-2"
+              className="max-w-xl mx-auto text-base leading-7 !text-white/90 sm:text-lg sm:leading-8 md:text-xl md:leading-9 mb-2"
             >
               {hero.subheading}
             </motion.p>

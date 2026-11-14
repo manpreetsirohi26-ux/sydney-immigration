@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
  */
 export default function PageBanner({ title, subtitle, image, breadcrumb }) {
   return (
-    <section className="relative h-72 sm:h-80 overflow-hidden flex items-end">
+    <section className="relative h-64 sm:h-72 md:h-80 overflow-hidden flex items-end">
       {image && (
         <img
           src={image}

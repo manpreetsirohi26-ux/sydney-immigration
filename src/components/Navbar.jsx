@@ -23,7 +23,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
       {/* Slim navy top bar */}
       <div className="hidden md:block bg-blue-navy text-white h-10">
-        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24 h-full flex items-center justify-between text-sm">
+        <div className="container-custom h-full flex items-center justify-between text-sm gap-4">
           <div className="flex items-center gap-5">
             <a href={contact.phoneLink} className="flex items-center gap-2 hover:text-blue-primary-light transition-colors">
               <Phone className="w-4 h-4 text-blue-primary-light" />
@@ -47,7 +47,7 @@ export default function Navbar() {
           isScrolled ? 'shadow-soft border-blue-tint-lightest' : 'border-transparent'
         }`}
       >
-        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24 h-16 flex items-center justify-between">
+        <div className="container-custom h-16 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group" aria-label={siteContent.siteName}>
             <Logo size="md" variant="navy" className="shrink-0" />
@@ -58,13 +58,13 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-5">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 aria-current={location.pathname === item.path ? 'page' : undefined}
-                className={`relative px-5 py-2.5 text-sm font-semibold rounded-2xl transition-all duration-300 ${
+                className={`relative px-4 xl:px-5 py-2.5 text-sm font-semibold rounded-2xl transition-all duration-300 whitespace-nowrap ${
                   location.pathname === item.path
                     ? 'text-white bg-blue-primary shadow-blue'
                     : 'text-slate-muted hover:text-blue-primary hover:bg-blue-tint-lightest'

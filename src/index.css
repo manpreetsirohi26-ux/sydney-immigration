@@ -74,6 +74,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -84,6 +85,7 @@ body {
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -95,11 +97,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom Utility Classes */
 .container-custom {
-  @apply max-w-4xl mx-auto px-10 sm:px-16 lg:px-24;
+  @apply w-full max-w-5xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16;
 }
 
 .section-padding {
-  @apply py-14 sm:py-18 lg:py-20;
+  @apply py-12 sm:py-16 lg:py-20;
 }
 
 .section-heading {
