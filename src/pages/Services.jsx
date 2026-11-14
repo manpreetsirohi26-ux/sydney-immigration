@@ -53,7 +53,7 @@ export default function Services() {
         transition={{ duration: 0.6 }}
         className="py-20 sm:py-24 bg-white"
       >
-        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24 space-y-16">
+        <div className="container-custom space-y-16">
           {visaServices.map((service, index) => {
             const Icon = getVisaIcon(service.icon);
             const id = service.slug || String(service.title || '').toLowerCase().replace(/\s+/g, '-');
@@ -63,7 +63,7 @@ export default function Services() {
                 y={40}
                 className="scroll-mt-32 rounded-3xl border border-blue-tint-dark/40 bg-white p-6 sm:p-8 lg:p-10 shadow-soft"
               >
-                <div id={id} className="text-center max-w-2xl mx-auto">
+                <div id={id} className="text-center max-w-3xl mx-auto">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-primary-light/20 to-blue-primary/5 flex items-center justify-center mb-5 mx-auto">
                     <Icon className="w-8 h-8 text-blue-primary" />
                   </div>
@@ -73,7 +73,7 @@ export default function Services() {
                   <h2 className="font-heading font-bold text-3xl text-blue-navy mb-3">{service.title}</h2>
                   <div className="w-16 h-0.5 bg-blue-primary mb-5 rounded-full mx-auto" />
                   <p className="text-slate-muted leading-relaxed mb-6">{service.description}</p>
-                  <ul className="grid sm:grid-cols-2 gap-3 mb-8 text-left max-w-lg mx-auto">
+                  <ul className="grid sm:grid-cols-2 gap-3 mb-8 text-left max-w-xl mx-auto">
                     {(service.features ?? []).map((f, i) => (
                       <li key={i} className="flex items-center gap-3 text-slate-muted text-sm">
                         <CheckCircle className="w-5 h-5 text-blue-primary shrink-0" />
@@ -87,7 +87,7 @@ export default function Services() {
                     </Button>
                   </div>
                 </div>
-                <div className="mt-8 max-w-2xl mx-auto">
+                <div className="mt-8 max-w-3xl mx-auto">
                   <motion.div whileHover={{ scale: 1.01 }} className="relative rounded-3xl overflow-hidden shadow-blue border border-blue-tint-dark">
                     <img
                       src={visaImagesBySlug[service.slug] || fallbackVisaImages[index % fallbackVisaImages.length]}
@@ -120,7 +120,7 @@ export default function Services() {
         className="py-20 bg-gradient-to-r from-blue-navy to-blue-navy-dark relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(30,58,138,0.3),_transparent_70%)]" />
-        <div className="relative max-w-4xl mx-auto px-4 text-center">
+        <div className="relative container-custom text-center">
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-4">Ready to Begin Your Journey?</h2>
           <p className="text-blue-tint-lightest text-base sm:text-lg mb-10">Book a free consultation with our expert consultants today.</p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">

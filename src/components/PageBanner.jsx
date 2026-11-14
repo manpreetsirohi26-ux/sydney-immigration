@@ -21,7 +21,7 @@ export default function PageBanner({ title, subtitle, image, breadcrumb }) {
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-blue-navy/80 via-blue-navy/35 to-blue-navy/10" />
-      <div className="relative max-w-4xl mx-auto px-10 sm:px-16 lg:px-24 w-full pb-12 z-10 text-center">
+      <div className="relative container-custom w-full pb-12 z-10 text-center">
         <motion.nav
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

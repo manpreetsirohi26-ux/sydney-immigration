@@ -46,9 +46,9 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="section-padding bg-white"
       >
-        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-1 gap-12 items-center">
-            <ScrollReveal x={0} y={20} className="relative max-w-2xl mx-auto w-full">
+            <ScrollReveal x={0} y={20} className="relative max-w-3xl mx-auto w-full">
               <div className="relative">
                 <img
                   src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80"
@@ -71,7 +71,7 @@ export default function About() {
                 {story.heading || 'Our Story'}
               </h2>
               <div className="w-16 h-1 bg-blue-primary mb-8 rounded-full mx-auto" />
-              <div className="space-y-5 text-slate-muted leading-relaxed text-sm sm:text-base max-w-2xl mx-auto">
+              <div className="space-y-5 text-slate-muted leading-relaxed text-sm sm:text-base max-w-3xl mx-auto">
                 {paragraphs.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
@@ -96,7 +96,7 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="section-padding bg-section-alt"
       >
-        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
+        <div className="container-custom">
           <div className="text-center mb-16">
             <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
               Our Purpose
@@ -156,7 +156,7 @@ export default function About() {
           className="py-20 sm:py-24 bg-gradient-to-r from-blue-navy to-blue-navy-dark relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(30,58,138,0.3),_transparent_70%)]" />
-          <div className="relative max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
+          <div className="relative container-custom">
             <div className="text-center mb-16">
               <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white leading-tight">Our Achievements</h2>
               <p className="text-blue-tint-lightest mt-3">Numbers that reflect our commitment to client success.</p>
@@ -190,7 +190,7 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="section-padding bg-section-alt"
       >
-        <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24">
+        <div className="container-custom">
           <div className="text-center mb-16">
             <span className="inline-block text-blue-primary-light text-xs font-bold tracking-widest uppercase mb-3">
               Visit Us
@@ -198,7 +198,7 @@ export default function About() {
             <h2 className="section-heading">{branchInfo.heading || 'Kaithal Branch'}</h2>
             <div className="section-divider" />
           </div>
-          <div className="grid lg:grid-cols-1 gap-10 max-w-2xl mx-auto">
+          <div className="grid lg:grid-cols-1 gap-10 max-w-3xl mx-auto">
             <ScrollReveal x={0} y={20}>
               <div className="aesthetic-card p-7 space-y-5 h-full text-center">
                 {branchDetails.map((item, i) => (
