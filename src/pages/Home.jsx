@@ -61,7 +61,7 @@ export default function Home() {
         keywords="immigration consultant Kaithal, visa consultant Kaithal, visa consultancy Haryana, study visa consultant, PR consultant Haryana"
       />
       {/* HERO */}
-      <section className="relative min-h-[90svh] sm:min-h-[85vh] lg:min-h-[82vh] overflow-x-hidden bg-blue-navy">
+      <section className="relative min-h-[90svh] sm:min-h-[85vh] lg:min-h-[82vh] overflow-x-hidden bg-blue-navy flex items-center">
         {/* Background picture */}
         <div className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto lg:w-[55%] h-full">
           <img
@@ -112,7 +112,7 @@ export default function Home() {
           <Plane className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
         </motion.div>
         {/* Content */}
-        <div className="relative z-10 container-custom pt-28 pb-16 sm:pt-36 sm:pb-20 md:pt-44 md:pb-24 lg:py-56">
+        <div className="relative z-10 container-custom w-full py-24 sm:py-32 md:py-36 lg:py-40">
           <motion.div
             initial="hidden"
             animate="visible"
