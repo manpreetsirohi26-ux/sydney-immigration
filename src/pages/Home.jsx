@@ -61,7 +61,7 @@ export default function Home() {
         keywords="immigration consultant Kaithal, visa consultant Kaithal, visa consultancy Haryana, study visa consultant, PR consultant Haryana"
       />
       {/* HERO */}
-      <section className="relative min-h-[85vh] lg:min-h-[82vh] overflow-hidden bg-blue-navy">
+      <section className="relative min-h-[90svh] sm:min-h-[85vh] lg:min-h-[82vh] overflow-x-hidden bg-blue-navy">
         {/* Background picture */}
         <div className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto lg:w-[55%] h-full">
           <img
@@ -112,7 +112,7 @@ export default function Home() {
           <Plane className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
         </motion.div>
         {/* Content */}
-        <div className="relative z-10 container-custom py-24 sm:py-32 md:py-40 lg:py-56">
+        <div className="relative z-10 container-custom pt-28 pb-16 sm:pt-36 sm:pb-20 md:pt-44 md:pb-24 lg:py-56">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -127,7 +127,7 @@ export default function Home() {
                 hidden: { opacity: 0, y: 34 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
               }}
-              className="font-heading text-[1.85rem] xs:text-4xl font-bold leading-[1.15] !text-white sm:text-5xl md:text-6xl lg:text-7xl tracking-tight break-words"
+              className="font-heading text-[1.7rem] leading-[1.2] font-bold !text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight break-words"
             >
               {hero.heading || 'Your Gateway to Global Opportunities'}
             </motion.h1>
