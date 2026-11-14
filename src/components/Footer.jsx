@@ -43,7 +43,7 @@ export default function Footer() {
     <footer className="bg-blue-navy text-white relative border-t-4 border-blue-primary">
       {/* Decorative blob */}
       <div className="absolute -top-40 -right-20 w-96 h-96 rounded-full blob-blue opacity-30 pointer-events-none" />
-      <div className="max-w-4xl mx-auto px-10 sm:px-16 lg:px-24 py-16 relative z-10">
+      <div className="container-custom py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
           {/* Brand */}
           <div className="flex flex-col items-center">
