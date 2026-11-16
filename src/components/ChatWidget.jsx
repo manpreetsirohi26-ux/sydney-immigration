@@ -357,11 +357,11 @@ export default function ChatWidget() {
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        className="fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-primary text-blue-navy shadow-blue transition hover:scale-105 hover:bg-blue-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-primary-light"
+        className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-blue-primary text-blue-navy shadow-blue transition hover:scale-105 hover:bg-blue-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-primary-light"
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
         aria-expanded={isOpen}
       >
-        {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <MessageCircle className="h-6 w-6" aria-hidden="true" />}
+        {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" /> : <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />}
       </button>
     </>
   );

@@ -42,7 +42,7 @@ export default function Services() {
         title="Visa & Immigration Services in Kaithal"
         subtitle="Comprehensive immigration support for every pathway — expertly guided, transparently priced."
         breadcrumb="Our Services"
-        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80"
+        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=75"
       />
 
       {/* SERVICES (alternating) */}

@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { siteContent } from '../data/content';
 
 const SITE_URL = 'https://sydneyimmigrationindia.com';
-const DEFAULT_IMAGE = '/sydney-immigration-logo.png';
-const DEFAULT_IMAGE_META = { width: '579', height: '453', type: 'image/png' };
+const DEFAULT_IMAGE = '/og-banner.png';
+const DEFAULT_IMAGE_META = { width: '1200', height: '630', type: 'image/png' };
 const PAGE_LABELS = {
   '/': 'Home',
   '/about': 'About',

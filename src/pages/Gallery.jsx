@@ -66,7 +66,7 @@ export default function Gallery() {
         title="Visa Consultation Gallery"
         subtitle="Glimpses of our office, success stories and community events."
         breadcrumb="Gallery"
-        image="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1920&q=80"
+        image="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1400&q=75"
       />
 
       <section className="py-20 sm:py-24 bg-white">

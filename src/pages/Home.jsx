@@ -45,19 +45,19 @@ const goals = content.goals ?? [];
 
 const heroImages = [
   {
-    src: 'https://images.unsplash.com/photo-1529070538774-18298c8fb782?auto=format&fit=crop&w=1920&q=80',
+    src: 'https://images.unsplash.com/photo-1529070538774-18298c8fb782?auto=format&fit=crop&w=1400&q=75',
     alt: 'Airplane flying above the clouds',
   },
   {
-    src: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80',
+    src: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=75',
     alt: 'Airplane wing over scenic landscape',
   },
   {
-    src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80',
+    src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=75',
     alt: 'Students celebrating international study success',
   },
   {
-    src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80',
+    src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1400&q=75',
     alt: 'Traveler exploring a global destination',
   },
 ];
@@ -199,7 +199,7 @@ export default function Home() {
       </section>
 
       {stats.length > 0 && (
-        <section className="bg-section-alt border-y border-blue-tint-dark/40">
+        <section className="py-12 sm:py-16 bg-section-alt border-y border-blue-tint-dark/40">
           <div className="container-custom">
             <div className="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 gap-x-8">
               {stats.map((stat) => (

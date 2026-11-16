@@ -97,7 +97,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 260, damping: 25 }}
-              className="lg:hidden fixed inset-y-0 right-0 w-72 bg-white shadow-elevated z-50 flex flex-col"
+              className="lg:hidden fixed inset-y-0 right-0 w-full max-w-xs sm:max-w-sm bg-white shadow-elevated z-50 flex flex-col"
             >
               <div className="flex items-center justify-between px-5 py-4 border-b border-blue-tint-lightest">
                 <span className="font-heading font-bold text-blue-navy">Menu</span>

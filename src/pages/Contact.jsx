@@ -117,7 +117,7 @@ export default function Contact() {
         title={contactPage.heading || 'Contact Visa Consultants in Kaithal'}
         subtitle={contactPage.subheading}
         breadcrumb="Contact"
-        image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80"
+        image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1400&q=75"
       />
 
       <section className="py-20 sm:py-24 bg-blue-tint">

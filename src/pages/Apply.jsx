@@ -143,7 +143,7 @@ export default function Apply() {
         title={applyPage.heading || 'Apply for Visa Guidance'}
         subtitle={applyPage.subheading || 'Share your details and our team will get back to you with the right guidance.'}
         breadcrumb="Apply Now"
-        image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80"
+        image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=75"
       />
 
       <section className="py-16 sm:py-20 bg-blue-tint/30">
