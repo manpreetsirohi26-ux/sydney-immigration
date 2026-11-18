@@ -1,39 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — Sydney Immigration India (https://sydneyimmigrationindia.com)
+  Ye file search engines ko batati hai ki website par kaunse page hain
+  aur har page kis kaam ka hai.
+
+  Har <url> block me:
+    <loc>        -> page ka poora URL
+    <lastmod>    -> page last kab update hua (YYYY-MM-DD)
+    <changefreq> -> kitni jaldi change hota hai (always/hourly/daily/weekly/monthly/yearly/never)
+    <priority>   -> 1.0 (sabse important) se 0.0 (kam important)
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home: website ka main page, sabhi services ka overview + hero + CTA -->
   <url>
     <loc>https://sydneyimmigrationindia.com/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- About: company ki story, mission/vision, achievements, branch info -->
   <url>
     <loc>https://sydneyimmigrationindia.com/about</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Services: study/work/PR/visitor/business/family visa services ki list -->
   <url>
     <loc>https://sydneyimmigrationindia.com/services</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Gallery: office, success stories aur events ki photos -->
   <url>
     <loc>https://sydneyimmigrationindia.com/gallery</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Apply: online visa application/enquiry form -->
   <url>
     <loc>https://sydneyimmigrationindia.com/apply</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Contact: address, phone, email, map aur contact form -->
   <url>
     <loc>https://sydneyimmigrationindia.com/contact</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
 </urlset>

@@ -88,7 +88,7 @@ export default function Home() {
         keywords="immigration consultant Kaithal, visa consultant Kaithal, visa consultancy Haryana, study visa consultant, PR consultant Haryana"
       />
       {/* HERO */}
-      <section className="relative min-h-[90svh] sm:min-h-[85vh] lg:min-h-[82vh] overflow-x-hidden bg-blue-navy flex items-center">
+      <section className="relative min-h-[110svh] sm:min-h-[120svh] lg:min-h-[130svh] overflow-x-clip bg-blue-navy">
         {/* Background picture slider */}
         <div className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto lg:w-[55%] h-full overflow-hidden">
           <AnimatePresence mode="wait">
@@ -147,7 +147,8 @@ export default function Home() {
           <Plane className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
         </motion.div>
         {/* Content */}
-        <div className="relative z-10 container-custom w-full py-24 sm:py-32 md:py-36 lg:py-40">
+        <div className="sticky top-0 z-10 flex h-[100svh] items-center">
+          <div className="container-custom w-full py-24 sm:py-32 md:py-36 lg:py-40">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -195,6 +196,7 @@ export default function Home() {
               </Button>
             </motion.div>
           </motion.div>
+          </div>
         </div>
       </section>
 

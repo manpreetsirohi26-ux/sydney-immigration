@@ -1,4 +1,18 @@
+# robots.txt — Sydney Immigration India (https://sydneyimmigrationindia.com)
+# Ye file Google aur baaki search engines ko batati hai ki kaunse page
+# crawl/index karne hain aur kaunse nahi.
+
+# Sabhi search engine bots ke liye rules
 User-agent: *
 Allow: /
 
+# Private / utility cheezein index na ho (chat API, build assets)
+Disallow: /api/
+Disallow: /assets/
+
+# Agar aapke paas koi private ya admin page ho to yahan add karein, e.g.:
+# Disallow: /admin
+# Disallow: /thank-you
+
+# Sitemap ka location (Google ko batane ke liye)
 Sitemap: https://sydneyimmigrationindia.com/sitemap.xml
